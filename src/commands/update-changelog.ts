@@ -10,7 +10,7 @@ export async function updateChangelog(options: OptionValues, tag: string) {
     'Updating Changelog',
     execa('git-cliff', [
       '--tag',
-      `"${tag}"`,
+      `${tag}`,
       '--prepend',
       './CHANGELOG.md',
       '-u',
