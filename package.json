@@ -21,6 +21,7 @@
   ],
   "scripts": {
     "debug": "node . --first-release",
+    "start": "node .",
     "lint": "eslint src --ext ts --fix",
     "format": "prettier --write \"src/**/*.ts\"",
     "update": "yarn upgrade-interactive",
