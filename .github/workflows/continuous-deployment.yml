@@ -26,9 +26,30 @@ jobs:
         run: yarn --immutable
       - name: Build package
         run: yarn build
+      - name: Install Git Cliff
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: |
+          curl -o ./git-cliff.tar.gz -sL \
+              $(curl -sL \
+                  -H "Authorization: bearer ${GITHUB_TOKEN}" \
+                  -X POST \
+                  --data '{"query":"query { repository(owner: \"orhun\", name: \"git-cliff\") { releases(last: 1) { nodes { releaseAssets(first: 20) { nodes { downloadUrl name }}}}}}"}' "https://api.github.com/graphql" |
+              jq -cr '.data.repository.releases.nodes[0].releaseAssets.nodes[]? | select(.name | contains("x86_64-unknown-linux-gnu.tar.gz")).downloadUrl')
+
+          tar -xzf ./git-cliff.tar.gz --wildcards "*git-cliff"
+          mv git-cliff-*/git-cliff ${HOME}/.local/bin/git-cliff
+          rm -r git-cliff-*
+
+          echo $GITHUB_PATH
+
+          echo "${HOME}/.local/bin" >> $GITHUB_PATH
+
+          echo $GITHUB_PATH
       - name: Bump Version & Publish
         run: |
           TAG=$([[ ${{ github.event_name }} == 'push' ]] && echo 'next' || echo 'pr-${{ github.event.inputs.prNumber }}')
+          echo $GITHUB_PATH
           yarn start --preid "${TAG}.$(git rev-parse --verify --short HEAD)" -v
       - name: Publish to NPM
         run: |
