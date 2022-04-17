@@ -2,7 +2,7 @@ export default undefined;
 
 declare module 'commander' {
   export interface OptionValues {
-    bump: true;
+    bump: boolean;
     name: string;
     org: string;
     packagePath: string;

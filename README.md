@@ -145,6 +145,26 @@ This library has opinionated defaults for its options. These are as follows:
   `'true'`).
 - `--verbose` will default to `false`.
 
+### Merging of config file, defaults and CLI provided flags
+
+When you have a config file the options in the file are merged with the default
+options and with any other provided CLI flags. Which source takes highest
+priority depends on the type of the option.
+
+For `boolean` options (`bump`, `skipTag`, `firstRelease`, and `verbose`) the
+priority is as follows (lower means it gets lower priority):
+
+1. Config file
+2. CLI flags
+3. Default value
+
+For `string` options (`name`, `org`, `packagePath`, and `preid`) the priority is
+as follows (lower means it gets lower priority):
+
+1. CLI flags
+2. Default value
+3. Config file
+
 ## Buy us some doughnuts
 
 Favware projects are and always will be open source, even if we don't get
