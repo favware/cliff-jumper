@@ -1,0 +1,28 @@
+name: Publish package to GitHub Package Registry
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  Publish:
+    name: Publish to GitHub Package Registry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748 # tag=v3
+        with:
+          fetch-depth: 0
+      - name: Use Node.js v16 with GitHub Package Registry
+        uses: actions/setup-node@56337c425554a6be30cdef71bf441f15be286854 # tag=v3
+        with:
+          node-version: 16
+          cache: yarn
+          registry-url: https://npm.pkg.github.com
+      - name: Install Dependencies
+        run: yarn --immutable
+      - name: Publish
+        run: npm publish || true
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+
+# Misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Bad NPM is bad
+package-lock.json
+
+# File Archives
+*.zip
+*.tar.xz
+*.7z
+*.rar
+
+# Logs
+logs
+*.log*
+*.tsbuildinfo
+coverage/
+
+# IDE Settings
+.idea/
+.vs/
+*.iml
+
+# Generated files
+dist/
+
+# Yarn files
+.yarn/install-state.gz
+.yarn/build-state.yml

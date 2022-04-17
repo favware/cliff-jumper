@@ -1,0 +1,112 @@
+{
+  "name": "@favware/cliff-jumper",
+  "version": "1.0.0",
+  "description": "A small CLI tool to create a semantic release and git-cliff powered Changelog",
+  "author": "@favware",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/cli.js",
+  "bin": {
+    "cj": "./dist/cli.js",
+    "cliff-jumper": "./dist/cli.js"
+  },
+  "imports": {
+    "#commands/*": "./dist/commands/*.js",
+    "#lib/*": "./dist/lib/*.js",
+    "#root/*": "./dist/*.js"
+  },
+  "sideEffects": "false",
+  "files": [
+    "dist/**/*.js"
+  ],
+  "scripts": {
+    "lint": "eslint src --ext ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "update": "yarn upgrade-interactive",
+    "clean": "node scripts/clean.mjs",
+    "build": "tsc -b src",
+    "watch": "tsc -b src -w",
+    "prepublish": "yarn build",
+    "prepare": "husky install .github/husky"
+  },
+  "dependencies": {
+    "@sapphire/result": "^1.1.1",
+    "@sapphire/utilities": "^3.6.2",
+    "colorette": "^2.0.16",
+    "commander": "^9.2.0",
+    "conventional-recommended-bump": "^6.1.0",
+    "execa": "^6.1.0",
+    "find-up": "^6.3.0",
+    "js-yaml": "^4.1.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@sapphire/eslint-config": "^4.3.3",
+    "@sapphire/prettier-config": "^1.4.2",
+    "@sapphire/ts-config": "^3.3.4",
+    "@types/conventional-recommended-bump": "^6.1.0",
+    "@types/js-yaml": "^4.0.5",
+    "@types/node": "^17.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.8",
+    "prettier": "^2.6.2",
+    "pretty-quick": "^3.1.3",
+    "ts-node": "^10.7.0"
+  },
+  "resolutions": {
+    "acorn": "^8.7.0",
+    "ansi-regex": "^5.0.1",
+    "minimist": "^1.2.6"
+  },
+  "engines": {
+    "node": ">=v16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/favware/cliff-jumper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/favware/cliff-jumper/issues"
+  },
+  "homepage": "https://github.com/favware/cliff-jumper",
+  "keywords": [
+    "git-cliff",
+    "conventional",
+    "changelog",
+    "favware",
+    "typescript",
+    "ts",
+    "yarn",
+    "CLI",
+    "utility"
+  ],
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{mjs,js,ts}": "eslint --fix --ext mjs,js,ts"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "eslintConfig": {
+    "extends": "@sapphire"
+  },
+  "packageManager": "yarn@3.2.0"
+}

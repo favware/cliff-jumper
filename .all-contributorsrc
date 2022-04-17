@@ -1,0 +1,21 @@
+{
+  "projectName": "cliff-jumper",
+  "projectOwner": "favware",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": ["README.md"],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "favna",
+      "name": "Jeroen Claassens",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4019718?v=4",
+      "profile": "https://favware.tech/",
+      "contributions": ["code", "design", "ideas", "infra", "maintenance", "platform", "projectManagement"]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true
+}
