@@ -80,14 +80,16 @@
   "homepage": "https://github.com/favware/cliff-jumper",
   "keywords": [
     "git-cliff",
-    "conventional",
-    "changelog",
     "favware",
-    "typescript",
-    "ts",
-    "yarn",
-    "CLI",
-    "utility"
+    "cli",
+    "generator",
+    "changelog",
+    "semver",
+    "commit",
+    "conventional-changelog",
+    "keepachangelog",
+    "changelog-generator",
+    "conventional-commits"
   ],
   "commitlint": {
     "extends": [
