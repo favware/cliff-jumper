@@ -2,7 +2,7 @@ import { doActionAndLog, getGitRootDirection } from '#lib/utils';
 import type { OptionValues } from 'commander';
 import { execa } from 'execa';
 
-export function updateChangelog(options: OptionValues, tag: string) {
+export async function updateChangelog(options: OptionValues, tag: string) {
   return doActionAndLog(
     'Updating Changelog',
     execa('git-cliff', [
@@ -14,7 +14,7 @@ export function updateChangelog(options: OptionValues, tag: string) {
       '-c',
       './cliff.toml',
       '-r',
-      `${getGitRootDirection() || '.'}/`,
+      `${(await getGitRootDirection()) || '.'}/`,
       '--include-path',
       `"${options.packagePath}/*"`
     ])

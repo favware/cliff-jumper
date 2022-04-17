@@ -24,10 +24,7 @@ export async function readJson<T>(pathLike: PathLike): Promise<T> {
 }
 
 export async function getGitRootDirection() {
-  const repositoryRoot = await doActionAndLog(
-    'Retrieving the root directory of the Git repository',
-    execa('git', ['rev-parse', '--show-prefix'], { encoding: 'utf-8' })
-  );
+  const repositoryRoot = await execa('git', ['rev-parse', '--show-prefix'], { encoding: 'utf-8' });
 
   return repositoryRoot.stdout
     .split('/')
