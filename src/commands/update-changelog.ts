@@ -5,8 +5,7 @@ import { execa } from 'execa';
 export function updateChangelog(options: OptionValues, tag: string) {
   return doActionAndLog(
     'Updating Changelog',
-    execa('git', [
-      'cliff',
+    execa('git-cliff', [
       '--tag',
       `"${tag}"`,
       '--prepend',

@@ -80,12 +80,14 @@ export async function preflightChecks(options: OptionValues) {
 
   const hasGitCliff = await doActionAndLog(
     'Checking if git-cliff is installed', //
-    commandExists('git cliff')
+    commandExists('git-cliff')
   );
 
   if (!hasGitCliff) {
     logVerboseError({
-      text: ['Git Cliff was not detected. You can install it from https://github.com/orhun/git-cliff'],
+      text: [
+        'Git Cliff was not detected. You can install it from https://github.com/orhun/git-cliff. Also make sure that the binary/executable in your PATH is named exactly `git-cliff`'
+      ],
       exitAfterLog: true,
       verbose: options.verbose
     });
