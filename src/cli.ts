@@ -25,7 +25,10 @@ const command = new Command()
   .version(packageJson.version)
   .option('-n, --name <string>', 'The package name to release')
   .option('-p, --package-path <string>', 'The path to the current package. For non-monorepos this is just "."')
-  .option('-b, --bump', 'Whether the package should be bumped or not')
+  .option(
+    '--dry-run',
+    'Whether the package should be bumped or not. When this is set no actions will be taken and only the release strategy will be logged'
+  )
   .option('--first-release', 'Whether this is the first release (skips bumping the version)')
   .option('-o, --org <string>', 'The NPM org scope that should be used WITHOUT "@" sign or trailing "/"')
   .option('--preid [string]', 'The "prerelease identifier" to use as a prefix for the "prerelease" part of a semver')
@@ -40,7 +43,7 @@ logVerboseInfo(
     'Resolved options: ',
     `${indent}name: ${JSON.stringify(options.name)}`,
     `${indent}package path: ${JSON.stringify(options.packagePath)}`,
-    `${indent}bump: ${JSON.stringify(options.bump)}`,
+    `${indent}dry run: ${JSON.stringify(options.dryRun)}`,
     `${indent}npm org: ${JSON.stringify(options.org)}`,
     `${indent}preid: ${JSON.stringify(options.preid)}`,
     `${indent}skip tag: ${JSON.stringify(options.skipTag)}`,
@@ -69,7 +72,7 @@ console.info(
   cyan(`ℹ️ Bumping the ${yellow(`${releasePrefix}${releaseType}`)} version of ${blueBright(getFullPackageName(options))}: ${yellow(reason!)}`)
 );
 
-if (options.bump) {
+if (!options.dryRun) {
   if (!options.firstRelease) {
     await bumpVersion(options, releaseType!);
   }

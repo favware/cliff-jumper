@@ -10,8 +10,8 @@
       "description": "The path to the current package. For non-monorepos this is just \".\"",
       "type": "string"
     },
-    "bump": {
-      "description": "Whether the package should be bumped or not",
+    "dryRun": {
+      "description": "Whether the package should be bumped or not. When this is set no actions will be taken and only the release strategy will be logged",
       "type": "boolean",
       "default": false
     },

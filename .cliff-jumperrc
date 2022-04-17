@@ -2,6 +2,6 @@
   "$schema": "https://raw.githubusercontent.com/favware/cliff-jumper/main/assets/cliff-jumper.schema.json",
   "name": "cliff-jumper",
   "org": "favware",
-  "bump": true,
+  "dryRun": false,
   "packagePath": "."
 }

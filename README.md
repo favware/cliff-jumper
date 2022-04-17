@@ -56,14 +56,14 @@ npm install -g @favware/cliff-jumper
 Then call the script with `cliff-jumper` or `cj`:
 
 ```sh
-cliff-jumper --name "my-package" --package-path "." --bump # Add any other flags or use --help
-cj --name "my-package" --package-path "." --bump # Add any other flags or use --help
+cliff-jumper --name "my-package" --package-path "." # Add any other flags or use --help
+cj --name "my-package" --package-path "." # Add any other flags or use --help
 ```
 
 Alternatively you can call the CLI directly with `npx`:
 
 ```sh
-npx @favware/cliff-jumper --name "my-package" --package-path "." --bump # Add any other flags or use --help
+npx @favware/cliff-jumper --name "my-package" --package-path "." # Add any other flags or use --help
 ```
 
 ## Usage
@@ -77,11 +77,11 @@ Options:
   -V, --version                output the version number
   -n, --name <string>          The package name to release
   -p, --package-path <string>  The path to the current package. For non-monorepos this is just "."
-  -b, --bump [boolean]         Whether the package should be bumped or not (default: false)
-  --first-release [boolean]    Whether this is the first release (skips bumping the version) (default: false)
-  -o, --org <string>           The NPM org scope that should be used WITHOUT "@" sign or trailing "/" (default: "")
-  --preid [string]             The "prerelease identifier" to use as a prefix for the "prerelease" part of a semver (default: "")
-  -t, --skip-tag [boolean]     Whether to skip creating a git tag (default `true` when CI=true, `false` otherwise) (default: false)
+  --dry-run                    Whether the package should be bumped or not. When this is set no actions will be taken and only the release strategy will be logged
+  --first-release              Whether this is the first release (skips bumping the version)
+  -o, --org <string>           The NPM org scope that should be used WITHOUT "@" sign or trailing "/"
+  --preid [string]             The "prerelease identifier" to use as a prefix for the "prerelease" part of a semver
+  -t, --skip-tag               Whether to skip creating a git tag (default `true` when CI=true, `false` otherwise) (default: false)
   -v, --verbose                Whether to print verbose information (default: false)
   -h, --help                   display help for command
 ```
@@ -95,7 +95,7 @@ package). It should be named `.cliff-jumperrc`, optionally suffixed with
 
 - `--name` maps to `name`
 - `--package-path` maps to `packagePath`
-- `--bump` maps to `bump`
+- `--dry-run` maps to `dryRun`
 - `--first-release` maps to `firstRelease`
 - `--org` maps to `org`
 - `--preid` maps to `preid`
@@ -119,7 +119,6 @@ following to your config file:
   "$schema": "https://raw.githubusercontent.com/favware/cliff-jumper/main/assets/cliff-jumper.schema.json",
   "name": "my-package",
   "packagePath": ".",
-  "bump": true,
   "verbose": true
 }
 ```
@@ -129,7 +128,6 @@ following to your config file:
 ```yaml
 name: my-package
 packagePath: .
-bump: true
 verbose: true
 ```
 
@@ -137,7 +135,7 @@ verbose: true
 
 This library has opinionated defaults for its options. These are as follows:
 
-- `--bump` will default to `undefined`.
+- `--dry-run` will default to `undefined`.
 - `--first-release` will default to `undefined`.
 - `--org` will default to `undefined`.
 - `--preid` will default to `undefined`.
