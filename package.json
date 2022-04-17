@@ -20,7 +20,7 @@
     "dist/**/*.js"
   ],
   "scripts": {
-    "debug": "node . --first-release --bump",
+    "debug": "node . --first-release",
     "lint": "eslint src --ext ts --fix",
     "format": "prettier --write \"src/**/*.ts\"",
     "update": "yarn upgrade-interactive",

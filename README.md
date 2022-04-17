@@ -137,10 +137,10 @@ verbose: true
 
 This library has opinionated defaults for its options. These are as follows:
 
-- `--bump` will default to `false`.
-- `--first-release` will default to `false`.
-- `--org` will default to `''`.
-- `--preid` will default to `''`.
+- `--bump` will default to `undefined`.
+- `--first-release` will default to `undefined`.
+- `--org` will default to `undefined`.
+- `--preid` will default to `undefined`.
 - `--skip-tag` will default to `false` (`true` when `CI` environment variable is
   `'true'`).
 - `--verbose` will default to `false`.
@@ -149,21 +149,16 @@ This library has opinionated defaults for its options. These are as follows:
 
 When you have a config file the options in the file are merged with the default
 options and with any other provided CLI flags. Which source takes highest
-priority depends on the type of the option.
-
-For `boolean` options (`bump`, `skipTag`, `firstRelease`, and `verbose`) the
-priority is as follows (lower means it gets lower priority):
-
-1. Config file
-2. CLI flags
-3. Default value
-
-For `string` options (`name`, `org`, `packagePath`, and `preid`) the priority is
-as follows (lower means it gets lower priority):
+priority depends on the type of the option. The priority is as follows (lower
+means it gets lower priority):
 
 1. CLI flags
-2. Default value
+2. Default values
 3. Config file
+
+This means that the CLI flags will always have the highest priority. This way
+you can have a config file for base options, then overwrite that with CLI flags,
+such as in a CI environment.
 
 ## Buy us some doughnuts
 

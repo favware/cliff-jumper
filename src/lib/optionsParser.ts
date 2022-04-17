@@ -23,11 +23,7 @@ export async function parseOptionsFile(cliOptions: OptionValues) {
 
       options = {
         ...fileOptions,
-        ...options,
-        bump: fileOptions.bump ?? options.bump,
-        skipTag: fileOptions.skipTag ?? options.skipTag,
-        firstRelease: fileOptions.firstRelease ?? options.firstRelease,
-        verbose: fileOptions.verbose ?? options.verbose
+        ...options
       };
     } catch (err) {
       const typedError = err as Error;
@@ -51,11 +47,7 @@ export async function parseOptionsFile(cliOptions: OptionValues) {
 
       options = {
         ...fileOptions,
-        ...options,
-        bump: fileOptions.bump ?? options.bump,
-        skipTag: fileOptions.skipTag ?? options.skipTag,
-        firstRelease: fileOptions.firstRelease ?? options.firstRelease,
-        verbose: fileOptions.verbose ?? options.verbose
+        ...options
       };
     } catch (err) {
       const typedError = err as Error;

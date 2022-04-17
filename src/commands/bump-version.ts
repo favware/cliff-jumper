@@ -7,6 +7,6 @@ import { execa } from 'execa';
 export function bumpVersion(options: OptionValues, releaseType: ConventionalChangelogCallback.Recommendation.ReleaseType) {
   return doActionAndLog(
     'Bumping version in package.json',
-    execa(`npm`, ['version', `${releasePrefix}${releaseType}`, '--git-tag-version=false', `--preid=${options.preid}`])
+    execa(`npm`, ['version', `${releasePrefix}${releaseType}`, '--git-tag-version=false', `--preid=${options.preid ?? ''}`])
   );
 }
