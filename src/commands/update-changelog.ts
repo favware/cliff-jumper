@@ -1,8 +1,11 @@
 import { doActionAndLog, getGitRootDirection } from '#lib/utils';
+import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { OptionValues } from 'commander';
 import { execa } from 'execa';
 
 export async function updateChangelog(options: OptionValues, tag: string) {
+  const repositoryRootDirectory = await getGitRootDirection();
+
   return doActionAndLog(
     'Updating Changelog',
     execa('git-cliff', [
@@ -13,10 +16,15 @@ export async function updateChangelog(options: OptionValues, tag: string) {
       '-u',
       '-c',
       './cliff.toml',
-      '-r',
-      `${(await getGitRootDirection()) || '.'}/`,
-      '--include-path',
-      `"${options.packagePath}/*"`
+      ...(isNullishOrEmpty(repositoryRootDirectory)
+        ? []
+        : [
+            //
+            '-r',
+            `${repositoryRootDirectory}/`,
+            '--include-path',
+            `"${options.packagePath}/*"`
+          ])
     ])
   );
 }
