@@ -47,7 +47,7 @@ jobs:
           echo "${HOME}/.local/bin" >> $GITHUB_PATH
 
           echo $GITHUB_PATH
-      - name: Bump Version & Publish
+      - name: Bump Version
         run: |
           TAG=$([[ ${{ github.event_name }} == 'push' ]] && echo 'next' || echo 'pr-${{ github.event.inputs.prNumber }}')
           echo $GITHUB_PATH
