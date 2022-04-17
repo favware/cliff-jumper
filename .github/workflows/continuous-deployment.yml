@@ -55,7 +55,7 @@ jobs:
       - name: Publish to NPM
         run: |
           TAG=$([[ ${{ github.event_name }} == 'push' ]] && echo 'next' || echo 'pr-${{ github.event.inputs.prNumber }}')
-          # yarn npm publish --tag ${TAG} || true
+          yarn npm publish --tag ${TAG} || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Use Node.js v16 with GitHub Package Registry
@@ -66,6 +66,6 @@ jobs:
       - name: Publish to GitHub
         run: |
           TAG=$([[ ${{ github.event_name }} == 'push' ]] && echo 'next' || echo 'pr-${{ github.event.inputs.prNumber }}')
-          # yarn npm publish --tag ${TAG} || true
+          yarn npm publish --tag ${TAG} || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
