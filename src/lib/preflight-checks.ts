@@ -3,10 +3,27 @@ import { packageCwd } from '#lib/constants';
 import { fileExists } from '#lib/fileExists';
 import { logVerboseError } from '#lib/logger';
 import { doActionAndLog, readJson } from '#lib/utils';
+import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { OptionValues } from 'commander';
 import { join } from 'path';
 
 export async function preflightChecks(options: OptionValues) {
+  if (isNullishOrEmpty(options.name)) {
+    logVerboseError({
+      text: ['No package name was provided (`-n`, or `--name` as cli flags, or `name` in config file)'],
+      exitAfterLog: true,
+      verbose: options.verbose
+    });
+  }
+
+  if (isNullishOrEmpty(options.packagePath)) {
+    logVerboseError({
+      text: ['No package path was provided (`-p`, or `--package-path` as cli flags, or `packagePath` in config file)'],
+      exitAfterLog: true,
+      verbose: options.verbose
+    });
+  }
+
   const packageJsonPath = join(packageCwd, 'package.json');
 
   const packageJsonExistsInCwd = await doActionAndLog(

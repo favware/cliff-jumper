@@ -23,8 +23,8 @@ const packageJson = JSON.parse(await readFile(packageFile, 'utf-8'));
 
 const command = new Command()
   .version(packageJson.version)
-  .requiredOption('-n, --name <string>', 'The package name to release')
-  .requiredOption('-p, --package-path <string>', 'The path to the current package. For non-monorepos this is just "."')
+  .option('-n, --name <string>', 'The package name to release')
+  .option('-p, --package-path <string>', 'The path to the current package. For non-monorepos this is just "."')
   .option('-b, --bump [boolean]', 'Whether the package should be bumped or not', false)
   .option('--first-release [boolean]', 'Whether this is the first release (skips bumping the version)', false)
   .option('-o, --org <string>', 'The NPM org scope that should be used WITHOUT "@" sign or trailing "/"', '')
