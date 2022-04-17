@@ -25,11 +25,11 @@ const command = new Command()
   .version(packageJson.version)
   .option('-n, --name <string>', 'The package name to release')
   .option('-p, --package-path <string>', 'The path to the current package. For non-monorepos this is just "."')
-  .option('-b, --bump [boolean]', 'Whether the package should be bumped or not', false)
-  .option('--first-release [boolean]', 'Whether this is the first release (skips bumping the version)', false)
+  .option('-b, --bump', 'Whether the package should be bumped or not', false)
+  .option('--first-release', 'Whether this is the first release (skips bumping the version)', false)
   .option('-o, --org <string>', 'The NPM org scope that should be used WITHOUT "@" sign or trailing "/"', '')
   .option('--preid [string]', 'The "prerelease identifier" to use as a prefix for the "prerelease" part of a semver', '')
-  .option('-t, --skip-tag [boolean]', 'Whether to skip creating a git tag (default `true` when CI=true, `false` otherwise)', isCi)
+  .option('-t, --skip-tag', 'Whether to skip creating a git tag (default `true` when CI=true, `false` otherwise)', isCi)
   .option('-v, --verbose', 'Whether to print verbose information', false);
 
 const program = command.parse(process.argv);
