@@ -52,7 +52,7 @@ jobs:
           TAG=$([[ ${{ github.event_name }} == 'push' ]] && echo 'next' || echo 'pr-${{ github.event.inputs.prNumber }}')
           echo $GITHUB_PATH
           yarn start --preid "${TAG}.$(git rev-parse --verify --short HEAD)" -v
-      - name: Publish to NPM
+      - name: Publish to Yarnpkg
         run: |
           TAG=$([[ ${{ github.event_name }} == 'push' ]] && echo 'next' || echo 'pr-${{ github.event.inputs.prNumber }}')
           yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
