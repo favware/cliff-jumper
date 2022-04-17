@@ -5,6 +5,6 @@ import { execa } from 'execa';
 export function commitRelease(options: OptionValues, newVersion: string) {
   return doActionAndLog(
     'Committing release', //
-    execa('git', ['commit', '--no-verify', '-m', `"chore(${options.name}): release ${getFullPackageName(options)}@${newVersion}"`])
+    execa('git', ['commit', '--no-verify', '-m', `chore(${options.name}): release ${getFullPackageName(options)}@${newVersion}`])
   );
 }
