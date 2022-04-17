@@ -54,17 +54,17 @@ jobs:
       - name: Publish to Yarnpkg
         run: |
           yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
-          yarn npm publish --tag next
+          yarn npm publish --tag next || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Use Node.js v16 with GitHub Package Registry
         uses: actions/setup-node@56337c425554a6be30cdef71bf441f15be286854 # tag=v3
         with:
           node-version: 16
-          registry-url: https://npm.pkg.github.com
       - name: Publish to GitHub
         run: |
           yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
+          yarn config set npmPublishRegistry "https://npm.pkg.github.com"
           yarn npm publish --tag next
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
