@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.0.1](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.0.0...@favware/cliff-jumper@1.0.1) - (2022-04-18)
+
+## Bug Fixes
+
+- **github-release:** Use yarn publish ([8453aa4](https://github.com/favware/cliff-jumper/commit/8453aa45da4bf6c007b9dcb845e454cb52792329))
+
 # [@favware/cliff-jumper@1.0.0]
 (https://github.com/favware/cliff-jumper/tree/@favware/cliff-jumper@1.0.0) - (2022-04-17)
 
