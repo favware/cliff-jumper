@@ -26,8 +26,6 @@ jobs:
         run: yarn --immutable
       - name: Build package
         run: yarn build
-      - name: Set up git-cliff
-        uses: kenji-miyake/setup-git-cliff@v1
       - name: Bump Version
         run: yarn start --preid "next.$(git rev-parse --verify --short HEAD)" -v
       - name: Publish to Yarnpkg
