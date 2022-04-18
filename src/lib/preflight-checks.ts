@@ -1,6 +1,6 @@
 import { packageCwd } from '#lib/constants';
 import { fileExists } from '#lib/fileExists';
-import { gitCliffExists } from '#lib/gitCliffExists';
+// import { gitCliffExists } from '#lib/gitCliffExists';
 import { logVerboseError } from '#lib/logger';
 import { doActionAndLog, readJson } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
@@ -78,17 +78,17 @@ export async function preflightChecks(options: OptionValues) {
     });
   }
 
-  const hasGitCliff = await doActionAndLog(
-    'Checking if git cliff is installed', //
-    gitCliffExists()
-  );
+  // const hasGitCliff = await doActionAndLog(
+  //   'Checking if git cliff is installed', //
+  //   gitCliffExists()
+  // );
 
-  if (!hasGitCliff) {
-    logVerboseError({
-      text: ['Git Cliff was not detected. You can install it from https://github.com/orhun/git-cliff.'],
-      verboseText: ['When using this package in a GitHub workflow you can also use https://github.com/kenji-miyake/setup-git-cliff'],
-      exitAfterLog: true,
-      verbose: options.verbose
-    });
-  }
+  // if (!hasGitCliff) {
+  //   logVerboseError({
+  //     text: ['Git Cliff was not detected. You can install it from https://github.com/orhun/git-cliff.'],
+  //     verboseText: ['When using this package in a GitHub workflow you can also use https://github.com/kenji-miyake/setup-git-cliff'],
+  //     exitAfterLog: true,
+  //     verbose: options.verbose
+  //   });
+  // }
 }
