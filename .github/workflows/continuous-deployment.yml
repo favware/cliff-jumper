@@ -57,7 +57,7 @@ jobs:
           yarn config set npmPublishRegistry "https://registry.npmjs.org"
           yarn npm publish --tag next
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NEW_NPM_TOKEN }}
       - name: Publish to GitHub
         run: |
           yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
