@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.1.3](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.1.2...@favware/cliff-jumper@1.1.3) - (2022-04-18)
+
+## Bug Fixes
+
+- Fixed commit message being invalid after execa->execSync change ([37ed667](https://github.com/favware/cliff-jumper/commit/37ed667493470d8d912312377b81a5994e36301a))
+- Switch from `execa` to `execSync` ([4f26562](https://github.com/favware/cliff-jumper/commit/4f265626317e831c7ceb8567853e6a598f8c5120))
+
 # [@favware/cliff-jumper@1.1.2](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.1.1...@favware/cliff-jumper@1.1.2) - (2022-04-18)
 
 ## Bug Fixes
