@@ -1,6 +1,6 @@
-import { commandExists } from '#lib/commandExists';
 import { packageCwd } from '#lib/constants';
 import { fileExists } from '#lib/fileExists';
+import { gitCliffExists } from '#lib/gitCliffExists';
 import { logVerboseError } from '#lib/logger';
 import { doActionAndLog, readJson } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
@@ -79,15 +79,14 @@ export async function preflightChecks(options: OptionValues) {
   }
 
   const hasGitCliff = await doActionAndLog(
-    'Checking if git-cliff is installed', //
-    commandExists('git-cliff')
+    'Checking if git cliff is installed', //
+    gitCliffExists()
   );
 
   if (!hasGitCliff) {
     logVerboseError({
-      text: [
-        'Git Cliff was not detected. You can install it from https://github.com/orhun/git-cliff. Also make sure that the binary/executable in your PATH is named exactly `git-cliff`'
-      ],
+      text: ['Git Cliff was not detected. You can install it from https://github.com/orhun/git-cliff.'],
+      verboseText: ['When using this package in a GitHub workflow you can also use https://github.com/kenji-miyake/setup-git-cliff'],
       exitAfterLog: true,
       verbose: options.verbose
     });
