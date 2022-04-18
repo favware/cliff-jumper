@@ -1,6 +1,6 @@
 import { packageCwd } from '#lib/constants';
 import { fileExists } from '#lib/fileExists';
-// import { gitCliffExists } from '#lib/gitCliffExists';
+import { gitCliffExists } from '#lib/gitCliffExists';
 import { logVerboseError } from '#lib/logger';
 import { doActionAndLog, readJson } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
@@ -52,43 +52,45 @@ export async function preflightChecks(options: OptionValues) {
     });
   }
 
-  const hasCliffConfigAtCwd = await doActionAndLog(
-    'Checking if a cliff.toml exists in the current working directory', //
-    fileExists(join(packageCwd, 'cliff.toml'))
-  );
+  if (!options.skipTag) {
+    const hasCliffConfigAtCwd = await doActionAndLog(
+      'Checking if a cliff.toml exists in the current working directory', //
+      fileExists(join(packageCwd, 'cliff.toml'))
+    );
 
-  if (!hasCliffConfigAtCwd) {
-    logVerboseError({
-      text: ['No cliff.toml detected at current directory'],
-      exitAfterLog: true,
-      verbose: options.verbose
-    });
+    if (!hasCliffConfigAtCwd) {
+      logVerboseError({
+        text: ['No cliff.toml detected at current directory'],
+        exitAfterLog: true,
+        verbose: options.verbose
+      });
+    }
+
+    const hasChangelogFileAtCwd = await doActionAndLog(
+      'Checking if a CHANGELOG.md exists in the current working directory', //
+      fileExists(join(packageCwd, 'CHANGELOG.md'))
+    );
+
+    if (!hasChangelogFileAtCwd) {
+      logVerboseError({
+        text: ['No CHANGELOG.md detected at current directory'],
+        exitAfterLog: true,
+        verbose: options.verbose
+      });
+    }
+
+    const hasGitCliff = await doActionAndLog(
+      'Checking if git cliff is installed', //
+      gitCliffExists()
+    );
+
+    if (!hasGitCliff) {
+      logVerboseError({
+        text: ['Git Cliff was not detected. You can install it from https://github.com/orhun/git-cliff.'],
+        verboseText: ['When using this package in a GitHub workflow you can also use https://github.com/kenji-miyake/setup-git-cliff'],
+        exitAfterLog: true,
+        verbose: options.verbose
+      });
+    }
   }
-
-  const hasChangelogFileAtCwd = await doActionAndLog(
-    'Checking if a CHANGELOG.md exists in the current working directory', //
-    fileExists(join(packageCwd, 'CHANGELOG.md'))
-  );
-
-  if (!hasChangelogFileAtCwd) {
-    logVerboseError({
-      text: ['No CHANGELOG.md detected at current directory'],
-      exitAfterLog: true,
-      verbose: options.verbose
-    });
-  }
-
-  // const hasGitCliff = await doActionAndLog(
-  //   'Checking if git cliff is installed', //
-  //   gitCliffExists()
-  // );
-
-  // if (!hasGitCliff) {
-  //   logVerboseError({
-  //     text: ['Git Cliff was not detected. You can install it from https://github.com/orhun/git-cliff.'],
-  //     verboseText: ['When using this package in a GitHub workflow you can also use https://github.com/kenji-miyake/setup-git-cliff'],
-  //     exitAfterLog: true,
-  //     verbose: options.verbose
-  //   });
-  // }
 }
