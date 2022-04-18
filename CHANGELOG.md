@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.1.1](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.1.0...@favware/cliff-jumper@1.1.1) - (2022-04-18)
+
+## Bug Fixes
+
+- Only check for changelog and git-cliff when `skip-tag` is `false` ([7d3a2c8](https://github.com/favware/cliff-jumper/commit/7d3a2c87a48fa72cc94a3c121eed50093d78237a))
+- Fixed bundle published to npm ([c1d996d](https://github.com/favware/cliff-jumper/commit/c1d996d2a89cd65d08ad784dc3ab5b8306ab3156))
+
 # [@favware/cliff-jumper@1.1.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.0.2...@favware/cliff-jumper@1.1.0) - (2022-04-18)
 
 ## Features
