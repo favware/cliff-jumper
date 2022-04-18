@@ -29,9 +29,7 @@ jobs:
       - name: Set up git-cliff
         uses: kenji-miyake/setup-git-cliff@v1
       - name: Bump Version
-        run: |
-          echo $GITHUB_PATH
-          yarn start --preid "next.$(git rev-parse --verify --short HEAD)" -v
+        run: yarn start --preid "next.$(git rev-parse --verify --short HEAD)" -v
       - name: Publish to Yarnpkg
         run: |
           yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
