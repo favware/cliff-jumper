@@ -6,5 +6,6 @@ export async function fileExists(path: PathLike) {
   const result = await fromAsync(() => access(path));
 
   if (isErr(result)) return false;
+
   return true;
 }

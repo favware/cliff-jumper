@@ -2,8 +2,8 @@ import { fromAsync, isErr } from '@sapphire/result';
 import { Awaitable, isThenable } from '@sapphire/utilities';
 import { cyan, green, red } from 'colorette';
 import type { OptionValues } from 'commander';
-import { execa } from 'execa';
 import { load } from 'js-yaml';
+import { execSync } from 'node:child_process';
 import type { PathLike } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 
@@ -23,10 +23,10 @@ export async function readJson<T>(pathLike: PathLike): Promise<T> {
   return JSON.parse(await readFile(pathLike, { encoding: 'utf-8' })) as T;
 }
 
-export async function getGitRootDirection() {
-  const repositoryRoot = await execa('git', ['rev-parse', '--show-prefix'], { encoding: 'utf-8' });
+export function getGitRootDirection() {
+  const repositoryRoot = execSync('git rev-parse --show-prefix', { encoding: 'utf-8' });
 
-  return repositoryRoot.stdout
+  return repositoryRoot
     .split('/')
     .map((i) => i.trim())
     .filter(Boolean)

@@ -38,7 +38,6 @@
     "commander": "^9.2.0",
     "conventional-changelog-angular": "^5.0.13",
     "conventional-recommended-bump": "^6.1.0",
-    "execa": "^6.1.0",
     "js-yaml": "^4.1.0",
     "typescript": "^4.6.3"
   },

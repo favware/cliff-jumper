@@ -1,8 +1,8 @@
-import { join } from 'node:path';
 import conventionalRecommendedBump, {
-  type Options as ConventionalChangelogOptions,
-  type Callback as ConventionalChangelogCallback
+  type Callback as ConventionalChangelogCallback,
+  type Options as ConventionalChangelogOptions
 } from 'conventional-recommended-bump';
+import { join } from 'node:path';
 import { URL } from 'node:url';
 import { promisify } from 'node:util';
 

@@ -1,9 +1,9 @@
 import { doActionAndLog } from '#lib/utils';
-import { execa } from 'execa';
+import { execSync } from 'node:child_process';
 
 export function createTag(tag: string) {
   return doActionAndLog(
     'Creating tag', //
-    execa('git', ['tag', tag])
+    execSync(`git tag ${tag}`)
   );
 }

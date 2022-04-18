@@ -1,10 +1,10 @@
 import { doActionAndLog, getFullPackageName } from '#lib/utils';
 import type { OptionValues } from 'commander';
-import { execa } from 'execa';
+import { execSync } from 'node:child_process';
 
-export async function getNewVersion(options: OptionValues) {
+export function getNewVersion(options: OptionValues) {
   return doActionAndLog<string>(
     'Retrieving new version', //
-    JSON.parse((await execa('npm', ['version', '--json'], { encoding: 'utf-8' })).stdout)[getFullPackageName(options)]
+    JSON.parse(execSync('npm version --json', { encoding: 'utf-8' }))[getFullPackageName(options)]
   );
 }
