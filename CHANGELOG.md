@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.1.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.0.2...@favware/cliff-jumper@1.1.0) - (2022-04-18)
+
+## Features
+
+- Add notice once done about pushing and publishing ([a9a54a5](https://github.com/favware/cliff-jumper/commit/a9a54a5dd81b97690e1ecb8b33c0526419f1dbbf))
+
+## Refactor
+
+- Improve checking for `git cliff` ([82c9500](https://github.com/favware/cliff-jumper/commit/82c9500f13267d759f63257e6bdbcd30554afde1))
+
 # [@favware/cliff-jumper@1.0.2](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.0.1...@favware/cliff-jumper@1.0.2) - (2022-04-18)
 
 ## Bug Fixes
