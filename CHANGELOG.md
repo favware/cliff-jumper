@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.0.2](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.0.1...@favware/cliff-jumper@1.0.2) - (2022-04-18)
+
+## Bug Fixes
+
+- Add missing `conventional-changelog-angular` dependency ([f3efcc8](https://github.com/favware/cliff-jumper/commit/f3efcc811f5d9b980db735f6e64239302c0d2261))
+
 # [@favware/cliff-jumper@1.0.1](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.0.0...@favware/cliff-jumper@1.0.1) - (2022-04-18)
 
 ## Bug Fixes
