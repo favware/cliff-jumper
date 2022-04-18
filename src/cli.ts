@@ -13,7 +13,7 @@ import { parseOptionsFile } from '#lib/optionsParser';
 import { preflightChecks } from '#lib/preflight-checks';
 import { doActionAndLog, getFullPackageName } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
-import { blueBright, cyan, yellow } from 'colorette';
+import { blue, blueBright, cyan, green, yellow } from 'colorette';
 import { Command } from 'commander';
 import { readFile } from 'node:fs/promises';
 import { URL } from 'node:url';
@@ -69,7 +69,9 @@ if (isNullishOrEmpty(reason) || isNullishOrEmpty(releaseType)) {
 }
 
 console.info(
-  cyan(`ℹ️ Bumping the ${yellow(`${releasePrefix}${releaseType}`)} version of ${blueBright(getFullPackageName(options))}: ${yellow(reason!)}`)
+  cyan(
+    `${blue('ℹ️')} Bumping the ${yellow(`${releasePrefix}${releaseType}`)} version of ${blueBright(getFullPackageName(options))}: ${yellow(reason!)}`
+  )
 );
 
 if (!options.dryRun) {
@@ -88,5 +90,7 @@ if (!options.dryRun) {
     await commitRelease(options, newVersion);
 
     await createTag(tag);
+
+    console.info(blue('ℹ️') + green(' Run `git push && git push --tags && npm publish` to publish'));
   }
 }
