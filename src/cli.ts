@@ -32,7 +32,24 @@ const command = new Command()
   .option('--first-release', 'Whether this is the first release (skips bumping the version)')
   .option('-o, --org <string>', 'The NPM org scope that should be used WITHOUT "@" sign or trailing "/"')
   .option('--preid [string]', 'The "prerelease identifier" to use as a prefix for the "prerelease" part of a semver')
-  .option('-t, --skip-tag', 'Whether to skip creating a git tag (default `true` when CI=true, `false` otherwise)', isCi)
+  .option(
+    '-c, --commit-message-template [string]',
+    [
+      'A custom commit message template to use.',
+      'Defaults to "chore({{name}}): release {{full-name}}@{{new-version}}"',
+      'You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be published.',
+      'You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in your config file.',
+      'You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is provided).'
+    ].join('\n')
+  )
+  .option(
+    '-t, --skip-tag',
+    [
+      'Whether to skip creating a git tag', //
+      'default "true" when CI=true, "false" otherwise'
+    ].join('\n'),
+    isCi
+  )
   .option('-v, --verbose', 'Whether to print verbose information', false);
 
 const program = command.parse(process.argv);
@@ -44,8 +61,10 @@ logVerboseInfo(
     `${indent}name: ${JSON.stringify(options.name)}`,
     `${indent}package path: ${JSON.stringify(options.packagePath)}`,
     `${indent}dry run: ${JSON.stringify(options.dryRun)}`,
+    `${indent}first release: ${JSON.stringify(options.firstRelease)}`,
     `${indent}npm org: ${JSON.stringify(options.org)}`,
     `${indent}preid: ${JSON.stringify(options.preid)}`,
+    `${indent}commit message template: ${JSON.stringify(options.commitMessageTemplate)}`,
     `${indent}skip tag: ${JSON.stringify(options.skipTag)}`,
     `${indent}verbose: ${JSON.stringify(options.verbose)}`,
     ''
