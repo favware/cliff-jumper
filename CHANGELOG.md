@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.2.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.1.3...@favware/cliff-jumper@1.2.0) - (2022-04-21)
+
+## Features
+
+- Add `commitMessageTemplate` ([933a6e5](https://github.com/favware/cliff-jumper/commit/933a6e5c4ec88e48e9de88aa995ea1a2d94c3d20))
+
 # [@favware/cliff-jumper@1.1.3](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.1.2...@favware/cliff-jumper@1.1.3) - (2022-04-18)
 
 ## Bug Fixes
