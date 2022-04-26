@@ -109,7 +109,7 @@ if (!options.dryRun) {
 
   if (!options.skipTag) {
     const newVersion = await getNewVersion(options);
-    const tag = options.org ? `${getFullPackageName(options)}@${newVersion}` : `v${newVersion}`;
+    const tag = options.org && options.monoRepo ? `${getFullPackageName(options)}@${newVersion}` : `v${newVersion}`;
 
     await updateChangelog(options, tag);
 
