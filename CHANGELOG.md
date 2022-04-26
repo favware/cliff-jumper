@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.3.1](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.3.0...@favware/cliff-jumper@1.3.1) - (2022-04-26)
+
+## Bug Fixes
+
+- **tag:** Only tag with package name in mono repos ([bb73dc3](https://github.com/favware/cliff-jumper/commit/bb73dc3b65a536a021f251116e7caa27dcdf25a6))
+
 # [@favware/cliff-jumper@1.3.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.2.0...@favware/cliff-jumper@1.3.0) - (2022-04-26)
 
 ## Features
