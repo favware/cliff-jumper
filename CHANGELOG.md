@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.3.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.2.0...@favware/cliff-jumper@1.3.0) - (2022-04-26)
+
+## Features
+
+- Add `--mono-repo` and `--no-mono-repo` flags ([6d86477](https://github.com/favware/cliff-jumper/commit/6d86477335a39a13c7f074b7502b05067ebd47fc))
+
 # [@favware/cliff-jumper@1.2.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.1.3...@favware/cliff-jumper@1.2.0) - (2022-04-21)
 
 ## Features
