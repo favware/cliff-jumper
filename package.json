@@ -28,7 +28,7 @@
     "clean": "node scripts/clean.mjs",
     "build": "tsc -b src",
     "watch": "tsc -b src -w",
-    "prepublish": "yarn build",
+    "prepack": "yarn build",
     "prepare": "husky install .github/husky"
   },
   "dependencies": {
