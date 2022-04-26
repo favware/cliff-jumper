@@ -23,7 +23,8 @@ export async function parseOptionsFile(cliOptions: OptionValues) {
 
       options = {
         ...fileOptions,
-        ...options
+        ...options,
+        monoRepo: fileOptions.monoRepo ?? options.monoRepo ?? (fileOptions.org || options.org ? true : false)
       };
     } catch (err) {
       const typedError = err as Error;
@@ -47,7 +48,8 @@ export async function parseOptionsFile(cliOptions: OptionValues) {
 
       options = {
         ...fileOptions,
-        ...options
+        ...options,
+        monoRepo: fileOptions.monoRepo ?? options.monoRepo ?? (fileOptions.org || options.org ? true : false)
       };
     } catch (err) {
       const typedError = err as Error;

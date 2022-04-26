@@ -10,6 +10,7 @@ declare module 'commander' {
     verbose: boolean;
     skipTag: boolean;
     firstRelease: boolean;
+    monoRepo: boolean;
     commitMessageTemplate: string;
   }
 }

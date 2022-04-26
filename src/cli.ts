@@ -21,6 +21,12 @@ import { URL } from 'node:url';
 const packageFile = new URL('package.json', cliRootDir);
 const packageJson = JSON.parse(await readFile(packageFile, 'utf-8'));
 
+const monoRepoDescription = [
+  'Whether the package to be bumped resides in a mono repo,',
+  'which enables Lerna-like scanning for what kind of version bump should be applied',
+  'Defaults to "true" when "org" is set, false otherwise'
+].join('\n');
+
 const command = new Command()
   .version(packageJson.version)
   .option('-n, --name <string>', 'The package name to release')
@@ -30,6 +36,8 @@ const command = new Command()
     'Whether the package should be bumped or not. When this is set no actions will be taken and only the release strategy will be logged'
   )
   .option('--first-release', 'Whether this is the first release (skips bumping the version)')
+  .option('--mono-repo', monoRepoDescription)
+  .option('--no-mono-repo', monoRepoDescription)
   .option('-o, --org <string>', 'The NPM org scope that should be used WITHOUT "@" sign or trailing "/"')
   .option('--preid [string]', 'The "prerelease identifier" to use as a prefix for the "prerelease" part of a semver')
   .option(
@@ -62,6 +70,7 @@ logVerboseInfo(
     `${indent}package path: ${JSON.stringify(options.packagePath)}`,
     `${indent}dry run: ${JSON.stringify(options.dryRun)}`,
     `${indent}first release: ${JSON.stringify(options.firstRelease)}`,
+    `${indent}mono repo: ${JSON.stringify(options.monoRepo)}`,
     `${indent}npm org: ${JSON.stringify(options.org)}`,
     `${indent}preid: ${JSON.stringify(options.preid)}`,
     `${indent}commit message template: ${JSON.stringify(options.commitMessageTemplate)}`,

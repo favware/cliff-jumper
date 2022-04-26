@@ -77,9 +77,14 @@ Options:
   -V, --version                           output the version number
   -n, --name <string>                     The package name to release
   -p, --package-path <string>             The path to the current package. For non-monorepos this is just "."
-  --dry-run                               Whether the package should be bumped or not. When this is set no actions will be taken and only the release strategy will be
-                                          logged
+  --dry-run                               Whether the package should be bumped or not. When this is set no actions will be taken and only the release strategy will be logged
   --first-release                         Whether this is the first release (skips bumping the version)
+  --mono-repo                             Whether the package to be bumped resides in a mono repo,
+                                          which enables Lerna-like scanning for what kind of version bump should be applied
+                                          Defaults to "true" when "org" is set, false otherwise
+  --no-mono-repo                          Whether the package to be bumped resides in a mono repo,
+                                          which enables Lerna-like scanning for what kind of version bump should be applied
+                                          Defaults to "true" when "org" is set, false otherwise
   -o, --org <string>                      The NPM org scope that should be used WITHOUT "@" sign or trailing "/"
   --preid [string]                        The "prerelease identifier" to use as a prefix for the "prerelease" part of a semver
   -c, --commit-message-template [string]  A custom commit message template to use.
@@ -88,8 +93,8 @@ Options:
                                           published.
                                           You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set
                                           in your config file.
-                                          You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or
-                                          "@{{org}}/{{name}}" (when "org" is provided).
+                                          You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}"
+                                          (when "org" is provided).
   -t, --skip-tag                          Whether to skip creating a git tag
                                           default "true" when CI=true, "false" otherwise (default: false)
   -v, --verbose                           Whether to print verbose information (default: false)
@@ -107,6 +112,7 @@ package). It should be named `.cliff-jumperrc`, optionally suffixed with
 - `--package-path` maps to `packagePath`
 - `--dry-run` maps to `dryRun`
 - `--first-release` maps to `firstRelease`
+- `--mono-repo` and `--no-mono-repo` map to `monoRepo`
 - `--org` maps to `org`
 - `--preid` maps to `preid`
 - `--commit-message-template` maps to `commitMessageTemplate`
@@ -152,6 +158,8 @@ This library has opinionated defaults for its options. These are as follows:
 - `--preid` will default to `undefined`.
 - `--skip-tag` will default to `false` (`true` when `CI` environment variable is
   `'true'`).
+- `--mono-repo` will default to `true` when `org` is set, or `false` when it's
+  not. Alternatively you can force this to false by providing `--no-mono-repo`.
 - `--commit-message-template` will default to
   `chore({{name}}): release {{full-name}}@{{new-version}}`
   - `{{new-version}}` will be replaced with the new version that will be

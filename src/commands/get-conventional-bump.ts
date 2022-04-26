@@ -6,6 +6,6 @@ export function getConventionalBump(options: OptionValues) {
   return asyncConventionalRecommendBump({
     preset: 'angular',
     path: process.cwd(),
-    ...(options.org ? { lernaPackage: getFullPackageName(options) } : {})
+    ...(options.org && options.monoRepo ? { lernaPackage: getFullPackageName(options) } : {})
   });
 }
