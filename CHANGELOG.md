@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.4.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.3.1...@favware/cliff-jumper@1.4.0) - (2022-04-28)
+
+## Features
+
+- Log `yarn npm publish` when the package is using Yarn v3 ([983b191](https://github.com/favware/cliff-jumper/commit/983b19154e930177ac344a726c746fc87076b0ae))
+- Introduce new flag `--skip-changelog` and separate `skip-tag` from it. Follows same behaviour to ensure non-breaking ([b21b772](https://github.com/favware/cliff-jumper/commit/b21b772dd2196689c934b7a0f3af18a60d89af5b))
+
 # [@favware/cliff-jumper@1.3.1](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.3.0...@favware/cliff-jumper@1.3.1) - (2022-04-26)
 
 ## Bug Fixes
