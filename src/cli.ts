@@ -11,7 +11,7 @@ import { cliRootDir, indent, isCi, releasePrefix } from '#lib/constants';
 import { logVerboseError, logVerboseInfo } from '#lib/logger';
 import { parseOptionsFile } from '#lib/optionsParser';
 import { preflightChecks } from '#lib/preflight-checks';
-import { doActionAndLog, getFullPackageName } from '#lib/utils';
+import { doActionAndLog, getFullPackageName, usesModernYarn } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import { blue, blueBright, cyan, green, yellow } from 'colorette';
 import { Command } from 'commander';
@@ -129,7 +129,9 @@ if (!options.dryRun) {
 
       await createTag(tag);
 
-      console.info(blue('ℹ️') + green(` Run \`git push && git push --tags && npm publish\` to publish`));
+      const hasYarn = await usesModernYarn();
+
+      console.info(blue('ℹ️') + green(` Run \`git push && git push --tags && ${hasYarn ? 'yarn ' : ''}npm publish\` to publish`));
     }
   }
 }

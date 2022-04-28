@@ -1,3 +1,4 @@
+import { packageCwd } from '#lib/constants';
 import { fromAsync, isErr } from '@sapphire/result';
 import { Awaitable, isThenable } from '@sapphire/utilities';
 import { cyan, green, red } from 'colorette';
@@ -6,6 +7,16 @@ import { load } from 'js-yaml';
 import { execSync } from 'node:child_process';
 import type { PathLike } from 'node:fs';
 import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
+
+export async function usesModernYarn() {
+  const packageJsonPath = join(packageCwd, 'package.json');
+  const packageJsonContent = await readJson<{ packageManager: string | undefined }>(packageJsonPath);
+
+  if (!packageJsonContent.packageManager) return false;
+
+  return packageJsonContent.packageManager.startsWith('yarn@3');
+}
 
 /**
  * Parsed a YAML file into an `Object` of type `T`
