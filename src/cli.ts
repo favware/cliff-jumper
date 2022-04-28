@@ -51,6 +51,14 @@ const command = new Command()
     ].join('\n')
   )
   .option(
+    '--skip-changelog',
+    [
+      'Whether to skip updating your CHANGELOG.md', //
+      'default "true" when CI=true, "false" otherwise'
+    ].join('\n'),
+    isCi
+  )
+  .option(
     '-t, --skip-tag',
     [
       'Whether to skip creating a git tag', //
@@ -74,6 +82,7 @@ logVerboseInfo(
     `${indent}npm org: ${JSON.stringify(options.org)}`,
     `${indent}preid: ${JSON.stringify(options.preid)}`,
     `${indent}commit message template: ${JSON.stringify(options.commitMessageTemplate)}`,
+    `${indent}skip changelog: ${JSON.stringify(options.skipChangelog)}`,
     `${indent}skip tag: ${JSON.stringify(options.skipTag)}`,
     `${indent}verbose: ${JSON.stringify(options.verbose)}`,
     ''
@@ -107,18 +116,20 @@ if (!options.dryRun) {
     await bumpVersion(options, releaseType!);
   }
 
-  if (!options.skipTag) {
+  if (!options.skipChangelog) {
     const newVersion = await getNewVersion(options);
     const tag = options.org && options.monoRepo ? `${getFullPackageName(options)}@${newVersion}` : `v${newVersion}`;
 
     await updateChangelog(options, tag);
 
-    await stageFiles();
+    if (!options.skipTag) {
+      await stageFiles();
 
-    await commitRelease(options, newVersion);
+      await commitRelease(options, newVersion);
 
-    await createTag(tag);
+      await createTag(tag);
 
-    console.info(blue('ℹ️') + green(' Run `git push && git push --tags && npm publish` to publish'));
+      console.info(blue('ℹ️') + green(` Run \`git push && git push --tags && npm publish\` to publish`));
+    }
   }
 }

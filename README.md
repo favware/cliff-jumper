@@ -91,10 +91,12 @@ Options:
                                           Defaults to "chore({{name}}): release {{full-name}}@{{new-version}}"
                                           You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be
                                           published.
-                                          You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set
-                                          in your config file.
+                                          You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in
+                                          your config file.
                                           You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}"
                                           (when "org" is provided).
+  --skip-changelog                        Whether to skip updating your CHANGELOG.md
+                                          default "true" when CI=true, "false" otherwise (default: false)
   -t, --skip-tag                          Whether to skip creating a git tag
                                           default "true" when CI=true, "false" otherwise (default: false)
   -v, --verbose                           Whether to print verbose information (default: false)
@@ -116,6 +118,7 @@ package). It should be named `.cliff-jumperrc`, optionally suffixed with
 - `--org` maps to `org`
 - `--preid` maps to `preid`
 - `--commit-message-template` maps to `commitMessageTemplate`
+- `--skip-changelog` maps to `skipChangelog`
 - `--skip-tag` maps to `skipTag`
 - `--verbose` maps to `verbose`
 
@@ -156,6 +159,8 @@ This library has opinionated defaults for its options. These are as follows:
 - `--first-release` will default to `undefined`.
 - `--org` will default to `undefined`.
 - `--preid` will default to `undefined`.
+- `--skip-changelog` will default to `false` (`true` when `CI` environment
+  variable is `'true'`).
 - `--skip-tag` will default to `false` (`true` when `CI` environment variable is
   `'true'`).
 - `--mono-repo` will default to `true` when `org` is set, or `false` when it's

@@ -8,6 +8,7 @@ declare module 'commander' {
     preid: string;
     dryRun: boolean;
     verbose: boolean;
+    skipChangelog: boolean;
     skipTag: boolean;
     firstRelease: boolean;
     monoRepo: boolean;

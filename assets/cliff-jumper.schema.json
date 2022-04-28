@@ -37,6 +37,11 @@
       "description": "A custom commit message template to use.\nDefaults to \"chore({{name}}): release {{full-name}}@{{new-version}}\"\nYou can use \"{{new-version}}\" in your template which will be dynamically replaced with whatever the new version is that will be published.\nYou can use \"{{name}}\" in your template, this will be replaced with the name provided through \"-n\", \"--name\" or the same value set in your config file.\nYou can use \"{{full-name}}\" in your template, this will be replaced \"{{name}}\" (when \"org\" is not provided), or \"@{{org}}/{{name}}\" (when \"org\" is provided).",
       "type": "string"
     },
+    "skipChangelog": {
+      "description": "Whether to skip updating your CHANGELOG.md (default `true` when CI=true, `false` otherwise)",
+      "type": "boolean",
+      "default": false
+    },
     "skipTag": {
       "description": "Whether to skip creating a git tag (default `true` when CI=true, `false` otherwise)",
       "type": "boolean",
