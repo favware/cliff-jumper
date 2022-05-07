@@ -94,6 +94,7 @@ logVerboseInfo(
     `${indent}npm org: ${JSON.stringify(options.org)}`,
     `${indent}preid: ${JSON.stringify(options.preid)}`,
     `${indent}commit message template: ${JSON.stringify(options.commitMessageTemplate)}`,
+    `${indent}tag template: ${JSON.stringify(options.tagTemplate)}`,
     `${indent}skip changelog: ${JSON.stringify(options.skipChangelog)}`,
     `${indent}skip tag: ${JSON.stringify(options.skipTag)}`,
     `${indent}verbose: ${JSON.stringify(options.verbose)}`,
