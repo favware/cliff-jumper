@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.7.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.6.0...@favware/cliff-jumper@1.7.0) - (2022-05-07)
+
+## 🐛 Bug Fixes
+
+- Log the package and version and bumping the version ([c50a27e](https://github.com/favware/cliff-jumper/commit/c50a27ec0f0ed0ba7f609b9fd6784e0a26012788))
+
+## 🚀 Features
+
+- Revert b4bc73d99482416e73a69320ad09f2b853a26509 (do not auto disable changelog generation in CI) ([41fb85a](https://github.com/favware/cliff-jumper/commit/41fb85acca94fc46fc3a86ed1d35f1060c526388))
+
 # [@favware/cliff-jumper@1.6.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.5.1...@favware/cliff-jumper@1.6.0) - (2022-05-07)
 
 ## 🐛 Bug Fixes
