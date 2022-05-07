@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.5.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.4.0...@favware/cliff-jumper@1.5.0) - (2022-05-07)
+
+## 🚀 Features
+
+- Add tag template option ([1e047b6](https://github.com/favware/cliff-jumper/commit/1e047b660303495812fcdecaeb26ec205856323b))
+
 # [@favware/cliff-jumper@1.4.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.3.1...@favware/cliff-jumper@1.4.0) - (2022-04-28)
 
 ## Features
