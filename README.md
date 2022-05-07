@@ -89,12 +89,21 @@ Options:
   --preid [string]                        The "prerelease identifier" to use as a prefix for the "prerelease" part of a semver
   -c, --commit-message-template [string]  A custom commit message template to use.
                                           Defaults to "chore({{name}}): release {{full-name}}@{{new-version}}"
-                                          You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be
-                                          published.
-                                          You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in
-                                          your config file.
-                                          You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}"
-                                          (when "org" is provided).
+                                          You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be published.
+                                          You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in your config
+                                          file.
+                                          You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is
+                                          provided).
+  --tag-template [string]                 A custom tag template to use.
+                                          When "org" is provided this will default to "@{{org}}/{{name}}@{{new-version}}", for example "@favware/cliff-jumper@1.0.0"
+                                          When "org" is not provided this will default to "v{{new-version}}", for example "v1.0.0"
+                                          You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be published.
+                                          You can use "{{org}}" in your template, this will be replaced with the org provided through "-o", "--org" or the same value set in your config
+                                          file.
+                                          You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in your config
+                                          file.
+                                          You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is
+                                          provided).
   --skip-changelog                        Whether to skip updating your CHANGELOG.md
                                           default "true" when CI=true, "false" otherwise (default: false)
   -t, --skip-tag                          Whether to skip creating a git tag
@@ -118,6 +127,7 @@ package). It should be named `.cliff-jumperrc`, optionally suffixed with
 - `--org` maps to `org`
 - `--preid` maps to `preid`
 - `--commit-message-template` maps to `commitMessageTemplate`
+- `--tag-template` maps to `tagTemplate`
 - `--skip-changelog` maps to `skipChangelog`
 - `--skip-tag` maps to `skipTag`
 - `--verbose` maps to `verbose`
@@ -170,6 +180,16 @@ This library has opinionated defaults for its options. These are as follows:
   - `{{new-version}}` will be replaced with the new version that will be
     published
   - `{{name}}` will be replaced with the name provided through `-n`, `--name` or
+    the same value set in your config file
+  - `{{full-name}}` will be replaced with `{{name}}` (when `org` is not
+    provided), or `@{{org}}/{{name}}` (when `org` is provided).
+- `--tag-template` will default to
+  `{{full-name}}@{{new-version}}` (when `org` is provided) **or** `v{{new-version}}` (when `org` is not provided)
+  - `{{new-version}}` will be replaced with the new version that will be
+    published
+  - `{{name}}` will be replaced with the name provided through `-n`, `--name` or
+    the same value set in your config file
+  - `{{org}}` will be replaced with the org provided through `-o`, `--org` or
     the same value set in your config file
   - `{{full-name}}` will be replaced with `{{name}}` (when `org` is not
     provided), or `@{{org}}/{{name}}` (when `org` is provided).

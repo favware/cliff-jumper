@@ -51,6 +51,18 @@ const command = new Command()
     ].join('\n')
   )
   .option(
+    '--tag-template [string]',
+    [
+      'A custom tag template to use.',
+      'When "org" is provided this will default to "@{{org}}/{{name}}@{{new-version}}", for example "@favware/cliff-jumper@1.0.0"',
+      'When "org" is not provided this will default to "v{{new-version}}", for example "v1.0.0"',
+      'You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be published.',
+      'You can use "{{org}}" in your template, this will be replaced with the org provided through "-o", "--org" or the same value set in your config file.',
+      'You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in your config file.',
+      'You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is provided).'
+    ].join('\n')
+  )
+  .option(
     '--skip-changelog',
     [
       'Whether to skip updating your CHANGELOG.md', //
@@ -118,16 +130,16 @@ if (!options.dryRun) {
 
   if (!options.skipChangelog) {
     const newVersion = await getNewVersion(options);
-    const tag = options.org && options.monoRepo ? `${getFullPackageName(options)}@${newVersion}` : `v${newVersion}`;
+    const tagForChangelog = options.org && options.monoRepo ? `${getFullPackageName(options)}@${newVersion}` : `v${newVersion}`;
 
-    await updateChangelog(options, tag);
+    await updateChangelog(options, tagForChangelog);
 
     if (!options.skipTag) {
       await stageFiles();
 
       await commitRelease(options, newVersion);
 
-      await createTag(tag);
+      await createTag(options, newVersion);
 
       const hasYarn = await usesModernYarn();
 

@@ -13,5 +13,6 @@ declare module 'commander' {
     firstRelease: boolean;
     monoRepo: boolean;
     commitMessageTemplate: string;
+    tagTemplate: string;
   }
 }

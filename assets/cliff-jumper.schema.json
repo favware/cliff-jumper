@@ -34,7 +34,11 @@
       "type": "string"
     },
     "commitMessageTemplate": {
-      "description": "A custom commit message template to use.\nDefaults to \"chore({{name}}): release {{full-name}}@{{new-version}}\"\nYou can use \"{{new-version}}\" in your template which will be dynamically replaced with whatever the new version is that will be published.\nYou can use \"{{name}}\" in your template, this will be replaced with the name provided through \"-n\", \"--name\" or the same value set in your config file.\nYou can use \"{{full-name}}\" in your template, this will be replaced \"{{name}}\" (when \"org\" is not provided), or \"@{{org}}/{{name}}\" (when \"org\" is provided).",
+      "description": "A custom commit message template to use.\nDefaults to \"chore({{name}}): release {{full-name}}@{{new-version}}\"\n\nYou can use \"{{new-version}}\" in your template which will be dynamically replaced with whatever the new version is that will be published.\n\nYou can use \"{{name}}\" in your template, this will be replaced with the name provided through \"-n\", \"--name\" or the same value set in your config file.\n\nYou can use \"{{full-name}}\" in your template, this will be replaced \"{{name}}\" (when \"org\" is not provided), or \"@{{org}}/{{name}}\" (when \"org\" is provided).",
+      "type": "string"
+    },
+    "taTgemplate": {
+      "description": "A custom tag template to use.\n\nWhen \"org\" is provided this will default to \"@{{org}}/{{name}}@{{new-version}}\", for example \"@favware/cliff-jumper@1.0.0\"\nWhen \"org\" is not provided this will default to \"v{{new-version}}\", for example \"v1.0.0\"\n\nYou can use \"{{new-version}}\" in your template which will be dynamically replaced with whatever the new version is that will be published.\n\nYou can use \"{{org}}\" in your template, this will be replaced with the org provided through \"-o\", \"--org\" or the same value set in your config     \nfile.\n\nYou can use \"{{name}}\" in your template, this will be replaced with the name provided through \"-n\", \"--name\" or the same value set in your config  \nfile.\n\nYou can use \"{{full-name}}\" in your template, this will be replaced \"{{name}}\" (when \"org\" is not provided), or \"@{{org}}/{{name}}\" (when \"org\" is provided).",
       "type": "string"
     },
     "skipChangelog": {
