@@ -66,7 +66,8 @@ const command = new Command()
     [
       'Whether to skip updating your CHANGELOG.md', //
       'default "true" when CI=true, "false" otherwise'
-    ].join('\n')
+    ].join('\n'),
+    isCi
   )
   .option(
     '-t, --skip-tag',
