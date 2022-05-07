@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.5.1](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.5.0...@favware/cliff-jumper@1.5.1) - (2022-05-07)
+
+## 🐛 Bug Fixes
+
+- List tag template in verbose options log ([87393a2](https://github.com/favware/cliff-jumper/commit/87393a2d823dabaaeddd2a305ea9e620f09fa363))
+- Only require `options.monoRepo` to use mono repo detection for conventional recommended bump ([f1548f3](https://github.com/favware/cliff-jumper/commit/f1548f37533e3d96b3add115376203294b2da600))
+
 # [@favware/cliff-jumper@1.5.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.4.0...@favware/cliff-jumper@1.5.0) - (2022-05-07)
 
 ## 🚀 Features
