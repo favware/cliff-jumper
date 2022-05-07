@@ -133,7 +133,7 @@ if (!options.dryRun) {
 
     await updateChangelog(options, tagForChangelog);
 
-    console.log(green(`📦 Generated changelog for ${getFullPackageName(options)}@${newVersion}`));
+    console.log(green(`📝 Generated changelog for ${getFullPackageName(options)}@${newVersion}`));
 
     if (!options.skipTag) {
       await stageFiles();
