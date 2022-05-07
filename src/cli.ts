@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 import { bumpVersion } from '#commands/bump-version';
 import { commitRelease } from '#commands/commit-release';
 import { createTag } from '#commands/create-tag';
@@ -133,6 +132,8 @@ if (!options.dryRun) {
     const tagForChangelog = options.org && options.monoRepo ? `${getFullPackageName(options)}@${newVersion}` : `v${newVersion}`;
 
     await updateChangelog(options, tagForChangelog);
+
+    console.log(green(`📦 Generated changelog for ${getFullPackageName(options)}@${newVersion}`));
 
     if (!options.skipTag) {
       await stageFiles();
