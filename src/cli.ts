@@ -124,17 +124,21 @@ console.info(
 );
 
 if (!options.dryRun) {
+  let newVersion: string | undefined;
+
   if (!options.firstRelease) {
     await bumpVersion(options, releaseType!);
+
+    newVersion = await getNewVersion(options);
+    console.log(green(`📦 Bumped ${getFullPackageName(options)}@${newVersion}`));
   }
 
   if (!options.skipChangelog) {
-    const newVersion = await getNewVersion(options);
+    newVersion = isNullishOrEmpty(newVersion) ? await getNewVersion(options) : newVersion;
+
     const tagForChangelog = options.org && options.monoRepo ? `${getFullPackageName(options)}@${newVersion}` : `v${newVersion}`;
 
     await updateChangelog(options, tagForChangelog);
-
-    console.log(green(`📝 Generated changelog for ${getFullPackageName(options)}@${newVersion}`));
 
     if (!options.skipTag) {
       await stageFiles();
