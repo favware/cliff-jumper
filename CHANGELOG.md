@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.6.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.5.1...@favware/cliff-jumper@1.6.0) - (2022-05-07)
+
+## 🐛 Bug Fixes
+
+- Do not auto disable changelog generation in CI ([b4bc73d](https://github.com/favware/cliff-jumper/commit/b4bc73d99482416e73a69320ad09f2b853a26509))
+
+## 🚀 Features
+
+- Log the package and version after generating the changelog ([71ab681](https://github.com/favware/cliff-jumper/commit/71ab681081b237beb9adfff716094820cca5eb5a))
+
+## 🪞 Styling
+
+- Change emoji from 📦 to 📝 ([6304346](https://github.com/favware/cliff-jumper/commit/630434640e07a34da181906c60387ca92a1baef7))
+
 # [@favware/cliff-jumper@1.5.1](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.5.0...@favware/cliff-jumper@1.5.1) - (2022-05-07)
 
 ## 🐛 Bug Fixes
