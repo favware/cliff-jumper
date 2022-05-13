@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.8.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.7.0...@favware/cliff-jumper@1.8.0) - (2022-05-13)
+
+## 🚀 Features
+
+- Allow forcing `skipChangelog` and `skipTag` to `false` with `--no-*` flags ([99ffe13](https://github.com/favware/cliff-jumper/commit/99ffe132c154bea0d4c6fd9aafac95576977498f))
+
 # [@favware/cliff-jumper@1.7.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.6.0...@favware/cliff-jumper@1.7.0) - (2022-05-07)
 
 ## 🐛 Bug Fixes
