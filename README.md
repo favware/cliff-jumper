@@ -89,25 +89,31 @@ Options:
   --preid [string]                        The "prerelease identifier" to use as a prefix for the "prerelease" part of a semver
   -c, --commit-message-template [string]  A custom commit message template to use.
                                           Defaults to "chore({{name}}): release {{full-name}}@{{new-version}}"
-                                          You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be published.
-                                          You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in your config
-                                          file.
-                                          You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is
-                                          provided).
+                                          You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be
+                                          published.
+                                          You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set
+                                          in your config file.
+                                          You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}"
+                                          (when "org" is provided).
   --tag-template [string]                 A custom tag template to use.
                                           When "org" is provided this will default to "@{{org}}/{{name}}@{{new-version}}", for example "@favware/cliff-jumper@1.0.0"
                                           When "org" is not provided this will default to "v{{new-version}}", for example "v1.0.0"
-                                          You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be published.
-                                          You can use "{{org}}" in your template, this will be replaced with the org provided through "-o", "--org" or the same value set in your config
-                                          file.
-                                          You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in your config
-                                          file.
-                                          You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is
-                                          provided).
+                                          You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be
+                                          published.
+                                          You can use "{{org}}" in your template, this will be replaced with the org provided through "-o", "--org" or the same value set in
+                                          your config file.
+                                          You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set
+                                          in your config file.
+                                          You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}"
+                                          (when "org" is provided).
   --skip-changelog                        Whether to skip updating your CHANGELOG.md
                                           default "true" when CI=true, "false" otherwise (default: false)
+  --no-skip-changelog                     Whether to skip updating your CHANGELOG.md
+                                          default "true" when CI=true, "false" otherwise
   -t, --skip-tag                          Whether to skip creating a git tag
                                           default "true" when CI=true, "false" otherwise (default: false)
+  --no-skip-tag                           Whether to skip creating a git tag
+                                          default "true" when CI=true, "false" otherwise
   -v, --verbose                           Whether to print verbose information (default: false)
   -h, --help                              display help for command
 ```
@@ -128,8 +134,8 @@ package). It should be named `.cliff-jumperrc`, optionally suffixed with
 - `--preid` maps to `preid`
 - `--commit-message-template` maps to `commitMessageTemplate`
 - `--tag-template` maps to `tagTemplate`
-- `--skip-changelog` maps to `skipChangelog`
-- `--skip-tag` maps to `skipTag`
+- `--skip-changelog` and `--no-skip-changelog` map to `skipChangelog`
+- `--skip-tag` and `--no-skip-tag` map to `skipTag`
 - `--verbose` maps to `verbose`
 
 When using `.cliff-jumperrc` or `.cliff-jumperrc.json` as your config file you
@@ -170,9 +176,9 @@ This library has opinionated defaults for its options. These are as follows:
 - `--org` will default to `undefined`.
 - `--preid` will default to `undefined`.
 - `--skip-changelog` will default to `false` (`true` when `CI` environment
-  variable is `'true'`).
+  variable is `'true'`). Alternatively you can force this to false by providing `--no-skip-changelog`.
 - `--skip-tag` will default to `false` (`true` when `CI` environment variable is
-  `'true'`).
+  `'true'`). Alternatively you can force this to false by providing `--no-skip-tag`.
 - `--mono-repo` will default to `true` when `org` is set, or `false` when it's
   not. Alternatively you can force this to false by providing `--no-mono-repo`.
 - `--commit-message-template` will default to

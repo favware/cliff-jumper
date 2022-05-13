@@ -25,6 +25,14 @@ const monoRepoDescription = [
   'which enables Lerna-like scanning for what kind of version bump should be applied',
   'Defaults to "true" when "org" is set, false otherwise'
 ].join('\n');
+const skipChangelogDescription = [
+  'Whether to skip updating your CHANGELOG.md', //
+  'default "true" when CI=true, "false" otherwise'
+].join('\n');
+const skipTagDescription = [
+  'Whether to skip creating a git tag', //
+  'default "true" when CI=true, "false" otherwise'
+].join('\n');
 
 const command = new Command()
   .version(packageJson.version)
@@ -61,22 +69,10 @@ const command = new Command()
       'You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is provided).'
     ].join('\n')
   )
-  .option(
-    '--skip-changelog',
-    [
-      'Whether to skip updating your CHANGELOG.md', //
-      'default "true" when CI=true, "false" otherwise'
-    ].join('\n'),
-    isCi
-  )
-  .option(
-    '-t, --skip-tag',
-    [
-      'Whether to skip creating a git tag', //
-      'default "true" when CI=true, "false" otherwise'
-    ].join('\n'),
-    isCi
-  )
+  .option('--skip-changelog', skipChangelogDescription, isCi)
+  .option('--no-skip-changelog', skipChangelogDescription)
+  .option('-t, --skip-tag', skipTagDescription, isCi)
+  .option('--no-skip-tag', skipTagDescription)
   .option('-v, --verbose', 'Whether to print verbose information', false);
 
 const program = command.parse(process.argv);
