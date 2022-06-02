@@ -35,12 +35,12 @@ jobs:
 
       # Initializes the CodeQL tools for scanning.
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v1
+        uses: github/codeql-action/init@a6611b86918424d4588efe7d6dbe18fe52d42518 # tag=v1
         with:
           languages: typescript
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v1
+        uses: github/codeql-action/analyze@a6611b86918424d4588efe7d6dbe18fe52d42518 # tag=v1
 
   Building:
     name: Compile source code Node v${{ matrix.node }}
