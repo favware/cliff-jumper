@@ -9,9 +9,6 @@ import { promisify } from 'node:util';
 /** Whether the CLI is being ran in a CI environment */
 export const isCi = process.env.CI === 'true';
 
-/** The release-as prefix */
-export const releasePrefix = isCi ? 'pre' : '';
-
 /** The root directory of the CLI tool */
 export const cliRootDir = new URL('../../', import.meta.url);
 

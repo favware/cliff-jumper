@@ -3,11 +3,13 @@ import { fromAsync, isErr } from '@sapphire/result';
 import { Awaitable, isFunction, isThenable } from '@sapphire/utilities';
 import { cyan, green, red } from 'colorette';
 import type { OptionValues } from 'commander';
+import type { Callback as ConventionalChangelogCallback } from 'conventional-recommended-bump';
 import { load } from 'js-yaml';
 import { execSync } from 'node:child_process';
 import type { PathLike } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import type { ReleaseType } from 'semver';
 
 export async function usesModernYarn() {
   const packageJsonPath = join(packageCwd, 'package.json');
@@ -67,3 +69,9 @@ export async function doActionAndLog<T>(preActionLog: string, action: Awaitable<
 
   return result.value;
 }
+
+/** Resolves the release-as prefix */
+export const getReleaseType = (
+  options: OptionValues,
+  changelogResolvedReleaseType: ConventionalChangelogCallback.Recommendation.ReleaseType
+): ReleaseType => ((Boolean(options.preid) ? 'pre' : '') + changelogResolvedReleaseType) as ReleaseType;

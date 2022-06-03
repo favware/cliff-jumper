@@ -1,7 +1,7 @@
 import { packageCwd } from '#lib/constants';
 import { logVerboseError } from '#lib/logger';
 import { readPackageJson, writePackageJson } from '#lib/package-json-parser';
-import { doActionAndLog } from '#lib/utils';
+import { doActionAndLog, getReleaseType } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { OptionValues } from 'commander';
 import type { Callback as ConventionalChangelogCallback } from 'conventional-recommended-bump';
@@ -24,7 +24,7 @@ export function bumpVersion(options: OptionValues, releaseType: ConventionalChan
       });
     }
 
-    const newVersion = Semver.inc(currentClean, releaseType, { loose: true }, options.preid ?? '');
+    const newVersion = Semver.inc(currentClean, `${getReleaseType(options, releaseType)}`, options.preid ?? '');
 
     if (isNullishOrEmpty(newVersion)) {
       return logVerboseError({
