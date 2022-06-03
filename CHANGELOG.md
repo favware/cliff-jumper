@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.8.2](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.8.0...@favware/cliff-jumper@1.8.2) - (2022-06-03)
+
+## 🏠 Refactor
+
+- Stop using npm to read new version and instead read and parse JSON ([7207e45](https://github.com/favware/cliff-jumper/commit/7207e4503350c7469648292e418948847e72b7be))
+
+## 🐛 Bug Fixes
+
+- Properly resolve pre-releases ([cc760af](https://github.com/favware/cliff-jumper/commit/cc760af56ee5f1dfc00264334d42ec95b3520d69))
+- Stop using `npm version` to bump package and instead use `semver` directly ([662b90e](https://github.com/favware/cliff-jumper/commit/662b90e9b8acb2f6419a599cbac569f33ccb45a2))
+
+## 📝 Documentation
+
+- Add @renovate[bot] as a contributor ([75da1b1](https://github.com/favware/cliff-jumper/commit/75da1b1f9dcccc53071c77189fe9f3245fd5a3a5))
+- Add @renovate-bot as a contributor ([a3558eb](https://github.com/favware/cliff-jumper/commit/a3558eb64ded8671567e4e79c4a1e40f025af014))
+- Fix JSON schema ([df316de](https://github.com/favware/cliff-jumper/commit/df316deeb67f9c64fd38fc8138f73dd9a28e55c7))
+
 # [@favware/cliff-jumper@1.8.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.7.0...@favware/cliff-jumper@1.8.0) - (2022-05-13)
 
 ## 🚀 Features
