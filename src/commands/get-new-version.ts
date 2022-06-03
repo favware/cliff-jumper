@@ -1,10 +1,15 @@
-import { doActionAndLog, getFullPackageName } from '#lib/utils';
-import type { OptionValues } from 'commander';
-import { execSync } from 'node:child_process';
+import { packageCwd } from '#lib/constants';
+import { readPackageJson } from '#lib/package-json-parser';
+import { doActionAndLog } from '#lib/utils';
+import { join } from 'node:path';
 
-export function getNewVersion(options: OptionValues) {
+export function getNewVersion() {
   return doActionAndLog<string>(
     'Retrieving new version', //
-    JSON.parse(execSync('npm version --json', { encoding: 'utf-8' }))[getFullPackageName(options)]
+    async () => {
+      const packageJsonPath = join(packageCwd, 'package.json');
+      const packageJsonContent = await readPackageJson(packageJsonPath);
+      return packageJsonContent.version;
+    }
   );
 }

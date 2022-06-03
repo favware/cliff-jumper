@@ -125,12 +125,12 @@ if (!options.dryRun) {
   if (!options.firstRelease) {
     await bumpVersion(options, releaseType!);
 
-    newVersion = await getNewVersion(options);
+    newVersion = await getNewVersion();
     console.log(green(`📦 Bumped ${getFullPackageName(options)}@${newVersion}`));
   }
 
   if (!options.skipChangelog) {
-    newVersion = isNullishOrEmpty(newVersion) ? await getNewVersion(options) : newVersion;
+    newVersion = isNullishOrEmpty(newVersion) ? await getNewVersion() : newVersion;
 
     const tagForChangelog = options.org && options.monoRepo ? `${getFullPackageName(options)}@${newVersion}` : `v${newVersion}`;
 
