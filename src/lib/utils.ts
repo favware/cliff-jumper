@@ -1,6 +1,6 @@
 import { packageCwd } from '#lib/constants';
 import { fromAsync, isErr } from '@sapphire/result';
-import { Awaitable, isThenable } from '@sapphire/utilities';
+import { Awaitable, isFunction, isThenable } from '@sapphire/utilities';
 import { cyan, green, red } from 'colorette';
 import type { OptionValues } from 'commander';
 import { load } from 'js-yaml';
@@ -49,11 +49,12 @@ export function getFullPackageName(options: OptionValues) {
   return options.org ? `@${options.org}/${options.name}` : options.name;
 }
 
-export async function doActionAndLog<T>(preActionLog: string, action: Awaitable<T>): Promise<T> {
+export async function doActionAndLog<T>(preActionLog: string, action: Awaitable<T> | (() => Awaitable<T>)): Promise<T> {
   process.stdout.write(cyan(`${preActionLog}... `));
 
   const result = await fromAsync(async () => {
-    const returnValue = isThenable(action) ? ((await action) as T) : action;
+    const executedFunctionResult = isFunction(action) ? action() : action;
+    const returnValue = isThenable(executedFunctionResult) ? ((await executedFunctionResult) as T) : executedFunctionResult;
     console.log(green('✅ Done'));
     return returnValue;
   });
