@@ -176,9 +176,11 @@ This library has opinionated defaults for its options. These are as follows:
 - `--org` will default to `undefined`.
 - `--preid` will default to `undefined`.
 - `--skip-changelog` will default to `false` (`true` when `CI` environment
-  variable is `'true'`). Alternatively you can force this to false by providing `--no-skip-changelog`.
+  variable is `'true'`). Alternatively you can force this to false by providing
+  `--no-skip-changelog`.
 - `--skip-tag` will default to `false` (`true` when `CI` environment variable is
-  `'true'`). Alternatively you can force this to false by providing `--no-skip-tag`.
+  `'true'`). Alternatively you can force this to false by providing
+  `--no-skip-tag`.
 - `--mono-repo` will default to `true` when `org` is set, or `false` when it's
   not. Alternatively you can force this to false by providing `--no-mono-repo`.
 - `--commit-message-template` will default to
@@ -189,8 +191,8 @@ This library has opinionated defaults for its options. These are as follows:
     the same value set in your config file
   - `{{full-name}}` will be replaced with `{{name}}` (when `org` is not
     provided), or `@{{org}}/{{name}}` (when `org` is provided).
-- `--tag-template` will default to
-  `{{full-name}}@{{new-version}}` (when `org` is provided) **or** `v{{new-version}}` (when `org` is not provided)
+- `--tag-template` will default to `{{full-name}}@{{new-version}}` (when `org`
+  is provided) **or** `v{{new-version}}` (when `org` is not provided)
   - `{{new-version}}` will be replaced with the new version that will be
     published
   - `{{name}}` will be replaced with the name provided through `-n`, `--name` or
@@ -247,6 +249,7 @@ Thanks goes to these wonderful people
 <table>
   <tr>
     <td align="center"><a href="https://favware.tech/"><img src="https://avatars3.githubusercontent.com/u/4019718?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeroen Claassens</b></sub></a><br /><a href="https://github.com/favware/cliff-jumper/commits?author=favna" title="Code">💻</a> <a href="#design-favna" title="Design">🎨</a> <a href="#ideas-favna" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-favna" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-favna" title="Maintenance">🚧</a> <a href="#platform-favna" title="Packaging/porting to new platform">📦</a> <a href="#projectManagement-favna" title="Project Management">📆</a></td>
+    <td align="center"><a href="https://renovate.whitesourcesoftware.com/"><img src="https://avatars.githubusercontent.com/u/25180681?v=4?s=100" width="100px;" alt=""/><br /><sub><b>WhiteSource Renovate</b></sub></a><br /><a href="#maintenance-renovate-bot" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 
