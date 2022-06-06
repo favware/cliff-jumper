@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.8.3](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.8.2...@favware/cliff-jumper@1.8.3) - (2022-06-06)
+
+## 🏠 Refactor
+
+- Change dry run method for comitting ([40190cd](https://github.com/favware/cliff-jumper/commit/40190cd22a010f4822569122fd8804824b156623))
+- Deduplicate tag template resolver ([ad95276](https://github.com/favware/cliff-jumper/commit/ad95276226da43454351f84f3dad34c15f64ef9b))
+
+## 🐛 Bug Fixes
+
+- Ensure `--dry-run` goes through the whole process while not writing anything ([1dc7709](https://github.com/favware/cliff-jumper/commit/1dc77099966b10eb71c3f3585277042a184cdddf))
+- Use tagTemplate for git cliff ([5a59274](https://github.com/favware/cliff-jumper/commit/5a592745023d194af0797cbbfa5a140aabe71daf))
+- **deps:** Update all non-major dependencies ([9f55cb5](https://github.com/favware/cliff-jumper/commit/9f55cb5e293be2aaa1de60479b91c997fbd46bb6))
+
 # [@favware/cliff-jumper@1.8.2](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.8.0...@favware/cliff-jumper@1.8.2) - (2022-06-03)
 
 ## 🏠 Refactor
