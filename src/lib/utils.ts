@@ -1,6 +1,6 @@
 import { packageCwd } from '#lib/constants';
 import { fromAsync, isErr } from '@sapphire/result';
-import { Awaitable, isFunction, isThenable } from '@sapphire/utilities';
+import { Awaitable, isFunction, isNullishOrEmpty, isThenable } from '@sapphire/utilities';
 import { cyan, green, red } from 'colorette';
 import type { OptionValues } from 'commander';
 import type { Callback as ConventionalChangelogCallback } from 'conventional-recommended-bump';
@@ -68,6 +68,22 @@ export async function doActionAndLog<T>(preActionLog: string, action: Awaitable<
   }
 
   return result.value;
+}
+
+export function resolveTagTemplate(options: OptionValues, newVersion: string) {
+  if (isNullishOrEmpty(options.tagTemplate)) {
+    if (isNullishOrEmpty(options.org)) {
+      options.tagTemplate = 'v{{new-version}}';
+    } else {
+      options.tagTemplate = `{{full-name}}@{{new-version}}`;
+    }
+  }
+
+  options.tagTemplate = options.tagTemplate
+    .replaceAll('{{new-version}}', newVersion)
+    .replaceAll('{{org}}', options.org)
+    .replaceAll('{{name}}', options.name)
+    .replaceAll('{{full-name}}', getFullPackageName(options));
 }
 
 /** Resolves the release-as prefix */
