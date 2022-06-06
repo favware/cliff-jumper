@@ -134,9 +134,7 @@ if (!options.dryRun) {
   if (!options.skipChangelog) {
     newVersion = isNullishOrEmpty(newVersion) ? await getNewVersion() : newVersion;
 
-    const tagForChangelog = options.org && options.monoRepo ? `${getFullPackageName(options)}@${newVersion}` : `v${newVersion}`;
-
-    await updateChangelog(options, tagForChangelog);
+    await updateChangelog(options, newVersion);
 
     if (!options.skipTag) {
       await stageFiles();
