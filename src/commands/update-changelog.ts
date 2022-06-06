@@ -8,12 +8,13 @@ export function updateChangelog(options: OptionValues, newVersion: string) {
 
   resolveTagTemplate(options, newVersion);
 
-  return doActionAndLog(
-    'Updating Changelog',
-    execSync(
-      `git cliff --tag ${options.tagTemplate} --prepend ./CHANGELOG.md -u -c ./cliff.toml ${
-        isNullishOrEmpty(repositoryRootDirectory) ? '' : `-r ${repositoryRootDirectory}/ --include-path "${options.packagePath}/*"`
-      }`
-    )
-  );
+  return doActionAndLog('Updating Changelog', () => {
+    if (!options.dryRun) {
+      execSync(
+        `git cliff --tag ${options.tagTemplate} --prepend ./CHANGELOG.md -u -c ./cliff.toml ${
+          isNullishOrEmpty(repositoryRootDirectory) ? '' : `-r ${repositoryRootDirectory}/ --include-path "${options.packagePath}/*"`
+        }`
+      );
+    }
+  });
 }

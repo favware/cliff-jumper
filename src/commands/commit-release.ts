@@ -15,6 +15,6 @@ export function commitRelease(options: OptionValues, newVersion: string) {
 
   return doActionAndLog(
     'Committing release', //
-    execSync(`git commit --no-verify -m "${options.commitMessageTemplate}"`)
+    execSync(`git commit --no-verify -m "${options.commitMessageTemplate}" ${options.dryRun ? '--dry-run' : ''}`)
   );
 }

@@ -7,6 +7,10 @@ export function createTag(options: OptionValues, newVersion: string) {
 
   return doActionAndLog(
     'Creating tag', //
-    execSync(`git tag ${options.tagTemplate}`)
+    () => {
+      if (!options.dryRun) {
+        execSync(`git tag ${options.tagTemplate}`);
+      }
+    }
   );
 }

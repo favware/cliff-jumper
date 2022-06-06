@@ -41,6 +41,8 @@ export function bumpVersion(options: OptionValues, releaseType: ConventionalChan
 
     packageJsonContent.version = newVersion;
 
-    await writePackageJson(packageJsonPath, packageJsonContent);
+    if (!options.dryRun) {
+      await writePackageJson(packageJsonPath, packageJsonContent);
+    }
   });
 }

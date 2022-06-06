@@ -121,31 +121,29 @@ console.info(
   )
 );
 
-if (!options.dryRun) {
-  let newVersion: string | undefined;
+let newVersion: string | undefined;
 
-  if (!options.firstRelease) {
-    await bumpVersion(options, releaseType!);
+if (!options.firstRelease) {
+  await bumpVersion(options, releaseType!);
 
-    newVersion = await getNewVersion();
-    console.log(green(`📦 Bumped ${getFullPackageName(options)}@${newVersion}`));
-  }
+  newVersion = await getNewVersion();
+  console.log(green(`📦 Bumped ${getFullPackageName(options)}@${newVersion}`));
+}
 
-  if (!options.skipChangelog) {
-    newVersion = isNullishOrEmpty(newVersion) ? await getNewVersion() : newVersion;
+if (!options.skipChangelog) {
+  newVersion = isNullishOrEmpty(newVersion) ? await getNewVersion() : newVersion;
 
-    await updateChangelog(options, newVersion);
+  await updateChangelog(options, newVersion);
 
-    if (!options.skipTag) {
-      await stageFiles();
+  if (!options.skipTag) {
+    await stageFiles(options);
 
-      await commitRelease(options, newVersion);
+    await commitRelease(options, newVersion);
 
-      await createTag(options, newVersion);
+    await createTag(options, newVersion);
 
-      const hasYarn = await usesModernYarn();
+    const hasYarn = await usesModernYarn();
 
-      console.info(blue('ℹ️') + green(` Run \`git push && git push --tags && ${hasYarn ? 'yarn ' : ''}npm publish\` to publish`));
-    }
+    console.info(blue('ℹ️') + green(` Run \`git push && git push --tags && ${hasYarn ? 'yarn ' : ''}npm publish\` to publish`));
   }
 }
