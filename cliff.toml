@@ -10,7 +10,7 @@ body = """
     {% if previous %}\
         {% if previous.version %}\
             (https://github.com/favware/cliff-jumper/compare/{{ previous.version }}...{{ version }})\
-        {% else %}
+        {% else %}\
             (https://github.com/favware/cliff-jumper/tree/{{ version }})\
         {% endif %}\
     {% endif %} \
