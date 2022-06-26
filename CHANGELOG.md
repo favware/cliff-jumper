@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.8.4](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.8.3...@favware/cliff-jumper@1.8.4) - (2022-06-26)
+
+## 🏠 Refactor
+
+- Update to sapphire result v2 ([eaeb14a](https://github.com/favware/cliff-jumper/commit/eaeb14a00baa53881c55c8c0410bf86b4ecfd16a))
+
 # [@favware/cliff-jumper@1.8.3](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.8.2...@favware/cliff-jumper@1.8.3) - (2022-06-06)
 
 ## 🏠 Refactor
