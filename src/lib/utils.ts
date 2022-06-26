@@ -1,5 +1,5 @@
 import { packageCwd } from '#lib/constants';
-import { fromAsync, isErr } from '@sapphire/result';
+import { Result } from '@sapphire/result';
 import { Awaitable, isFunction, isNullishOrEmpty, isThenable } from '@sapphire/utilities';
 import { cyan, green, red } from 'colorette';
 import type { OptionValues } from 'commander';
@@ -54,20 +54,20 @@ export function getFullPackageName(options: OptionValues) {
 export async function doActionAndLog<T>(preActionLog: string, action: Awaitable<T> | (() => Awaitable<T>)): Promise<T> {
   process.stdout.write(cyan(`${preActionLog}... `));
 
-  const result = await fromAsync(async () => {
+  const result = await Result.fromAsync<T, Error>(async () => {
     const executedFunctionResult = isFunction(action) ? action() : action;
     const returnValue = isThenable(executedFunctionResult) ? ((await executedFunctionResult) as T) : executedFunctionResult;
     console.log(green('✅ Done'));
     return returnValue;
   });
 
-  if (isErr(result)) {
+  if (result.isErr()) {
     console.log(red('❌ Error'));
-    console.error((result.error as Error).message);
+    console.error(result.unwrapErr().message);
     process.exit(1);
   }
 
-  return result.value;
+  return result.unwrap();
 }
 
 export function resolveTagTemplate(options: OptionValues, newVersion: string) {
