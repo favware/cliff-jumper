@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.8.5](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.8.4...@favware/cliff-jumper@1.8.5) - (2022-06-29)
+
+## 🐛 Bug Fixes
+
+- Use resolved new version if available ([eacdb59](https://github.com/favware/cliff-jumper/commit/eacdb59b6694b063423ab4c19379b4ed1fb76cb1))
+
 # [@favware/cliff-jumper@1.8.4](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.8.3...@favware/cliff-jumper@1.8.4) - (2022-06-26)
 
 ## 🏠 Refactor
