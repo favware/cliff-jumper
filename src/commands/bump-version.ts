@@ -44,5 +44,7 @@ export function bumpVersion(options: OptionValues, releaseType: ConventionalChan
     if (!options.dryRun) {
       await writePackageJson(packageJsonPath, packageJsonContent);
     }
+
+    return newVersion;
   });
 }

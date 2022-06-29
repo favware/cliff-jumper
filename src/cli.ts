@@ -124,9 +124,9 @@ console.info(
 let newVersion: string | undefined;
 
 if (!options.firstRelease) {
-  await bumpVersion(options, releaseType!);
+  const resolvedNewVersion = await bumpVersion(options, releaseType!);
 
-  newVersion = await getNewVersion();
+  newVersion = typeof resolvedNewVersion === 'string' ? resolvedNewVersion : await getNewVersion();
   console.log(green(`📦 Bumped ${getFullPackageName(options)}@${newVersion}`));
 }
 
