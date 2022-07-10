@@ -255,7 +255,7 @@ __metadata:
     "@commitlint/config-conventional": ^17.0.3
     "@sapphire/eslint-config": ^4.3.7
     "@sapphire/prettier-config": ^1.4.3
-    "@sapphire/result": ^2.0.0
+    "@sapphire/result": ^2.0.1
     "@sapphire/ts-config": ^3.3.4
     "@sapphire/utilities": ^3.7.0
     "@types/conventional-recommended-bump": ^6.1.0
@@ -380,10 +380,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/result@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@sapphire/result@npm:2.0.0"
-  checksum: 24ec5637e128c551332e40b0fbab06ef156a09630a7f812ac183717cadecec021d883894055b4ac3d5ede7ce0a2fff0f2b43f08fafb5d9c6f8f20b813bdd71d6
+"@sapphire/result@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@sapphire/result@npm:2.0.1"
+  checksum: 878790efbd4a3127513f6ddb1ffdf287503a88595915a22550ac3583e4dde229dd0d7d49612d397a49f12a0c2323afc43ab54ceb818d969f8d0571d71336287a
   languageName: node
   linkType: hard
 
