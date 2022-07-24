@@ -53,8 +53,8 @@
     "@types/js-yaml": "^4.0.5",
     "@types/node": "^18.0.0",
     "@types/semver": "^7.3.10",
-    "@typescript-eslint/eslint-plugin": "^5.30.6",
-    "@typescript-eslint/parser": "^5.30.6",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
@@ -67,7 +67,7 @@
     "ts-node": "^10.9.1"
   },
   "resolutions": {
-    "acorn": "^8.7.1",
+    "acorn": "^8.8.0",
     "ansi-regex": "^5.0.1",
     "minimist": "^1.2.6"
   },
@@ -114,5 +114,5 @@
   "eslintConfig": {
     "extends": "@sapphire"
   },
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.2.2"
 }
