@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.8.8](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.8.7...@favware/cliff-jumper@1.8.8) - (2022-10-02)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update dependency @sapphire/result to ^2.5.0 ([02bcb09](https://github.com/favware/cliff-jumper/commit/02bcb09e45cce1e12b798f57d5dc51f83b408bd4))
+- **deps:** Update sapphire dependencies ([e230602](https://github.com/favware/cliff-jumper/commit/e230602586403b3dc2129e41dfe7329442319291))
+
 # [@favware/cliff-jumper@1.8.7](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.8.6...@favware/cliff-jumper@1.8.7) - (2022-08-20)
 
 ## 🐛 Bug Fixes
