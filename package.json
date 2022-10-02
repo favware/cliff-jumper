@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@sapphire/result": "^2.5.0",
-    "@sapphire/utilities": "^3.9.3",
+    "@sapphire/utilities": "3.10.0",
     "colorette": "^2.0.19",
     "commander": "^9.4.1",
     "conventional-changelog-angular": "^5.0.13",

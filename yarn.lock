@@ -319,7 +319,7 @@ __metadata:
     "@sapphire/prettier-config": ^1.4.4
     "@sapphire/result": ^2.5.0
     "@sapphire/ts-config": ^3.3.4
-    "@sapphire/utilities": ^3.9.3
+    "@sapphire/utilities": 3.10.0
     "@types/conventional-recommended-bump": ^6.1.0
     "@types/js-yaml": ^4.0.5
     "@types/node": ^18.7.23
@@ -484,10 +484,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/utilities@npm:^3.9.3":
-  version: 3.9.3
-  resolution: "@sapphire/utilities@npm:3.9.3"
-  checksum: 9f3f977fd5c0677d5f79136e9cb68ade3317cfba3e87bb58689f4af68233a807af34eb6092ad262c946d5eaf5c4a76cd534b0b395ebbaf0f0912dd80e174f912
+"@sapphire/utilities@npm:3.10.0":
+  version: 3.10.0
+  resolution: "@sapphire/utilities@npm:3.10.0"
+  checksum: 93795fc0903943aa22ebcde32f5f7c52a50b085e300b655d1ff77d42585040cb459153b1aee9e7c0408d4e4d535e1978803b0a06d4a0a577f64f0b0b92f1a7bd
   languageName: node
   linkType: hard
 
