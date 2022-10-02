@@ -33,7 +33,7 @@
     "postpack": "pinst --enable"
   },
   "dependencies": {
-    "@sapphire/result": "^2.4.1",
+    "@sapphire/result": "^2.5.0",
     "@sapphire/utilities": "^3.9.3",
     "colorette": "^2.0.19",
     "commander": "^9.4.1",
