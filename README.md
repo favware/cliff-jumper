@@ -218,6 +218,68 @@ This means that the CLI flags will always have the highest priority. This way
 you can have a config file for base options, then overwrite that with CLI flags,
 such as in a CI environment.
 
+### Example Configuration setups
+
+Following are JSON examples of how you can configure this package based on
+different situations.
+
+#### Scoped packages in a non-mono repo
+
+**This is for versioning `@my-org/my-package` that does not reside in a mono
+repo, for example [sapphiredev/shapeshift][shapeshift]**
+
+```json
+{
+  "name": "package-name",
+  "packagePath": ".",
+  "org": "my-org",
+  "monoRepo": false,
+  "commitMessageTemplate": "chore(release): release {{new-version}}",
+  "tagTemplate": "v{{new-version}}"
+}
+```
+
+#### Scoped packages in a mono repo
+
+**This is for versioning `@my-org/my-package` that resides in a mono repo, for
+example [sapphiredev/utilities][utilities]**
+
+```json
+{
+  "name": "package-name",
+  "org": "my-org",
+  "packagePath": "packages/decorators"
+}
+```
+
+#### Non-scoped packages in a non-mono repo
+
+**This is for versioning `my-package` that does not reside in a mono repo, for
+example
+[favware/esbuild-plugin-version-injector][esbuild-plugin-version-injector]**
+
+```json
+{
+  "name": "my-package",
+  "packagePath": ".",
+  "commitMessageTemplate": "chore(release): release {{new-version}}",
+  "tagTemplate": "v{{new-version}}"
+}
+```
+
+#### Non-scoped packages in a mono repo
+
+**This is for versioning `my-package` that resides in a mono repo, for example
+[discord.js/discordjs][discordjs]**
+
+```json
+{
+  "name": "my-package",
+  "packagePath": "packages/discord.js",
+  "tagTemplate": "{{new-version}}"
+}
+```
+
 ## Buy us some doughnuts
 
 Favware projects are and always will be open source, even if we don't get
@@ -269,3 +331,10 @@ specification. Contributions of any kind welcome!
   https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type
 [conventional-recommended-bump]:
   https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-recommended-bump
+[shapeshift]: https://github.com/sapphiredev/shapeshift
+[utilities]:
+  https://github.com/sapphiredev/utilities/tree/main/packages/utilities
+[esbuild-plugin-version-injector]:
+  https://github.com/favware/esbuild-plugin-version-injector
+[discordjs]:
+  https://github.com/discordjs/discord.js/tree/main/packages/discord.js
