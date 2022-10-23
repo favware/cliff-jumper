@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Project
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Use Node.js v16 with GitHub Package Registry
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048 # tag=v3
+        uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: yarn
