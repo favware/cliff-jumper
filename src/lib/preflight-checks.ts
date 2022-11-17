@@ -6,6 +6,7 @@ import { doActionAndLog, readJson } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { OptionValues } from 'commander';
 import { join } from 'path';
+import { createFile } from './createFile';
 
 export async function preflightChecks(options: OptionValues) {
   if (isNullishOrEmpty(options.name)) {
@@ -72,11 +73,18 @@ export async function preflightChecks(options: OptionValues) {
     );
 
     if (!hasChangelogFileAtCwd) {
-      logVerboseError({
-        text: ['No CHANGELOG.md detected at current directory'],
-        exitAfterLog: true,
-        verbose: options.verbose
-      });
+      if (options.firstRelease) {
+        await doActionAndLog(
+          'Creating an empty CHANGELOG.md file in the current working directory', //
+          createFile(join(packageCwd, 'CHANGELOG.md'))
+        );
+      } else {
+        logVerboseError({
+          text: ['No CHANGELOG.md detected at current directory'],
+          exitAfterLog: true,
+          verbose: options.verbose
+        });
+      }
     }
 
     const hasGitCliff = await doActionAndLog(
