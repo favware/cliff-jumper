@@ -1,4 +1,5 @@
 import { packageCwd } from '#lib/constants';
+import { createFile } from '#lib/createFile';
 import { fileExists } from '#lib/fileExists';
 import { gitCliffExists } from '#lib/gitCliffExists';
 import { logVerboseError } from '#lib/logger';
@@ -6,7 +7,6 @@ import { doActionAndLog, readJson } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { OptionValues } from 'commander';
 import { join } from 'path';
-import { createFile } from './createFile';
 
 export async function preflightChecks(options: OptionValues) {
   if (isNullishOrEmpty(options.name)) {
