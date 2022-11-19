@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.9.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.8.8...@favware/cliff-jumper@1.9.0) - (2022-11-19)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update dependency @sapphire/result to ^2.6.0 ([9ed7289](https://github.com/favware/cliff-jumper/commit/9ed728932c05e1322ccb0fc92b5cb3772cbb7aa9))
+- **deps:** Update dependency @sapphire/utilities to v3.11.0 ([0919bf6](https://github.com/favware/cliff-jumper/commit/0919bf6b62d9260b014caa6c6560dca367cd10b8))
+- Bump @sapphire/utilities ([50ec6ac](https://github.com/favware/cliff-jumper/commit/50ec6ac475560f6b20e91255f9e128b721845f0f))
+
+## 📝 Documentation
+
+- Add imranbarbhuiya as a contributor for code (#54) ([00e8c2f](https://github.com/favware/cliff-jumper/commit/00e8c2f58e7ef6dadd1858f406d00282a7f6444f))
+- **readme:** Add configuration examples ([5e891b0](https://github.com/favware/cliff-jumper/commit/5e891b0ecde8f520e0b230c195b727f6b6a6ae40))
+
+## 🚀 Features
+
+- Create an empty changelog file when it does not yet exist and first release was provided (#31) ([90acb2a](https://github.com/favware/cliff-jumper/commit/90acb2a8d7827a5a93d57392c6f9854a6de09a88))
+
 # [@favware/cliff-jumper@1.8.8](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.8.7...@favware/cliff-jumper@1.8.8) - (2022-10-02)
 
 ## 🐛 Bug Fixes
