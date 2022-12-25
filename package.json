@@ -53,8 +53,8 @@
     "@types/js-yaml": "^4.0.5",
     "@types/node": "^18.11.17",
     "@types/semver": "^7.3.13",
-    "@typescript-eslint/eslint-plugin": "^5.46.1",
-    "@typescript-eslint/parser": "^5.46.1",
+    "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "@typescript-eslint/parser": "^5.47.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
@@ -114,5 +114,5 @@
   "eslintConfig": {
     "extends": "@sapphire"
   },
-  "packageManager": "yarn@3.3.0"
+  "packageManager": "yarn@3.3.1"
 }
