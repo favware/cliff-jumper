@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@1.10.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.9.0...@favware/cliff-jumper@1.10.0) - (2023-01-08)
+
+## 🚀 Features
+
+- Change to @favware/conventional-changelog-angular to solve issue with breaking change headers ([96c885b](https://github.com/favware/cliff-jumper/commit/96c885ba972e86467cbd870ac787bdfaa195071a))
+
 # [@favware/cliff-jumper@1.9.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.8.8...@favware/cliff-jumper@1.9.0) - (2022-11-19)
 
 ## 🐛 Bug Fixes
