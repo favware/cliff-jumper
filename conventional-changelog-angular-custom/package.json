@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test-windows": "mocha --timeout 30000",
-    "prepack": "node patches/custom-changes.patch",
-    "postpack": "node patches/restore-changes.patch"
+    "prepack": "node patches/custom-changes.js",
+    "postpack": "node patches/restore-changes.js"
   },
   "repository": {
     "type": "git",
