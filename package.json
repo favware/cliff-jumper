@@ -23,17 +23,19 @@
     "dist/**/*.js"
   ],
   "scripts": {
-    "debug": "node . --first-release --verbose",
-    "start": "node .",
+    "debug": "node . --first-release --verbose --dry-run",
+    "start": "node . --dry-run",
     "lint": "eslint src --ext ts --fix",
     "format": "prettier --write \"src/**/*.ts\"",
     "update": "yarn upgrade-interactive",
     "clean": "node scripts/clean.mjs",
     "build": "tsc -b src",
     "watch": "tsc -b src -w",
-    "prepack": "yarn workspace @favware/conventional-changelog-angular run prepack && yarn build && pinst --disable",
+    "bump": "yarn build && yarn workspace @favware/conventional-changelog-angular run prepack && node .",
+    "check-update": "yarn build && yarn workspace @favware/conventional-changelog-angular run prepack && node . --dry-run",
+    "prepack": "pinst --disable",
     "postinstall": "husky install .github/husky",
-    "postpack": "yarn workspace @favware/conventional-changelog-angular run postpack && pinst --enable"
+    "postpack": "pinst --enable"
   },
   "dependencies": {
     "@favware/conventional-changelog-angular": "workspace:^",
