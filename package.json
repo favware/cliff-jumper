@@ -31,11 +31,13 @@
     "clean": "node scripts/clean.mjs",
     "build": "tsc -b src",
     "watch": "tsc -b src -w",
-    "bump": "yarn build && yarn workspace @favware/conventional-changelog-angular run prepack && node . && yarn workspace @favware/conventional-changelog-angular run postpack",
-    "check-update": "yarn build && yarn workspace @favware/conventional-changelog-angular run prepack && node . --dry-run && yarn workspace @favware/conventional-changelog-angular run postpack",
+    "bump": "yarn build && yarn workspace:prepack && node . && yarn workspace:postpack",
+    "check-update": "yarn build && yarn workspace:prepack && node . --dry-run && yarn workspace:postpack",
     "prepack": "pinst --disable",
     "postinstall": "husky install .github/husky",
-    "postpack": "pinst --enable"
+    "postpack": "pinst --enable",
+    "workspace:prepack": "yarn workspace @favware/conventional-changelog-angular run prepack",
+    "workspace:postpack": "yarn workspace @favware/conventional-changelog-angular run postpack"
   },
   "dependencies": {
     "@favware/conventional-changelog-angular": "workspace:^",
