@@ -31,9 +31,9 @@
     "clean": "node scripts/clean.mjs",
     "build": "tsc -b src",
     "watch": "tsc -b src -w",
-    "prepack": "yarn build && pinst --disable",
+    "prepack": "yarn workspace @favware/conventional-changelog-angular run prepack && yarn build && pinst --disable",
     "postinstall": "husky install .github/husky",
-    "postpack": "pinst --enable"
+    "postpack": "yarn workspace @favware/conventional-changelog-angular run postpack && pinst --enable"
   },
   "dependencies": {
     "@favware/conventional-changelog-angular": "workspace:^",
