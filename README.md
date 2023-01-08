@@ -21,8 +21,9 @@ the release flow for every package. This is where [cliff-jumper] comes in.
 ### How this works
 
 [cliff-jumper] uses a combination of [conventional-recommended-bump] and
-[git-cliff] to bump your package using semantic versioning (following the
-[Angular preset][angular-preset]). It will:
+[git-cliff] to bump your package using semantic versioning (following a
+variation of the [Angular preset][angular-preset] (seen
+[here][angular-preset-custom])). It will:
 
 1. Perform preflight checks to verify that the tool can run
 1. Resolve which bump strategy should be used by using
@@ -341,3 +342,4 @@ specification. Contributions of any kind welcome!
   https://github.com/favware/esbuild-plugin-version-injector
 [discordjs]:
   https://github.com/discordjs/discord.js/tree/main/packages/discord.js
+[angular-preset-custom]: ./conventional-changelog-angular-custom/

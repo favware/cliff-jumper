@@ -4,7 +4,7 @@ import type { OptionValues } from 'commander';
 
 export function getConventionalBump(options: OptionValues) {
   return asyncConventionalRecommendBump({
-    preset: 'angular',
+    preset: '@favware/angular',
     path: process.cwd(),
     ...(options.monoRepo ? { lernaPackage: getFullPackageName(options) } : {})
   });

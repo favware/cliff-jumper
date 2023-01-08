@@ -336,6 +336,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": ^17.4.0
     "@commitlint/config-conventional": ^17.4.0
+    "@favware/conventional-changelog-angular": "workspace:^"
     "@sapphire/eslint-config": ^4.3.8
     "@sapphire/prettier-config": ^1.4.4
     "@sapphire/result": ^2.6.0
@@ -349,7 +350,6 @@ __metadata:
     "@typescript-eslint/parser": ^5.48.0
     colorette: ^2.0.19
     commander: ^9.5.0
-    conventional-changelog-angular: ^5.0.13
     conventional-recommended-bump: ^6.1.0
     cz-conventional-changelog: ^3.3.0
     eslint: ^8.31.0
@@ -367,6 +367,15 @@ __metadata:
   bin:
     cj: ./dist/cli.js
     cliff-jumper: ./dist/cli.js
+  languageName: unknown
+  linkType: soft
+
+"@favware/conventional-changelog-angular@workspace:^, @favware/conventional-changelog-angular@workspace:conventional-changelog-angular-custom":
+  version: 0.0.0-use.local
+  resolution: "@favware/conventional-changelog-angular@workspace:conventional-changelog-angular-custom"
+  dependencies:
+    compare-func: ^2.0.0
+    q: ^1.5.1
   languageName: unknown
   linkType: soft
 
@@ -1382,7 +1391,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-changelog-angular@npm:^5.0.11, conventional-changelog-angular@npm:^5.0.13":
+"conventional-changelog-angular@npm:^5.0.11":
   version: 5.0.13
   resolution: "conventional-changelog-angular@npm:5.0.13"
   dependencies:
