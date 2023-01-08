@@ -4,4 +4,4 @@ CHANGELOG.md
 dist/
 coverage/
 conventional-changelog-angular-custom/templates/
-conventional-changelog-angular-custom/parser-opts.js/
+conventional-changelog-angular-custom/parser-opts.js
