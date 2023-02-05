@@ -48,7 +48,7 @@
     "conventional-recommended-bump": "^6.1.0",
     "js-yaml": "^4.1.0",
     "semver": "^7.3.8",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.2",
@@ -58,10 +58,10 @@
     "@sapphire/ts-config": "^3.3.4",
     "@types/conventional-recommended-bump": "^6.1.0",
     "@types/js-yaml": "^4.0.5",
-    "@types/node": "^18.11.18",
+    "@types/node": "^18.11.19",
     "@types/semver": "^7.3.13",
-    "@typescript-eslint/eslint-plugin": "^5.49.0",
-    "@typescript-eslint/parser": "^5.49.0",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
@@ -121,5 +121,5 @@
   "eslintConfig": {
     "extends": "@sapphire"
   },
-  "packageManager": "yarn@3.3.1"
+  "packageManager": "yarn@3.4.1"
 }
