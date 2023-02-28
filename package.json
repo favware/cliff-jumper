@@ -46,6 +46,7 @@
     "colorette": "^2.0.19",
     "commander": "^9.5.0",
     "conventional-recommended-bump": "^6.1.0",
+    "git-cliff": "^1.1.2",
     "js-yaml": "^4.1.0",
     "semver": "^7.3.8",
     "typescript": "^4.9.5"

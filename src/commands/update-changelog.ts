@@ -11,7 +11,7 @@ export function updateChangelog(options: OptionValues, newVersion: string) {
   return doActionAndLog('Updating Changelog', () => {
     if (!options.dryRun) {
       execSync(
-        `git cliff --tag ${options.tagTemplate} --prepend ./CHANGELOG.md -u -c ./cliff.toml ${
+        `npx git cliff --tag ${options.tagTemplate} --prepend ./CHANGELOG.md -u -c ./cliff.toml ${
           isNullishOrEmpty(repositoryRootDirectory) ? '' : `-r ${repositoryRootDirectory}/ --include-path "${options.packagePath}/*"`
         }`
       );
