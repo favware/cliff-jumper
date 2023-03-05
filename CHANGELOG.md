@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@2.0.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.10.0...@favware/cliff-jumper@2.0.0) - (2023-03-05)
+
+## 🐛 Bug Fixes
+
+- Fixed npx executable for `git-cliff` ([cde7e4c](https://github.com/favware/cliff-jumper/commit/cde7e4c053bd1f1fa6931b6c8ef2030711f6f0c4))
+- **changelog-angular:** Updated source files to latest from mirror ([a831453](https://github.com/favware/cliff-jumper/commit/a831453c24d3632c6c1c11ee01fd5b6069ed250b))
+- **deps:** Update dependency commander to v10 (#65) ([f725495](https://github.com/favware/cliff-jumper/commit/f72549586434f15180843b382a0268d1b7586754))
+  - 💥 **BREAKING CHANGE:** `@favware/cliff-jumper` v2 requires Node.js v14 or higher due to the dependency of Commander@10.x
+
+## 🚀 Features
+
+- **deps:** Use `git-cliff` from npm instead of relying on native install (#68) ([0494e92](https://github.com/favware/cliff-jumper/commit/0494e9224911fa613e961bcdaffab424e774df0b))
+  - 💥 **BREAKING CHANGE:** `@favware/cliff-jumper` v2 uses `v1.1.2` of git-cliff, refer to the changelog of git cliff for their breaking changes at v1.x
+
 # [@favware/cliff-jumper@1.10.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.9.0...@favware/cliff-jumper@1.10.0) - (2023-01-08)
 
 ## 🚀 Features
