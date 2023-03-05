@@ -2,7 +2,7 @@ import { packageCwd } from '#lib/constants';
 import { Result } from '@sapphire/result';
 import { Awaitable, isFunction, isNullishOrEmpty, isThenable } from '@sapphire/utilities';
 import { cyan, green, red } from 'colorette';
-import type { OptionValues } from 'commander';
+import type { Options } from 'commander';
 import type { Callback as ConventionalChangelogCallback } from 'conventional-recommended-bump';
 import { load } from 'js-yaml';
 import { execSync } from 'node:child_process';
@@ -47,7 +47,7 @@ export function getGitRootDirection() {
     .join('/');
 }
 
-export function getFullPackageName(options: OptionValues) {
+export function getFullPackageName(options: Options) {
   return options.org ? `@${options.org}/${options.name}` : options.name;
 }
 
@@ -70,7 +70,7 @@ export async function doActionAndLog<T>(preActionLog: string, action: Awaitable<
   return result.unwrap();
 }
 
-export function resolveTagTemplate(options: OptionValues, newVersion: string) {
+export function resolveTagTemplate(options: Options, newVersion: string) {
   if (isNullishOrEmpty(options.tagTemplate)) {
     if (isNullishOrEmpty(options.org)) {
       options.tagTemplate = 'v{{new-version}}';
@@ -88,6 +88,6 @@ export function resolveTagTemplate(options: OptionValues, newVersion: string) {
 
 /** Resolves the release-as prefix */
 export const getReleaseType = (
-  options: OptionValues,
+  options: Options,
   changelogResolvedReleaseType: ConventionalChangelogCallback.Recommendation.ReleaseType
 ): ReleaseType => ((Boolean(options.preid) ? 'pre' : '') + changelogResolvedReleaseType) as ReleaseType;

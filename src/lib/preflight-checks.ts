@@ -5,10 +5,10 @@ import { gitCliffExists } from '#lib/gitCliffExists';
 import { logVerboseError } from '#lib/logger';
 import { doActionAndLog, readJson } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
-import type { OptionValues } from 'commander';
+import type { Options } from 'commander';
 import { join } from 'path';
 
-export async function preflightChecks(options: OptionValues) {
+export async function preflightChecks(options: Options) {
   if (isNullishOrEmpty(options.name)) {
     logVerboseError({
       text: ['No package name was provided (`-n`, or `--name` as cli flags, or `name` in config file)'],

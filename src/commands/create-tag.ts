@@ -1,8 +1,8 @@
 import { doActionAndLog, resolveTagTemplate } from '#lib/utils';
-import type { OptionValues } from 'commander';
+import type { Options } from 'commander';
 import { execSync } from 'node:child_process';
 
-export function createTag(options: OptionValues, newVersion: string) {
+export function createTag(options: Options, newVersion: string) {
   resolveTagTemplate(options, newVersion);
 
   return doActionAndLog(

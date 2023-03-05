@@ -1,7 +1,7 @@
 export default undefined;
 
 declare module 'commander' {
-  export interface OptionValues {
+  export interface Options {
     name: string;
     org: string;
     packagePath: string;
