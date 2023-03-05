@@ -1,9 +1,9 @@
 import { doActionAndLog, getGitRootDirection, resolveTagTemplate } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
-import type { OptionValues } from 'commander';
+import type { Options } from 'commander';
 import { execSync } from 'node:child_process';
 
-export function updateChangelog(options: OptionValues, newVersion: string) {
+export function updateChangelog(options: Options, newVersion: string) {
   const repositoryRootDirectory = getGitRootDirection();
 
   resolveTagTemplate(options, newVersion);

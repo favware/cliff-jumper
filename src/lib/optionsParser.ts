@@ -2,14 +2,14 @@ import { cliffJumperRcJsonPath, cliffJumperRcPath, cliffJumperRcYamlPath, cliffJ
 import { fileExists } from '#lib/fileExists';
 import { logVerboseError } from '#lib/logger';
 import { readJson, readYaml } from '#lib/utils';
-import type { OptionValues } from 'commander';
+import type { Options } from 'commander';
 
 /**
  * Parses a YAML or JSON options file and merges that with CLI provided options
  * @param cliOptions The base CLI options to merge with the options found in a YAML or JSON file, if any
  * @returns The YAML or JSON file provided options with anything passed through the CLI overriding it.
  */
-export async function parseOptionsFile(cliOptions: OptionValues) {
+export async function parseOptionsFile(cliOptions: Options) {
   const cliffJumperRcExists = await fileExists(cliffJumperRcPath);
   const cliffJumperRcJsonExists = await fileExists(cliffJumperRcJsonPath);
   const cliffJumperRcYmlExists = await fileExists(cliffJumperRcYmlPath);
@@ -19,7 +19,7 @@ export async function parseOptionsFile(cliOptions: OptionValues) {
 
   if (cliffJumperRcYamlExists || cliffJumperRcYmlExists) {
     try {
-      const fileOptions = await readYaml<OptionValues>(cliffJumperRcYamlExists ? cliffJumperRcYamlPath : cliffJumperRcYmlPath);
+      const fileOptions = await readYaml<Options>(cliffJumperRcYamlExists ? cliffJumperRcYamlPath : cliffJumperRcYmlPath);
 
       options = {
         ...fileOptions,
@@ -44,7 +44,7 @@ export async function parseOptionsFile(cliOptions: OptionValues) {
     }
   } else if (cliffJumperRcExists || cliffJumperRcJsonExists) {
     try {
-      const fileOptions = await readJson<OptionValues>(cliffJumperRcExists ? cliffJumperRcPath : cliffJumperRcJsonPath);
+      const fileOptions = await readJson<Options>(cliffJumperRcExists ? cliffJumperRcPath : cliffJumperRcJsonPath);
 
       options = {
         ...fileOptions,

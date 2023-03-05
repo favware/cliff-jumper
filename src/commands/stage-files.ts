@@ -1,8 +1,8 @@
 import { doActionAndLog } from '#lib/utils';
-import type { OptionValues } from 'commander';
+import type { Options } from 'commander';
 import { execSync } from 'node:child_process';
 
-export function stageFiles(options: OptionValues) {
+export function stageFiles(options: Options) {
   return doActionAndLog(
     'Staging package.json and CHANGELOG.md', //
     () => {
