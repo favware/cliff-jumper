@@ -1,6 +1,6 @@
 {
   "name": "@favware/conventional-changelog-angular",
-  "version": "5.0.14",
+  "version": "5.0.15",
   "description": "conventional-changelog angular preset",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
   ],
   "author": "Steve Mao",
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "license": "ISC",
   "bugs": {
@@ -35,8 +35,7 @@
   },
   "homepage": "https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular#readme",
   "dependencies": {
-    "compare-func": "^2.0.0",
-    "q": "^1.5.1"
+    "compare-func": "^2.0.0"
   },
   "publishConfig": {
     "access": "public"
