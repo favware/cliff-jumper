@@ -301,34 +301,18 @@ method of choice.
 |    Ethereum     |   `0xF653F666903cd8739030D2721bF01095896F5D6E`    |
 |    LiteCoin     |       `LZHvBkaJqKJRa8N7Dyu41Jd1PDBAofCik6`        |
 
-## Contributors ✨
+## Contributors
 
-Thanks goes to these wonderful people
-([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Please make sure to read the [Contributing Guide][contributing] before making a
+pull request.
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tbody>
-    <tr>
-      <td align="center"><a href="https://favware.tech/"><img src="https://avatars3.githubusercontent.com/u/4019718?v=4?s=100" width="100px;" alt="Jeroen Claassens"/><br /><sub><b>Jeroen Claassens</b></sub></a><br /><a href="https://github.com/favware/cliff-jumper/commits?author=favna" title="Code">💻</a> <a href="#design-favna" title="Design">🎨</a> <a href="#ideas-favna" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-favna" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-favna" title="Maintenance">🚧</a> <a href="#platform-favna" title="Packaging/porting to new platform">📦</a> <a href="#projectManagement-favna" title="Project Management">📆</a></td>
-      <td align="center"><a href="https://renovate.whitesourcesoftware.com/"><img src="https://avatars.githubusercontent.com/u/25180681?v=4?s=100" width="100px;" alt="WhiteSource Renovate"/><br /><sub><b>WhiteSource Renovate</b></sub></a><br /><a href="#maintenance-renovate-bot" title="Maintenance">🚧</a></td>
-      <td align="center"><a href="https://github.com/apps/renovate"><img src="https://avatars.githubusercontent.com/in/2740?v=4?s=100" width="100px;" alt="renovate[bot]"/><br /><sub><b>renovate[bot]</b></sub></a><br /><a href="#maintenance-renovate[bot]" title="Maintenance">🚧</a></td>
-      <td align="center"><a href="https://github.com/imranbarbhuiya"><img src="https://avatars.githubusercontent.com/u/74945038?v=4?s=100" width="100px;" alt="Parbez"/><br /><sub><b>Parbez</b></sub></a><br /><a href="https://github.com/favware/cliff-jumper/commits?author=imranbarbhuiya" title="Code">💻</a></td>
-    </tr>
-  </tbody>
-</table>
+Thank you to all the people who already contributed to Sapphire!
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
+<a href="https://github.com/favware/cliff-jumper/graphs/contributors">
+  <img alt="contributors" src="https://contrib.rocks/image?repo=favware/cliff-jumper" />
+</a>
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the
-[all-contributors](https://github.com/all-contributors/all-contributors)
-specification. Contributions of any kind welcome!
-
+[contributing]: ./.github/CONTRIBUTING.md
 [git-cliff]: https://github.com/orhun/git-cliff
 [cliff-jumper]: https://github.com/favware/cliff-jumper
 [angular-preset]:

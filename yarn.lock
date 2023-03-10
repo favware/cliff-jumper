@@ -308,7 +308,6 @@ __metadata:
   resolution: "@favware/conventional-changelog-angular@workspace:conventional-changelog-angular-custom"
   dependencies:
     compare-func: ^2.0.0
-    q: ^1.5.1
   languageName: unknown
   linkType: soft
 
