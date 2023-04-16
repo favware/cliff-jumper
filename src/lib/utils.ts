@@ -1,6 +1,6 @@
 import { packageCwd } from '#lib/constants';
 import { Result } from '@sapphire/result';
-import { Awaitable, isFunction, isNullishOrEmpty, isThenable } from '@sapphire/utilities';
+import { isFunction, isNullishOrEmpty, isThenable, type Awaitable } from '@sapphire/utilities';
 import { cyan, green, red } from 'colorette';
 import type { Options } from 'commander';
 import type { Callback as ConventionalChangelogCallback } from 'conventional-recommended-bump';
