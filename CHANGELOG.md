@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@2.0.1](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@2.0.0...@favware/cliff-jumper@2.0.1) - (2023-05-27)
+
+## 🐛 Bug Fixes
+
+- Move typescript to dev dependencies ([3396e8c](https://github.com/favware/cliff-jumper/commit/3396e8ca56465e464494441feb27555e9661f516))
+- **deps:** Update all non-major dependencies ([f8b8476](https://github.com/favware/cliff-jumper/commit/f8b847630a5877561460e452ce0dbd4ffb2967e7))
+- Update dependencies ([83134e7](https://github.com/favware/cliff-jumper/commit/83134e741bb803a6026aa2a0689a356da81f01e6))
+- **deps:** Update all non-major dependencies ([1981fa6](https://github.com/favware/cliff-jumper/commit/1981fa6dc2ea4bbd88a3f3758b43799fa126a63f))
+
 # [@favware/cliff-jumper@2.0.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@1.10.0...@favware/cliff-jumper@2.0.0) - (2023-03-05)
 
 ## 🐛 Bug Fixes
