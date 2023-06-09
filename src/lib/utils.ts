@@ -1,4 +1,3 @@
-import { packageCwd } from '#lib/constants';
 import { Result } from '@sapphire/result';
 import { isFunction, isNullishOrEmpty, isThenable, type Awaitable } from '@sapphire/utilities';
 import { cyan, green, red } from 'colorette';
@@ -8,16 +7,45 @@ import { load } from 'js-yaml';
 import { execSync } from 'node:child_process';
 import type { PathLike } from 'node:fs';
 import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
 import type { ReleaseType } from 'semver';
 
-export async function usesModernYarn() {
-  const packageJsonPath = join(packageCwd, 'package.json');
-  const packageJsonContent = await readJson<{ packageManager: string | undefined }>(packageJsonPath);
+/**
+ * Attempts to resolve the package managed used by checking the `npm_config_user_agent` environment variable.
+ * If the environment variable was not found, it will default to `npm`.
+ *
+ * If yarn v2 is used then it will be resolved as yarn v3 as they are compatible for our purposes.
+ *
+ * @returns The package manager used
+ */
+export function resolveUsedPackageManager(): 'yarn-v1' | 'yarn-v3' | 'npm' | 'pnpm' {
+  const npmConfigUserAgentEnvVar = process.env.npm_config_user_agent;
 
-  if (!packageJsonContent.packageManager) return false;
+  if (!npmConfigUserAgentEnvVar || npmConfigUserAgentEnvVar.startsWith('npm/')) return 'npm';
+  if (npmConfigUserAgentEnvVar.startsWith('pnpm/')) return 'pnpm';
 
-  return packageJsonContent.packageManager.startsWith('yarn@3');
+  if (npmConfigUserAgentEnvVar.startsWith('yarn/')) {
+    if (npmConfigUserAgentEnvVar.startsWith('yarn/1')) return 'yarn-v1';
+    if (npmConfigUserAgentEnvVar.startsWith('yarn/2') || npmConfigUserAgentEnvVar.startsWith('yarn/3')) {
+      return 'yarn-v3';
+    }
+  }
+
+  return 'npm';
+}
+
+export function resolvePublishCommand(packageManagerUsed: ReturnType<typeof resolveUsedPackageManager>) {
+  if (packageManagerUsed === 'pnpm') return 'pnpm publish';
+  if (packageManagerUsed === 'yarn-v1') return 'yarn publish';
+  if (packageManagerUsed === 'yarn-v3') return 'yarn npm publish';
+
+  return 'npm publish';
+}
+
+export function resolveInstallCommand(packageManagerUsed: ReturnType<typeof resolveUsedPackageManager>) {
+  if (packageManagerUsed === 'pnpm') return 'pnpm install';
+  if (packageManagerUsed === 'yarn-v1' || packageManagerUsed === 'yarn-v3') return 'yarn install';
+
+  return 'npm install';
 }
 
 /**

@@ -1,22 +1,33 @@
 #!/usr/bin/env node
+
 import { bumpVersion } from '#commands/bump-version';
 import { commitRelease } from '#commands/commit-release';
 import { createTag } from '#commands/create-tag';
 import { getConventionalBump } from '#commands/get-conventional-bump';
 import { getNewVersion } from '#commands/get-new-version';
+import { installDependencies } from '#commands/install-dependencies';
 import { stageFiles } from '#commands/stage-files';
 import { updateChangelog } from '#commands/update-changelog';
 import { cliRootDir, indent, isCi } from '#lib/constants';
 import { logVerboseError, logVerboseInfo } from '#lib/logger';
 import { parseOptionsFile } from '#lib/optionsParser';
 import { preflightChecks } from '#lib/preflight-checks';
-import { doActionAndLog, getFullPackageName, getReleaseType, usesModernYarn } from '#lib/utils';
+import {
+  doActionAndLog,
+  getFullPackageName,
+  getReleaseType,
+  resolveInstallCommand,
+  resolvePublishCommand,
+  resolveUsedPackageManager
+} from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import { blue, blueBright, cyan, green, yellow } from 'colorette';
 import { Command } from 'commander';
 import { readFile } from 'node:fs/promises';
 import { URL } from 'node:url';
 
+const packageManagerUsed = resolveUsedPackageManager();
+const installCommand = resolveInstallCommand(packageManagerUsed);
 const packageFile = new URL('package.json', cliRootDir);
 const packageJson = JSON.parse(await readFile(packageFile, 'utf-8'));
 
@@ -69,6 +80,10 @@ const command = new Command()
       'You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is provided).'
     ].join('\n')
   )
+  .option(
+    '-i, --install',
+    `Whether to run ${installCommand} after bumping the version but before committing and creating a git tag. This is useful when you have a mono repo where bumping one package would then cause the lockfile to be out of date.`
+  )
   .option('--skip-changelog', skipChangelogDescription, isCi)
   .option('--no-skip-changelog', skipChangelogDescription)
   .option('-t, --skip-tag', skipTagDescription, isCi)
@@ -90,6 +105,7 @@ logVerboseInfo(
     `${indent}preid: ${JSON.stringify(options.preid)}`,
     `${indent}commit message template: ${JSON.stringify(options.commitMessageTemplate)}`,
     `${indent}tag template: ${JSON.stringify(options.tagTemplate)}`,
+    `${indent}install: ${JSON.stringify(options.install)}`,
     `${indent}skip changelog: ${JSON.stringify(options.skipChangelog)}`,
     `${indent}skip tag: ${JSON.stringify(options.skipTag)}`,
     `${indent}verbose: ${JSON.stringify(options.verbose)}`,
@@ -136,14 +152,18 @@ if (!options.skipChangelog) {
   await updateChangelog(options, newVersion);
 
   if (!options.skipTag) {
-    await stageFiles(options);
+    if (options.install) {
+      await installDependencies(options, packageManagerUsed);
+    }
+
+    await stageFiles(options, packageManagerUsed);
 
     await commitRelease(options, newVersion);
 
     await createTag(options, newVersion);
 
-    const hasYarn = await usesModernYarn();
+    const publishText = resolvePublishCommand(packageManagerUsed);
 
-    console.info(blue('ℹ️') + green(` Run \`git push && git push --tags && ${hasYarn ? 'yarn ' : ''}npm publish\` to publish`));
+    console.info(blue('ℹ️') + green(` Run \`git push && git push --tags && ${publishText}\` to publish`));
   }
 }
