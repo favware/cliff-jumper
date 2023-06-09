@@ -35,6 +35,15 @@ variation of the [Angular preset][angular-preset] (seen
 1. Validate that `-t`, `--skip-tag` (CLI flags) weren't provided or `skipTag`
    wasn't set to `true` in the config file
 1. Update the `CHANGELOG.md` file using [git-cliff]
+1. If `--install` was provided (or `install: true` set in the config file) then
+   run the `install` command of the package manager (`npm install`,
+   `yarn install`, or `pnpm install`) you used to call this CLI.
+
+   - **Important:** when you install `@favware/cliff-jumper` globally this will
+     always default to `npm` because of how NodeJS works. Therefore, if you wish
+     for it to be `yarn` or `npm` make sure to add it as dev dependency to your
+     project and call it locally.
+
 1. Stage the `package.json` and `CHANGELOG.md` files
 1. Commit the release
 1. Tag the release
@@ -90,23 +99,17 @@ Options:
   --preid [string]                        The "prerelease identifier" to use as a prefix for the "prerelease" part of a semver
   -c, --commit-message-template [string]  A custom commit message template to use.
                                           Defaults to "chore({{name}}): release {{full-name}}@{{new-version}}"
-                                          You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be
-                                          published.
-                                          You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set
-                                          in your config file.
-                                          You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}"
-                                          (when "org" is provided).
+                                          You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be published.
+                                          You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in your config file.
+                                          You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is provided).
   --tag-template [string]                 A custom tag template to use.
                                           When "org" is provided this will default to "@{{org}}/{{name}}@{{new-version}}", for example "@favware/cliff-jumper@1.0.0"
                                           When "org" is not provided this will default to "v{{new-version}}", for example "v1.0.0"
-                                          You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be
-                                          published.
-                                          You can use "{{org}}" in your template, this will be replaced with the org provided through "-o", "--org" or the same value set in
-                                          your config file.
-                                          You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set
-                                          in your config file.
-                                          You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}"
-                                          (when "org" is provided).
+                                          You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be published.
+                                          You can use "{{org}}" in your template, this will be replaced with the org provided through "-o", "--org" or the same value set in your config file.
+                                          You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in your config file.
+                                          You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is provided).
+  -i, --install                           Whether to run npm install after bumping the version but before committing and creating a git tag. This is useful when you have a mono repo where bumping one package would then cause the lockfile to be out of date.
   --skip-changelog                        Whether to skip updating your CHANGELOG.md
                                           default "true" when CI=true, "false" otherwise (default: false)
   --no-skip-changelog                     Whether to skip updating your CHANGELOG.md
@@ -135,6 +138,7 @@ package). It should be named `.cliff-jumperrc`, optionally suffixed with
 - `--preid` maps to `preid`
 - `--commit-message-template` maps to `commitMessageTemplate`
 - `--tag-template` maps to `tagTemplate`
+- `--install` map to `install`
 - `--skip-changelog` and `--no-skip-changelog` map to `skipChangelog`
 - `--skip-tag` and `--no-skip-tag` map to `skipTag`
 - `--verbose` maps to `verbose`
@@ -146,6 +150,14 @@ following to your config file:
 ```json
 {
   "$schema": "https://raw.githubusercontent.com/favware/cliff-jumper/main/assets/cliff-jumper.schema.json"
+}
+```
+
+Alternatively you can reference the local schema in node_modules:
+
+```json
+{
+  "$schema": "./node_modules/@favware/cliff-jumper/assets/cliff-jumper.schema.json"
 }
 ```
 
@@ -176,6 +188,7 @@ This library has opinionated defaults for its options. These are as follows:
 - `--first-release` will default to `undefined`.
 - `--org` will default to `undefined`.
 - `--preid` will default to `undefined`.
+- `--install` will default to `undefined`.
 - `--skip-changelog` will default to `false` (`true` when `CI` environment
   variable is `'true'`). Alternatively you can force this to false by providing
   `--no-skip-changelog`.
