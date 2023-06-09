@@ -20,7 +20,8 @@
   },
   "sideEffects": "false",
   "files": [
-    "dist/**/*.js"
+    "dist/**/*.js",
+    "assets/"
   ],
   "scripts": {
     "debug": "node . --first-release --verbose --dry-run",
