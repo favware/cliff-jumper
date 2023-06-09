@@ -1,12 +1,11 @@
 import { packageCwd } from '#lib/constants';
 import { createFile } from '#lib/createFile';
 import { fileExists } from '#lib/fileExists';
-import { gitCliffExists } from '#lib/gitCliffExists';
 import { logVerboseError } from '#lib/logger';
 import { doActionAndLog, readJson } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { Options } from 'commander';
-import { join } from 'path';
+import { join } from 'node:path';
 
 export async function preflightChecks(options: Options) {
   if (isNullishOrEmpty(options.name)) {
@@ -85,20 +84,6 @@ export async function preflightChecks(options: Options) {
           verbose: options.verbose
         });
       }
-    }
-
-    const hasGitCliff = await doActionAndLog(
-      'Checking if git cliff is installed', //
-      gitCliffExists()
-    );
-
-    if (!hasGitCliff) {
-      logVerboseError({
-        text: ['Git Cliff was not detected. You can install it from https://github.com/orhun/git-cliff.'],
-        verboseText: ['When using this package in a GitHub workflow you can also use https://github.com/kenji-miyake/setup-git-cliff'],
-        exitAfterLog: true,
-        verbose: options.verbose
-      });
     }
   }
 }
