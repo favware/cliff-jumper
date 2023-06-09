@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@2.1.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@2.0.1...@favware/cliff-jumper@2.1.0) - (2023-06-09)
+
+## 🐛 Bug Fixes
+
+- Include JSON schema in published tarball ([e106743](https://github.com/favware/cliff-jumper/commit/e10674363bba5e646828e667384b3126897760c3))
+- Update conventional-recommended-bump to v7 ([27691f9](https://github.com/favware/cliff-jumper/commit/27691f94ab417d8d732274656dd1e8e6f0c9a3ee))
+- Update non major dependencies ([fc68720](https://github.com/favware/cliff-jumper/commit/fc6872096fa511e3a3bbe519ab778e93e2725962))
+- Do not check for git cliff in preflish as the lib provides it ([2a2a8b4](https://github.com/favware/cliff-jumper/commit/2a2a8b4d795948affa5d8bd5111ed0ba0eda9c35))
+
+## 📝 Documentation
+
+- Update readme ([40c099b](https://github.com/favware/cliff-jumper/commit/40c099b53ad88fa8102bb64ab87eaf57ddd6e65a))
+
+## 🚀 Features
+
+- Add `--install` option which runs package manager install before staging files ([63b13d4](https://github.com/favware/cliff-jumper/commit/63b13d4e66f28e8fbd3fa493d5acbdac660d0e2b))
+
 # [@favware/cliff-jumper@2.0.1](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@2.0.0...@favware/cliff-jumper@2.0.1) - (2023-05-27)
 
 ## 🐛 Bug Fixes
