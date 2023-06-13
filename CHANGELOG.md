@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@2.1.1](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@2.1.0...@favware/cliff-jumper@2.1.1) - (2023-06-13)
+
+## 🐛 Bug Fixes
+
+- Fixed finding of package lock file ([8c9905b](https://github.com/favware/cliff-jumper/commit/8c9905bcacaaf5910fc5244ccbcfb2d4b0b62087))
+
 # [@favware/cliff-jumper@2.1.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@2.0.1...@favware/cliff-jumper@2.1.0) - (2023-06-09)
 
 ## 🐛 Bug Fixes
