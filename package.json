@@ -43,7 +43,7 @@
   "dependencies": {
     "@favware/conventional-changelog-angular": "workspace:^",
     "@sapphire/result": "^2.6.4",
-    "@sapphire/utilities": "3.12.0",
+    "@sapphire/utilities": "3.13.0",
     "colorette": "^2.0.20",
     "commander": "^11.0.0",
     "conventional-recommended-bump": "^7.0.1",
@@ -52,14 +52,14 @@
     "semver": "^7.5.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.6",
-    "@commitlint/config-conventional": "^17.6.6",
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
     "@sapphire/eslint-config": "^4.4.3",
     "@sapphire/prettier-config": "^1.4.5",
-    "@sapphire/ts-config": "^4.0.0",
+    "@sapphire/ts-config": "^4.0.1",
     "@types/conventional-recommended-bump": "^6.1.0",
     "@types/js-yaml": "^4.0.5",
-    "@types/node": "^18.16.19",
+    "@types/node": "^18.17.0",
     "@types/semver": "^7.5.0",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
