@@ -60,20 +60,20 @@
     "@sapphire/ts-config": "^4.0.1",
     "@types/conventional-recommended-bump": "^6.1.0",
     "@types/js-yaml": "^4.0.5",
-    "@types/node": "^20.5.1",
+    "@types/node": "^20.5.6",
     "@types/semver": "^7.5.0",
-    "@typescript-eslint/eslint-plugin": "^6.4.0",
-    "@typescript-eslint/parser": "^6.4.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.47.0",
+    "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "husky": "^8.0.3",
-    "lint-staged": "^14.0.0",
+    "lint-staged": "^14.0.1",
     "pinst": "^3.0.0",
     "prettier": "^3.0.2",
     "ts-node": "^10.9.1",
-    "typescript": "^5.1.6"
+    "typescript": "^5.2.2"
   },
   "resolutions": {
     "acorn": "^8.10.0",
@@ -124,5 +124,5 @@
   "eslintConfig": {
     "extends": "@sapphire"
   },
-  "packageManager": "yarn@3.6.2"
+  "packageManager": "yarn@3.6.3"
 }
