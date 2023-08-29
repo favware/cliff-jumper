@@ -26,12 +26,8 @@ jobs:
         run: yarn --immutable
       - name: Build package
         run: yarn build
-      - name: Patch @favware/conventional-changelog-angular
-        run: yarn workspace:prepack
       - name: Bump Version
         run: node . --preid "next.$(git rev-parse --verify --short HEAD)" -v
-      - name: Unpatch @favware/conventional-changelog-angular
-        run: yarn workspace:postpack
       - name: Publish to Yarnpkg
         run: |
           yarn config set npmAuthToken ${NODE_AUTH_TOKEN}

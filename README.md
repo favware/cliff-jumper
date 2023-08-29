@@ -339,4 +339,4 @@ Thank you to all the people who already contributed to Sapphire!
   https://github.com/favware/esbuild-plugin-version-injector
 [discordjs]:
   https://github.com/discordjs/discord.js/tree/main/packages/discord.js
-[angular-preset-custom]: ./conventional-changelog-angular-custom/
+[angular-preset-custom]: ./src/commands/get-conventional-bump.ts

@@ -1,7 +1,6 @@
 CHANGELOG.md
+*.hbs
 .turbo
 .yarn/
 dist/
 coverage/
-conventional-changelog-angular-custom/templates/
-conventional-changelog-angular-custom/parser-opts.js
