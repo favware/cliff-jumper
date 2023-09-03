@@ -302,7 +302,7 @@ __metadata:
     "@types/compare-func": ^1.3.0
     "@types/conventional-recommended-bump": ^6.1.0
     "@types/js-yaml": ^4.0.5
-    "@types/node": ^20.5.7
+    "@types/node": ^20.5.9
     "@types/semver": ^7.5.1
     "@typescript-eslint/eslint-plugin": ^6.5.0
     "@typescript-eslint/parser": ^6.5.0
@@ -314,12 +314,12 @@ __metadata:
     eslint: ^8.48.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-prettier: ^5.0.0
-    git-cliff: ~1.2.0
+    git-cliff: ~1.3.0
     husky: ^8.0.3
     js-yaml: ^4.1.0
     lint-staged: ^14.0.1
     pinst: ^3.0.0
-    prettier: ^3.0.2
+    prettier: ^3.0.3
     semver: ^7.5.4
     ts-node: ^10.9.1
     typescript: ^5.2.2
@@ -576,10 +576,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.5.7":
-  version: 20.5.7
-  resolution: "@types/node@npm:20.5.7"
-  checksum: fc284c8e16ddc04569730d58e87eae349eb1c3dd9020cb79a1862d9d9add6f04e7367a236f3252db8db2572f90278e250f4cd43d27d264972b54394eaba1ed76
+"@types/node@npm:*, @types/node@npm:^20.5.9":
+  version: 20.5.9
+  resolution: "@types/node@npm:20.5.9"
+  checksum: 717490e94131722144878b4ca1a963ede1673bb8f2ef78c2f5b50b918df6dc9b35e7f8283e5c2a7a9f137730f7c08dc6228e53d4494a94c9ee16881e6ce6caed
   languageName: node
   linkType: hard
 
@@ -1924,58 +1924,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-cliff-darwin-arm64@npm:1.2.0":
-  version: 1.2.0
-  resolution: "git-cliff-darwin-arm64@npm:1.2.0"
+"git-cliff-darwin-arm64@npm:1.3.0":
+  version: 1.3.0
+  resolution: "git-cliff-darwin-arm64@npm:1.3.0"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"git-cliff-darwin-x64@npm:1.2.0":
-  version: 1.2.0
-  resolution: "git-cliff-darwin-x64@npm:1.2.0"
+"git-cliff-darwin-x64@npm:1.3.0":
+  version: 1.3.0
+  resolution: "git-cliff-darwin-x64@npm:1.3.0"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"git-cliff-linux-arm64@npm:1.2.0":
-  version: 1.2.0
-  resolution: "git-cliff-linux-arm64@npm:1.2.0"
+"git-cliff-linux-arm64@npm:1.3.0":
+  version: 1.3.0
+  resolution: "git-cliff-linux-arm64@npm:1.3.0"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"git-cliff-linux-x64@npm:1.2.0":
-  version: 1.2.0
-  resolution: "git-cliff-linux-x64@npm:1.2.0"
+"git-cliff-linux-x64@npm:1.3.0":
+  version: 1.3.0
+  resolution: "git-cliff-linux-x64@npm:1.3.0"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"git-cliff-windows-arm64@npm:1.2.0":
-  version: 1.2.0
-  resolution: "git-cliff-windows-arm64@npm:1.2.0"
+"git-cliff-windows-arm64@npm:1.3.0":
+  version: 1.3.0
+  resolution: "git-cliff-windows-arm64@npm:1.3.0"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"git-cliff-windows-x64@npm:1.2.0":
-  version: 1.2.0
-  resolution: "git-cliff-windows-x64@npm:1.2.0"
+"git-cliff-windows-x64@npm:1.3.0":
+  version: 1.3.0
+  resolution: "git-cliff-windows-x64@npm:1.3.0"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"git-cliff@npm:~1.2.0":
-  version: 1.2.0
-  resolution: "git-cliff@npm:1.2.0"
+"git-cliff@npm:~1.3.0":
+  version: 1.3.0
+  resolution: "git-cliff@npm:1.3.0"
   dependencies:
-    git-cliff-darwin-arm64: 1.2.0
-    git-cliff-darwin-x64: 1.2.0
-    git-cliff-linux-arm64: 1.2.0
-    git-cliff-linux-x64: 1.2.0
-    git-cliff-windows-arm64: 1.2.0
-    git-cliff-windows-x64: 1.2.0
+    git-cliff-darwin-arm64: 1.3.0
+    git-cliff-darwin-x64: 1.3.0
+    git-cliff-linux-arm64: 1.3.0
+    git-cliff-linux-x64: 1.3.0
+    git-cliff-windows-arm64: 1.3.0
+    git-cliff-windows-x64: 1.3.0
   dependenciesMeta:
     git-cliff-darwin-arm64:
       optional: true
@@ -1991,7 +1991,7 @@ __metadata:
       optional: true
   bin:
     git-cliff: lib/index.js
-  checksum: f9081a5fd13db895e95f5c72194a3a9d4dfdfddbae748384b5f15d97dd65f5002a4318f0491c9fda0e9b45f6ddeb634b98ff4751e51123946754642545248474
+  checksum: 35f93d7b8082705f964f44045eda2390216c07bea642ff88da7c296a3ff5a7b028dc078035b6089278725e21d5772660bc9ef4fcbdbbe25938412feb78ed8bee
   languageName: node
   linkType: hard
 
@@ -3208,7 +3208,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.0.0, prettier@npm:^3.0.2":
+"prettier@npm:^3.0.0, prettier@npm:^3.0.2, prettier@npm:^3.0.3":
   version: 3.0.3
   resolution: "prettier@npm:3.0.3"
   bin:
