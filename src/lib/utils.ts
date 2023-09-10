@@ -2,7 +2,7 @@ import { Result } from '@sapphire/result';
 import { isFunction, isNullishOrEmpty, isThenable, type Awaitable } from '@sapphire/utilities';
 import { cyan, green, red } from 'colorette';
 import type { Options } from 'commander';
-import type { Callback as ConventionalChangelogCallback } from 'conventional-recommended-bump';
+import type { Recommendation } from 'conventional-recommended-bump';
 import { load } from 'js-yaml';
 import { execSync } from 'node:child_process';
 import type { PathLike } from 'node:fs';
@@ -115,7 +115,5 @@ export function resolveTagTemplate(options: Options, newVersion: string) {
 }
 
 /** Resolves the release-as prefix */
-export const getReleaseType = (
-  options: Options,
-  changelogResolvedReleaseType: ConventionalChangelogCallback.Recommendation.ReleaseType
-): ReleaseType => ((Boolean(options.preid) ? 'pre' : '') + changelogResolvedReleaseType) as ReleaseType;
+export const getReleaseType = (options: Options, changelogResolvedReleaseType: Recommendation.ReleaseType): ReleaseType =>
+  ((Boolean(options.preid) ? 'pre' : '') + changelogResolvedReleaseType) as ReleaseType;

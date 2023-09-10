@@ -548,12 +548,12 @@ __metadata:
 
 "@types/conventional-recommended-bump@patch:@types/conventional-recommended-bump@npm%3A6.1.1#./.yarn/patches/@types-conventional-recommended-bump-npm-6.1.1-1c00ca9397.patch::locator=%40favware%2Fcliff-jumper%40workspace%3A.":
   version: 6.1.1
-  resolution: "@types/conventional-recommended-bump@patch:@types/conventional-recommended-bump@npm%3A6.1.1#./.yarn/patches/@types-conventional-recommended-bump-npm-6.1.1-1c00ca9397.patch::version=6.1.1&hash=30e0ed&locator=%40favware%2Fcliff-jumper%40workspace%3A."
+  resolution: "@types/conventional-recommended-bump@patch:@types/conventional-recommended-bump@npm%3A6.1.1#./.yarn/patches/@types-conventional-recommended-bump-npm-6.1.1-1c00ca9397.patch::version=6.1.1&hash=ea038d&locator=%40favware%2Fcliff-jumper%40workspace%3A."
   dependencies:
     "@types/conventional-changelog-core": "*"
     "@types/conventional-changelog-writer": "*"
     "@types/conventional-commits-parser": "*"
-  checksum: 1d17cecd0dece83ae5f746847455d3392e3940efac067275dddad156cc04d26dfc3dac68c79bf69c6ec9f18924f7ff9283277e060006f3f470f20067450f0b9e
+  checksum: 0ae040203a86a6cf2069aa9af8eb9608796c709e24988ad3d6c2be738e3229f3ca9633c71c513b76d7d353e8579c3a253ed373e7990b37be827785eeb907a0d3
   languageName: node
   linkType: hard
 
