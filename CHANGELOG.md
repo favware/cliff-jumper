@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@2.1.3](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@2.1.3...@favware/cliff-jumper@2.1.3) - (2023-09-10)
+
+## 🏠 Refactor
+
+- Bump `conventional-recommended-bump` and remove manual promisify ([fe1dc29](https://github.com/favware/cliff-jumper/commit/fe1dc29d97358d3a95b020e4d157f69b395be424))
+
 # [@favware/cliff-jumper@2.1.2](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@2.1.1...@favware/cliff-jumper@2.1.2) - (2023-08-29)
 
 ## 🏠 Refactor
