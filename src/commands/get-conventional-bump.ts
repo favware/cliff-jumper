@@ -1,9 +1,9 @@
-import { asyncConventionalRecommendBump } from '#lib/constants';
 import { getFullPackageName } from '#lib/utils';
 import type { Options } from 'commander';
 import compareFunc from 'compare-func';
 import type { Context } from 'conventional-changelog-writer';
 import type { Commit } from 'conventional-commits-parser';
+import conventionalRecommendedBump from 'conventional-recommended-bump';
 import { readFile } from 'node:fs/promises';
 
 export async function getConventionalBump(options: Options) {
@@ -14,7 +14,7 @@ export async function getConventionalBump(options: Options) {
     readFile(new URL('../../conventional-templates/footer.hbs', import.meta.url), 'utf-8')
   ]);
 
-  return asyncConventionalRecommendBump({
+  return conventionalRecommendedBump({
     config: {
       parserOpts: {
         headerPattern: /^(\w*)(?:\((.*)\))?: (.*)$/,

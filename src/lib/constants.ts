@@ -1,10 +1,5 @@
-import conventionalRecommendedBump, {
-  type Callback as ConventionalChangelogCallback,
-  type Options as ConventionalChangelogOptions
-} from 'conventional-recommended-bump';
 import { join } from 'node:path';
 import { URL } from 'node:url';
-import { promisify } from 'node:util';
 
 /** Whether the CLI is being ran in a CI environment */
 export const isCi = process.env.CI === 'true';
@@ -29,6 +24,3 @@ export const cliffJumperRcYamlPath = `${cliffJumperRcPath}.yaml`;
 
 /** 4 spaces indent for logging */
 export const indent = ' '.repeat(4);
-
-export const asyncConventionalRecommendBump: (options: ConventionalChangelogOptions) => Promise<ConventionalChangelogCallback.Recommendation> =
-  promisify(conventionalRecommendedBump);
