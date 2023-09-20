@@ -22,7 +22,7 @@ import {
 } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import { blue, blueBright, cyan, green, yellow } from 'colorette';
-import { Command } from 'commander';
+import { Command, InvalidArgumentError } from 'commander';
 import { readFile } from 'node:fs/promises';
 import { URL } from 'node:url';
 
@@ -58,6 +58,11 @@ const command = new Command()
   .option('--no-mono-repo', monoRepoDescription)
   .option('-o, --org <string>', 'The NPM org scope that should be used WITHOUT "@" sign or trailing "/"')
   .option('--preid [string]', 'The "prerelease identifier" to use as a prefix for the "prerelease" part of a semver')
+  .option('--identifier-base <number>', 'The base number (0 or 1) to be used for the prerelease identifier.', (input) => {
+    if (input === '0' || input === '1') return input;
+    throw new InvalidArgumentError('Not a number of 0 or 1.');
+  })
+  .option('--no-identifier-base', 'Do not use a base number for the prerelease identifier.')
   .option(
     '-c, --commit-message-template [string]',
     [
@@ -103,6 +108,7 @@ logVerboseInfo(
     `${indent}mono repo: ${JSON.stringify(options.monoRepo)}`,
     `${indent}npm org: ${JSON.stringify(options.org)}`,
     `${indent}preid: ${JSON.stringify(options.preid)}`,
+    `${indent}identifier base: ${JSON.stringify(options.identifierBase)}`,
     `${indent}commit message template: ${JSON.stringify(options.commitMessageTemplate)}`,
     `${indent}tag template: ${JSON.stringify(options.tagTemplate)}`,
     `${indent}install: ${JSON.stringify(options.install)}`,

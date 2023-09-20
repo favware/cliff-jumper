@@ -97,6 +97,8 @@ Options:
                                           Defaults to "true" when "org" is set, false otherwise
   -o, --org <string>                      The NPM org scope that should be used WITHOUT "@" sign or trailing "/"
   --preid [string]                        The "prerelease identifier" to use as a prefix for the "prerelease" part of a semver
+  --identifier-base <string>              The base number (0 or 1) to be used for the prerelease identifier.
+  --no-identifier-base                    Do not use a base number for the prerelease identifier.
   -c, --commit-message-template [string]  A custom commit message template to use.
                                           Defaults to "chore({{name}}): release {{full-name}}@{{new-version}}"
                                           You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be published.
@@ -136,6 +138,7 @@ package). It should be named `.cliff-jumperrc`, optionally suffixed with
 - `--mono-repo` and `--no-mono-repo` map to `monoRepo`
 - `--org` maps to `org`
 - `--preid` maps to `preid`
+- `--identifier-base` and `--no-identifier-base` map to `identifierBase`
 - `--commit-message-template` maps to `commitMessageTemplate`
 - `--tag-template` maps to `tagTemplate`
 - `--install` map to `install`
@@ -188,6 +191,8 @@ This library has opinionated defaults for its options. These are as follows:
 - `--first-release` will default to `undefined`.
 - `--org` will default to `undefined`.
 - `--preid` will default to `undefined`.
+- `--identifier-base` will default to `undefined`. Alternatively, you can force
+  this to `false` by providing `--no-identifier-base`.
 - `--install` will default to `undefined`.
 - `--skip-changelog` will default to `false` (`true` when `CI` environment
   variable is `'true'`). Alternatively you can force this to false by providing

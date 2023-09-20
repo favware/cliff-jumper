@@ -1,3 +1,5 @@
+import type { IdentifierBase } from 'semver/functions/inc.js';
+
 export default undefined;
 
 declare module 'commander' {
@@ -6,6 +8,7 @@ declare module 'commander' {
     org: string;
     packagePath: string;
     preid: string;
+    identifierBase: IdentifierBase | false;
     dryRun: boolean;
     verbose: boolean;
     skipChangelog: boolean;

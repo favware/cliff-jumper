@@ -24,7 +24,7 @@ export function bumpVersion(options: Options, releaseType: Recommendation.Releas
       });
     }
 
-    const newVersion = Semver.inc(currentClean, `${getReleaseType(options, releaseType)}`, options.preid ?? '');
+    const newVersion = Semver.inc(currentClean, `${getReleaseType(options, releaseType)}`, options.preid ?? '', options.identifierBase);
 
     if (isNullishOrEmpty(newVersion)) {
       return logVerboseError({
