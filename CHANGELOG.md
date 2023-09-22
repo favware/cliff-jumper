@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@2.2.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@2.2.0...@favware/cliff-jumper@2.2.0) - (2023-09-22)
+
+## 🚀 Features
+
+- Add support for `identifierBase` (#117) ([37c919e](https://github.com/favware/cliff-jumper/commit/37c919e4da511c28e9926745194016202c78c84a))
+
 # [@favware/cliff-jumper@2.1.3](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@2.1.3...@favware/cliff-jumper@2.1.3) - (2023-09-10)
 
 ## 🏠 Refactor
