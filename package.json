@@ -32,10 +32,7 @@
     "build": "tsc -b src",
     "watch": "tsc -b src -w",
     "bump": "yarn build && node .",
-    "check-update": "yarn build && node . --dry-run",
-    "prepack": "pinst --disable",
-    "postinstall": "husky install .github/husky",
-    "postpack": "pinst --enable"
+    "check-update": "yarn build && node . --dry-run"
   },
   "dependencies": {
     "@sapphire/result": "^2.6.4",
@@ -65,9 +62,7 @@
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
-    "husky": "^8.0.3",
     "lint-staged": "^15.0.1",
-    "pinst": "^3.0.0",
     "prettier": "^3.0.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
