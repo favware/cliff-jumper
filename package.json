@@ -68,7 +68,7 @@
     "typescript": "^5.2.2"
   },
   "resolutions": {
-    "acorn": "^8.10.0",
+    "acorn": "^8.11.2",
     "ansi-regex": "^5.0.1",
     "minimist": "^1.2.8",
     "@types/conventional-recommended-bump@^6.1.1": "patch:@types/conventional-recommended-bump@npm%3A6.1.1#./.yarn/patches/@types-conventional-recommended-bump-npm-6.1.1-1c00ca9397.patch",
