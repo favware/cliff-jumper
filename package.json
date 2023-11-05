@@ -41,7 +41,7 @@
     "commander": "^11.1.0",
     "compare-func": "^2.0.0",
     "conventional-recommended-bump": "^9.0.0",
-    "git-cliff": "~1.4.0",
+    "git-cliff": "^1.4.0",
     "js-yaml": "^4.1.0",
     "semver": "^7.5.4"
   },
