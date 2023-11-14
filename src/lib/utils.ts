@@ -17,7 +17,7 @@ import type { ReleaseType } from 'semver';
  *
  * @returns The package manager used
  */
-export function resolveUsedPackageManager(): 'yarn-v1' | 'yarn-v3' | 'npm' | 'pnpm' {
+export function resolveUsedPackageManager(): 'yarn-v1' | 'yarn-v2' | 'yarn-v3' | 'yarn-v4' | 'npm' | 'pnpm' {
   const npmConfigUserAgentEnvVar = process.env.npm_config_user_agent;
 
   if (!npmConfigUserAgentEnvVar || npmConfigUserAgentEnvVar.startsWith('npm/')) return 'npm';
@@ -25,9 +25,9 @@ export function resolveUsedPackageManager(): 'yarn-v1' | 'yarn-v3' | 'npm' | 'pn
 
   if (npmConfigUserAgentEnvVar.startsWith('yarn/')) {
     if (npmConfigUserAgentEnvVar.startsWith('yarn/1')) return 'yarn-v1';
-    if (npmConfigUserAgentEnvVar.startsWith('yarn/2') || npmConfigUserAgentEnvVar.startsWith('yarn/3')) {
-      return 'yarn-v3';
-    }
+    if (npmConfigUserAgentEnvVar.startsWith('yarn/2')) return 'yarn-v2';
+    if (npmConfigUserAgentEnvVar.startsWith('yarn/3')) return 'yarn-v3';
+    if (npmConfigUserAgentEnvVar.startsWith('yarn/4')) return 'yarn-v4';
   }
 
   return 'npm';

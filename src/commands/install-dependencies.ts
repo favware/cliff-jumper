@@ -20,7 +20,9 @@ function packageManager(packageManagerUsed: ReturnType<typeof resolveUsedPackage
     case 'pnpm':
       return 'pnpm';
     case 'yarn-v1':
+    case 'yarn-v2':
     case 'yarn-v3':
+    case 'yarn-v4':
       return 'yarn';
   }
 }
