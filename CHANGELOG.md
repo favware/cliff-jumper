@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@2.2.2](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@2.2.2...@favware/cliff-jumper@2.2.2) - (2023-11-14)
+
+## 🐛 Bug Fixes
+
+- Add support for yarn v4 ([35af4dc](https://github.com/favware/cliff-jumper/commit/35af4dcb9ef1e45cda742f7aac5ac58a5bf485b1))
+
 # [@favware/cliff-jumper@2.2.1](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@2.2.1...@favware/cliff-jumper@2.2.1) - (2023-11-05)
 
 ## 🐛 Bug Fixes
