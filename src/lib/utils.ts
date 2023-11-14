@@ -34,18 +34,33 @@ export function resolveUsedPackageManager(): 'yarn-v1' | 'yarn-v2' | 'yarn-v3' |
 }
 
 export function resolvePublishCommand(packageManagerUsed: ReturnType<typeof resolveUsedPackageManager>) {
-  if (packageManagerUsed === 'pnpm') return 'pnpm publish';
-  if (packageManagerUsed === 'yarn-v1') return 'yarn publish';
-  if (packageManagerUsed === 'yarn-v3') return 'yarn npm publish';
-
-  return 'npm publish';
+  switch (packageManagerUsed) {
+    case 'pnpm':
+      return 'pnpm publish';
+    case 'yarn-v1':
+      return 'yarn publish';
+    case 'yarn-v2':
+    case 'yarn-v3':
+    case 'yarn-v4':
+      return 'yarn npm publish';
+    default:
+      return 'npm publish';
+  }
 }
 
 export function resolveInstallCommand(packageManagerUsed: ReturnType<typeof resolveUsedPackageManager>) {
-  if (packageManagerUsed === 'pnpm') return 'pnpm install';
-  if (packageManagerUsed === 'yarn-v1' || packageManagerUsed === 'yarn-v3') return 'yarn install';
-
-  return 'npm install';
+  switch (packageManagerUsed) {
+    case 'pnpm':
+      return 'pnpm install';
+    case 'yarn-v1':
+    case 'yarn-v2':
+    case 'yarn-v3':
+    case 'yarn-v4':
+      return 'yarn install';
+    case 'npm':
+    default:
+      return 'npm install';
+  }
 }
 
 /**

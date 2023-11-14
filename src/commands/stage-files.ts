@@ -42,9 +42,15 @@ function resolveLockfile(
 ): 'package-lock.json' | 'yarn.lock' | 'pnpm-lock.yaml' | '' {
   if (!options.install) return '';
 
-  if (packageManagerUsed === 'pnpm') return 'pnpm-lock.yaml';
-  if (packageManagerUsed === 'yarn-v1' || packageManagerUsed === 'yarn-v2' || packageManagerUsed === 'yarn-v3' || packageManagerUsed === 'yarn-v4')
-    return 'yarn.lock';
-
-  return 'package-lock.json';
+  switch (packageManagerUsed) {
+    case 'pnpm':
+      return 'pnpm-lock.yaml';
+    case 'yarn-v1':
+    case 'yarn-v2':
+    case 'yarn-v3':
+    case 'yarn-v4':
+      return 'yarn.lock';
+    default:
+      return 'package-lock.json';
+  }
 }
