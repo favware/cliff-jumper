@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@sapphire/result": "^2.6.5",
-    "@sapphire/utilities": "3.15.1",
+    "@sapphire/utilities": "3.15.2",
     "colorette": "^2.0.20",
     "commander": "^11.1.0",
     "compare-func": "^2.0.0",
@@ -46,8 +46,8 @@
     "semver": "^7.5.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.4.3",
-    "@commitlint/config-conventional": "^18.4.3",
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
     "@sapphire/eslint-config": "^5.0.3",
     "@sapphire/prettier-config": "^2.0.0",
     "@sapphire/ts-config": "^5.0.0",
@@ -56,8 +56,8 @@
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.10.6",
     "@types/semver": "^7.5.6",
-    "@typescript-eslint/eslint-plugin": "^6.16.0",
-    "@typescript-eslint/parser": "^6.16.0",
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "@typescript-eslint/parser": "^6.18.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
