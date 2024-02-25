@@ -130,5 +130,34 @@ export function resolveTagTemplate(options: Options, newVersion: string) {
 }
 
 /** Resolves the release-as prefix */
-export const getReleaseType = (options: Options, changelogResolvedReleaseType: Recommendation.ReleaseType): ReleaseType =>
-  ((Boolean(options.preid) ? 'pre' : '') + changelogResolvedReleaseType) as ReleaseType;
+export function getReleaseType(options: Options, changelogResolvedReleaseType: Recommendation.ReleaseType): ReleaseType {
+  return ((Boolean(options.preid) ? 'pre' : '') + changelogResolvedReleaseType) as ReleaseType;
+}
+
+/**
+ * Retrieves the GitHub repo, either from the environment variables or from the config
+ *
+ * The order of precedence is:
+ * 1. Environment variable `GITHUB_REPO`
+ * 2. The `githubRepo` property in the options object
+ *
+ * @param options The options object
+ * @returns The GitHub repo or `undefined` if it was not found
+ */
+export function getGitHubRepo(options: Options): string | undefined {
+  return process.env.GITHUB_REPO ?? (options.githubRepo === 'auto' ? `${options.org}/${options.name}` : options.githubRepo) ?? undefined;
+}
+
+/**
+ * Retrieves the GitHub token, either from the environment variables or from the config
+ *
+ * The order of precedence is:
+ * 1. Environment variable `GITHUB_TOKEN`
+ * 2. The `githubToken` property in the options object
+ *
+ * @param options The options object
+ * @returns The GitHub token or `undefined` if it was not found
+ */
+export function getGitHubToken(options: Options): string | undefined {
+  return process.env.GITHUB_TOKEN ?? options.githubToken ?? undefined;
+}

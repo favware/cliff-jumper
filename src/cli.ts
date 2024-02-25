@@ -15,6 +15,8 @@ import { preflightChecks } from '#lib/preflight-checks';
 import {
   doActionAndLog,
   getFullPackageName,
+  getGitHubRepo,
+  getGitHubToken,
   getReleaseType,
   resolveInstallCommand,
   resolvePublishCommand,
@@ -43,6 +45,12 @@ const skipChangelogDescription = [
 const skipTagDescription = [
   'Whether to skip creating a git tag', //
   'default "true" when CI=true, "false" otherwise'
+].join('\n');
+const githubRepoDescription = [
+  'The GitHub repository to use for linking to issues and PRs in the changelog.', //
+  'You can pass the unique string "auto" to automatically set this value as {{org}}/{{name}} as provided from --org and --name',
+  'This should be in the format "owner/repo"',
+  'You can use the "GITHUB_REPO" environment variable to automatically set this value'
 ].join('\n');
 
 const command = new Command()
@@ -93,6 +101,11 @@ const command = new Command()
   .option('--no-skip-changelog', skipChangelogDescription)
   .option('-t, --skip-tag', skipTagDescription, isCi)
   .option('--no-skip-tag', skipTagDescription)
+  .option('--github-repo', githubRepoDescription)
+  .option(
+    '--github-token',
+    'A token to authenticate requests to the GitHub API. This is required when using the "--github-repo" option. You can also set the "GITHUB_TOKEN" environment variable.'
+  )
   .option('-v, --verbose', 'Whether to print verbose information', false);
 
 const program = command.parse(process.argv);
@@ -115,6 +128,8 @@ logVerboseInfo(
     `${indent}skip changelog: ${JSON.stringify(options.skipChangelog)}`,
     `${indent}skip tag: ${JSON.stringify(options.skipTag)}`,
     `${indent}verbose: ${JSON.stringify(options.verbose)}`,
+    `${indent}github repo: ${JSON.stringify(getGitHubRepo(options))}`,
+    `${indent}github token: ${getGitHubToken(options) ? 'Unset' : 'SECRET([REDACTED])'}`,
     ''
   ],
   options.verbose

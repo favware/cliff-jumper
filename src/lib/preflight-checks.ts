@@ -2,7 +2,7 @@ import { packageCwd } from '#lib/constants';
 import { createFile } from '#lib/createFile';
 import { fileExists } from '#lib/fileExists';
 import { logVerboseError } from '#lib/logger';
-import { doActionAndLog, readJson } from '#lib/utils';
+import { doActionAndLog, getGitHubRepo, getGitHubToken, readJson } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { Options } from 'commander';
 import { join } from 'node:path';
@@ -22,6 +22,20 @@ export async function preflightChecks(options: Options) {
       exitAfterLog: true,
       verbose: options.verbose
     });
+  }
+
+  const githubRepo = getGitHubRepo(options);
+  if (!isNullishOrEmpty(githubRepo)) {
+    const githubToken = getGitHubToken(options);
+
+    if (isNullishOrEmpty(githubToken)) {
+      logVerboseError({
+        text: [`GitHub Repository was configured as ${githubRepo} but no token was provided`],
+        verboseText: ['You can provide the token either through the "--github-token" option or the "GITHUB_TOKEN" environment variable'],
+        exitAfterLog: true,
+        verbose: options.verbose
+      });
+    }
   }
 
   const packageJsonPath = join(packageCwd, 'package.json');

@@ -97,7 +97,7 @@ Options:
                                           Defaults to "true" when "org" is set, false otherwise
   -o, --org <string>                      The NPM org scope that should be used WITHOUT "@" sign or trailing "/"
   --preid [string]                        The "prerelease identifier" to use as a prefix for the "prerelease" part of a semver
-  --identifier-base <string>              The base number (0 or 1) to be used for the prerelease identifier.
+  --identifier-base <number>              The base number (0 or 1) to be used for the prerelease identifier.
   --no-identifier-base                    Do not use a base number for the prerelease identifier.
   -c, --commit-message-template [string]  A custom commit message template to use.
                                           Defaults to "chore({{name}}): release {{full-name}}@{{new-version}}"
@@ -120,6 +120,11 @@ Options:
                                           default "true" when CI=true, "false" otherwise (default: false)
   --no-skip-tag                           Whether to skip creating a git tag
                                           default "true" when CI=true, "false" otherwise
+  --github-repo                           The GitHub repository to use for linking to issues and PRs in the changelog.
+                                          You can pass the unique string "auto" to automatically set this value as {{org}}/{{name}} as provided from --org and --name
+                                          This should be in the format "owner/repo"
+                                          You can use the "GITHUB_REPO" environment variable to automatically set this value
+  --github-token                          A token to authenticate requests to the GitHub API. This is required when using the "--github-repo" option. You can also set the "GITHUB_TOKEN" environment variable.
   -v, --verbose                           Whether to print verbose information (default: false)
   -h, --help                              display help for command
 ```
@@ -144,6 +149,8 @@ package). It should be named `.cliff-jumperrc`, optionally suffixed with
 - `--install` map to `install`
 - `--skip-changelog` and `--no-skip-changelog` map to `skipChangelog`
 - `--skip-tag` and `--no-skip-tag` map to `skipTag`
+- `--github-repo` maps to `githubRepo`
+- `--github-token` maps to `githubToken`
 - `--verbose` maps to `verbose`
 
 When using `.cliff-jumperrc` or `.cliff-jumperrc.json` as your config file you
@@ -220,6 +227,8 @@ This library has opinionated defaults for its options. These are as follows:
     the same value set in your config file
   - `{{full-name}}` will be replaced with `{{name}}` (when `org` is not
     provided), or `@{{org}}/{{name}}` (when `org` is provided).
+- `--github-repo` will default to `undefined`.
+- `--github-token` will default to `undefined`.
 - `--verbose` will default to `false`.
 
 ### Merging of config file, defaults and CLI provided flags

@@ -45,6 +45,14 @@
       "description": "A custom tag template to use.\n\nWhen \"org\" is provided this will default to \"@{{org}}/{{name}}@{{new-version}}\", for example \"@favware/cliff-jumper@1.0.0\"\nWhen \"org\" is not provided this will default to \"v{{new-version}}\", for example \"v1.0.0\"\n\nYou can use \"{{new-version}}\" in your template which will be dynamically replaced with whatever the new version is that will be published.\n\nYou can use \"{{org}}\" in your template, this will be replaced with the org provided through \"-o\", \"--org\" or the same value set in your config     \nfile.\n\nYou can use \"{{name}}\" in your template, this will be replaced with the name provided through \"-n\", \"--name\" or the same value set in your config  \nfile.\n\nYou can use \"{{full-name}}\" in your template, this will be replaced \"{{name}}\" (when \"org\" is not provided), or \"@{{org}}/{{name}}\" (when \"org\" is provided).",
       "type": "string"
     },
+    "githubRepo": {
+      "description": "The GitHub repository to use for linking to issues and PRs in the changelog.\n\nYou can pass the unique string \"auto\" to automatically set this value as \"{{org}}/{{name}}\" as provided from \"--org\" and \"--name\". This should be in the format \"owner/repo\". You can use the \"GITHUB_REPO\" environment variable to automatically set this value",
+      "type": "string"
+    },
+    "githubToken": {
+      "description": "A token to authenticate requests to the GitHub API. This is required when using the \"--github-repo\" option. You can also set the \"GITHUB_TOKEN\" environment variable.",
+      "type": "string"
+    },
     "install": {
       "description": "Whether to run npm install after bumping the version but before committing and creating a git tag. This is useful when you have a mono repo where bumping one package would then cause the lockfile to be out of date.",
       "type": "boolean",

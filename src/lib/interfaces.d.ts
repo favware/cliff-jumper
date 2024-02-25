@@ -18,5 +18,7 @@ declare module 'commander' {
     monoRepo: boolean;
     commitMessageTemplate: string;
     tagTemplate: string;
+    githubRepo: string;
+    githubToken: string;
   }
 }
