@@ -3,5 +3,6 @@
   "name": "cliff-jumper",
   "org": "favware",
   "packagePath": ".",
-  "identifierBase": false
+  "identifierBase": false,
+  "githubRepo": "auto"
 }
