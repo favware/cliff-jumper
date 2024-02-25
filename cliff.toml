@@ -71,8 +71,3 @@ tag_pattern = "@favware/cliff-jumper@[0-9]*"
 ignore_tags = ""
 topo_order = false
 sort_commits = "newest"
-
-[remote.github]
-owner = "favware"
-repo = "cliff-jumper"
-token = ""
