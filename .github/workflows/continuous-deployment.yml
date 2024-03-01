@@ -28,6 +28,8 @@ jobs:
         run: yarn build
       - name: Bump Version
         run: node . --preid "next.$(git rev-parse --verify --short HEAD)" -v
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish to Yarnpkg
         run: |
           yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
