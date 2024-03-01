@@ -3,27 +3,24 @@ import { fileExists } from '#lib/fileExists';
 import { doActionAndLog, getGitRootDirection, type resolveUsedPackageManager } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { Options } from 'commander';
-import { execSync } from 'node:child_process';
+import { execa } from 'execa';
 import { join } from 'node:path';
 
 export async function stageFiles(options: Options, packageManagerUsed: ReturnType<typeof resolveUsedPackageManager>) {
   const lockfilePath = await getLockFilePath(options, packageManagerUsed);
 
-  return doActionAndLog(
-    'Staging package.json and CHANGELOG.md', //
-    () => {
-      if (!options.dryRun) {
-        execSync(`git add package.json CHANGELOG.md ${lockfilePath}`);
-      }
+  return doActionAndLog('Staging package.json and CHANGELOG.md', async () => {
+    if (!options.dryRun) {
+      await execa('git', ['add', 'package.json', 'CHANGELOG.md', lockfilePath]);
     }
-  );
+  });
 }
 
 async function getLockFilePath(options: Options, packageManagerUsed: ReturnType<typeof resolveUsedPackageManager>) {
   const lockfile = resolveLockfile(options, packageManagerUsed);
 
   if (!isNullishOrEmpty(lockfile)) {
-    const repositoryRootDirectory = getGitRootDirection();
+    const repositoryRootDirectory = await getGitRootDirection();
     const resolvedLockfilePath = join(packageCwd, repositoryRootDirectory, lockfile);
 
     const lockfileExists = await fileExists(resolvedLockfilePath);

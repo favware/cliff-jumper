@@ -3,8 +3,8 @@ import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { Options } from 'commander';
 import { runGitCliff, type Options as GitCliffOptions } from 'git-cliff';
 
-export function updateChangelog(options: Options, newVersion: string) {
-  const repositoryRootDirectory = getGitRootDirection();
+export async function updateChangelog(options: Options, newVersion: string) {
+  const repositoryRootDirectory = await getGitRootDirection();
 
   resolveTagTemplate(options, newVersion);
 
