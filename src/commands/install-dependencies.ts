@@ -1,13 +1,14 @@
 import { doActionAndLog, resolveInstallCommand, type resolveUsedPackageManager } from '#lib/utils';
 import type { Options } from 'commander';
-import { execSync } from 'node:child_process';
+import { execa } from 'execa';
 
 export function installDependencies(options: Options, packageManagerUsed: ReturnType<typeof resolveUsedPackageManager>) {
   return doActionAndLog(
     `Installing dependencies with ${packageManager(packageManagerUsed)}`, //
-    () => {
+    async () => {
       if (!options.dryRun) {
-        execSync(resolveInstallCommand(packageManagerUsed));
+        const installCommand = resolveInstallCommand(packageManagerUsed).split(' ');
+        await execa(installCommand[0], installCommand.slice(1));
       }
     }
   );

@@ -1,7 +1,7 @@
 import { doActionAndLog, getFullPackageName } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { Options } from 'commander';
-import { execSync } from 'node:child_process';
+import { execa } from 'execa';
 
 export function commitRelease(options: Options, newVersion: string) {
   if (isNullishOrEmpty(options.commitMessageTemplate)) {
@@ -13,12 +13,9 @@ export function commitRelease(options: Options, newVersion: string) {
     .replaceAll('{{name}}', options.name)
     .replaceAll('{{full-name}}', getFullPackageName(options));
 
-  return doActionAndLog(
-    'Committing release', //
-    () => {
-      if (!options.dryRun) {
-        execSync(`git commit --no-verify -m "${options.commitMessageTemplate}"`);
-      }
+  return doActionAndLog('Committing release', async () => {
+    if (!options.dryRun) {
+      await execa('git', ['commit', '--no-verify', '-m', `"${options.commitMessageTemplate}"`]);
     }
-  );
+  });
 }

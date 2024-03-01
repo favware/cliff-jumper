@@ -4,8 +4,8 @@ import { isFunction, isNullishOrEmpty, isThenable, type Awaitable } from '@sapph
 import { red } from 'colorette';
 import type { Options } from 'commander';
 import type { Recommendation } from 'conventional-recommended-bump';
+import { execa } from 'execa';
 import { load } from 'js-yaml';
-import { execSync } from 'node:child_process';
 import type { PathLike } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import type { ReleaseType } from 'semver';
@@ -80,11 +80,11 @@ export async function readJson<T>(pathLike: PathLike): Promise<T> {
   return JSON.parse(await readFile(pathLike, { encoding: 'utf-8' })) as T;
 }
 
-export function getGitRootDirection() {
-  const repositoryRoot = execSync('git rev-parse --show-prefix', { encoding: 'utf-8' });
+export async function getGitRootDirection() {
+  const repositoryRoot = await execa('git', ['rev-parse', '--show-prefix']);
 
-  return repositoryRoot
-    .split('/')
+  return repositoryRoot.stdout
+    ?.split('/')
     .map((i) => i.trim())
     .filter(Boolean)
     .map(() => '..')
