@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@3.0.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@2.2.3...@favware/cliff-jumper@3.0.0) - (2024-03-01)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update dependency git-cliff to v2 ([508b7ad](https://github.com/favware/cliff-jumper/commit/508b7adbf04d79e18a51abcd07b6b69c59d142a7)) ([#157](https://github.com/favware/cliff-jumper/pull/157))
+  - 💥 **BREAKING CHANGE:** Bumped git-cliff to v2, please see https://github.com/orhun/git-cliff/blob/main/CHANGELOG.md#200---2024-02-19 for their breaking changes
+  - 💥 **Co-authored-by:** renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+- **deps:** Update dependency commander to v12 ([dd7684e](https://github.com/favware/cliff-jumper/commit/dd7684e27216d270e859f0e683efae2347602f52)) ([#151](https://github.com/favware/cliff-jumper/pull/151))
+- **deps:** Update all non-major dependencies ([411713e](https://github.com/favware/cliff-jumper/commit/411713e4267c1e373e16de7a13d14e329869266e)) ([#148](https://github.com/favware/cliff-jumper/pull/148))
+- **deps:** Update all non-major dependencies ([e3ab8b9](https://github.com/favware/cliff-jumper/commit/e3ab8b912480091db3c5056738b28bd23408556f)) ([#144](https://github.com/favware/cliff-jumper/pull/144))
+- Make schema use https ([e7104f2](https://github.com/favware/cliff-jumper/commit/e7104f28ca53dc82ddd186687c14d8d86f677d71))
+
+## 🚀 Features
+
+- Implement a press enter to continue system for GH integration for windows ([22737c6](https://github.com/favware/cliff-jumper/commit/22737c66c6e988a882f15989165a64e559e2728f))
+- Add support for `--github-repo` and `--github-token` ([7ec4f9d](https://github.com/favware/cliff-jumper/commit/7ec4f9dde6135008bd8194cf33ef2df0e44b1055))
+
 # [@favware/cliff-jumper@2.2.3](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@2.2.3...@favware/cliff-jumper@2.2.3) - (2023-11-14)
 
 ## 🐛 Bug Fixes
