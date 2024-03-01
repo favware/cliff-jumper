@@ -1,6 +1,7 @@
+import { Spinner } from '@favware/colorette-spinner';
 import { Result } from '@sapphire/result';
 import { isFunction, isNullishOrEmpty, isThenable, type Awaitable } from '@sapphire/utilities';
-import { cyan, green, red } from 'colorette';
+import { red } from 'colorette';
 import type { Options } from 'commander';
 import type { Recommendation } from 'conventional-recommended-bump';
 import { load } from 'js-yaml';
@@ -95,21 +96,20 @@ export function getFullPackageName(options: Options) {
 }
 
 export async function doActionAndLog<T>(preActionLog: string, action: Awaitable<T> | (() => Awaitable<T>)): Promise<T> {
-  process.stdout.write(cyan(`${preActionLog}... `));
+  const spinner = new Spinner(`${preActionLog}... `).start();
 
   const result = await Result.fromAsync<T, Error>(async () => {
     const executedFunctionResult = isFunction(action) ? action() : action;
     const returnValue = isThenable(executedFunctionResult) ? ((await executedFunctionResult) as T) : executedFunctionResult;
-    console.log(green('✅ Done'));
     return returnValue;
   });
 
   if (result.isErr()) {
-    console.log(red('❌ Error'));
-    console.error(result.unwrapErr().message);
+    spinner.error({ text: red(result.unwrapErr().message) });
     process.exit(1);
   }
 
+  spinner.success();
   return result.unwrap();
 }
 
