@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@3.0.1](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@3.0.0...@favware/cliff-jumper@3.0.1) - (2024-03-03)
+
+## 🏠 Refactor
+
+- Switch to `execa` for a full async code ([74c09c7](https://github.com/favware/cliff-jumper/commit/74c09c7e1627f5a38af5de0579f8b90fe4d4f5cc))
+- Add spinner for cli command progress ([6945d21](https://github.com/favware/cliff-jumper/commit/6945d21eb273beff55342c8092e5ceacdc4353db))
+- Git cliff programmatic api ([d542c51](https://github.com/favware/cliff-jumper/commit/d542c51aaffef696b75f5716a8fd719e0c5b2ce3))
+
+## 🐛 Bug Fixes
+
+- Bump git-cliff for windows github integration support, remove warning for the same ([a68359d](https://github.com/favware/cliff-jumper/commit/a68359d48d42ba6463685d943432514b1ff632d2)) ([#158](https://github.com/favware/cliff-jumper/pull/158))
+
 # [@favware/cliff-jumper@3.0.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@2.2.3...@favware/cliff-jumper@3.0.0) - (2024-03-01)
 
 ## 🐛 Bug Fixes
