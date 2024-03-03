@@ -1,7 +1,7 @@
 import { packageCwd } from '#lib/constants';
 import { fileExists } from '#lib/fileExists';
 import { doActionAndLog, getGitRootDirection, type resolveUsedPackageManager } from '#lib/utils';
-import { isNullishOrEmpty } from '@sapphire/utilities';
+import { filterNullish, isNullishOrEmpty } from '@sapphire/utilities';
 import type { Options } from 'commander';
 import { execa } from 'execa';
 import { join } from 'node:path';
@@ -11,7 +11,7 @@ export async function stageFiles(options: Options, packageManagerUsed: ReturnTyp
 
   return doActionAndLog('Staging package.json and CHANGELOG.md', async () => {
     if (!options.dryRun) {
-      await execa('git', ['add', 'package.json', 'CHANGELOG.md', lockfilePath]);
+      await execa('git', ['add', 'package.json', 'CHANGELOG.md', lockfilePath || null].filter(filterNullish));
     }
   });
 }
