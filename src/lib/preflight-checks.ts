@@ -2,11 +2,9 @@ import { packageCwd } from '#lib/constants';
 import { createFile } from '#lib/createFile';
 import { fileExists } from '#lib/fileExists';
 import { logVerboseError } from '#lib/logger';
-import { pressEnterToContinue } from '#lib/pressEnterToContinue';
 import { doActionAndLog, getGitHubRepo, getGitHubToken, readJson } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { Options } from 'commander';
-import { platform } from 'node:os';
 import { join } from 'node:path';
 
 export async function preflightChecks(options: Options) {
@@ -28,21 +26,6 @@ export async function preflightChecks(options: Options) {
 
   const githubRepo = getGitHubRepo(options);
   if (!isNullishOrEmpty(githubRepo)) {
-    const os = platform();
-    if (os === 'win32') {
-      logVerboseError({
-        text: [
-          'GitHub integration is currently not functional on Windows due to limitations in git-cliff.',
-          'For more information, see https://github.com/orhun/git-cliff/issues/514',
-          '',
-          'This means that any GitHub integration markup in your cliff.toml such as "commit.github." will not work.'
-        ],
-        verbose: options.verbose
-      });
-
-      await pressEnterToContinue();
-    }
-
     const githubToken = getGitHubToken(options);
 
     if (isNullishOrEmpty(githubToken)) {

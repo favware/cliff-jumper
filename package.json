@@ -43,7 +43,7 @@
     "compare-func": "^2.0.0",
     "conventional-recommended-bump": "^9.0.0",
     "execa": "^8.0.1",
-    "git-cliff": "^2.0.4",
+    "git-cliff": "^2.1.2",
     "js-yaml": "^4.1.0",
     "semver": "^7.6.0"
   },
