@@ -1,6 +1,4 @@
 CHANGELOG.md
-*.hbs
-.turbo
+conventional-templates/
 .yarn/
 dist/
-coverage/
