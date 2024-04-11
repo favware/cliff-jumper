@@ -124,7 +124,13 @@ Options:
                                           You can pass the unique string "auto" to automatically set this value as {{org}}/{{name}} as provided from --org and --name
                                           This should be in the format "owner/repo"
                                           You can use the "GITHUB_REPO" environment variable to automatically set this value
-  --github-token                          A token to authenticate requests to the GitHub API. This is required when using the "--github-repo" option. You can also set the "GITHUB_TOKEN" environment variable.
+  --github-token                          A token to authenticate requests to the GitHub API. This is required when using the "--github-repo" option.
+                                          You can also set the one of the following environment variables.
+                                          - GITHUB_TOKEN
+                                          - GH_TOKEN
+                                          - TOKEN_GITHUB
+                                          - TOKEN_GH
+                                          The multiple options for the name of the environment are to aim to not conflict with other tooling that use similar tokens in case you want to use a unique token for release management.
   -v, --verbose                           Whether to print verbose information (default: false)
   -h, --help                              display help for command
 ```

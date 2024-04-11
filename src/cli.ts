@@ -104,7 +104,15 @@ const command = new Command()
   .option('--github-repo', githubRepoDescription)
   .option(
     '--github-token',
-    'A token to authenticate requests to the GitHub API. This is required when using the "--github-repo" option. You can also set the "GITHUB_TOKEN" environment variable.'
+    [
+      'A token to authenticate requests to the GitHub API. This is required when using the "--github-repo" option.',
+      'You can also set the one of the following environment variables.',
+      '- GITHUB_TOKEN',
+      '- GH_TOKEN',
+      '- TOKEN_GITHUB',
+      '- TOKEN_GH',
+      'The multiple options for the name of the environment are to aim to not conflict with other tooling that use similar tokens in case you want to use a unique token for release management.'
+    ].join('\n')
   )
   .option('-v, --verbose', 'Whether to print verbose information', false);
 

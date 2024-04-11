@@ -153,11 +153,14 @@ export function getGitHubRepo(options: Options): string | undefined {
  *
  * The order of precedence is:
  * 1. Environment variable `GITHUB_TOKEN`
- * 2. The `githubToken` property in the options object
+ * 2. Environment variable `GH_TOKEN`
+ * 3. Environment variable `TOKEN_GITHUB`
+ * 4. Environment variable `TOKEN_GH`
+ * 5. The `githubToken` property in the options object
  *
  * @param options The options object
  * @returns The GitHub token or `undefined` if it was not found
  */
 export function getGitHubToken(options: Options): string | undefined {
-  return process.env.GITHUB_TOKEN ?? options.githubToken ?? undefined;
+  return process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN ?? process.env.TOKEN_GITHUB ?? process.env.TOKEN_GH ?? options.githubToken ?? undefined;
 }
