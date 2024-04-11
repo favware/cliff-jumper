@@ -69,7 +69,7 @@ export function resolveInstallCommand(packageManagerUsed: ReturnType<typeof reso
  * @param pathLike The {@link PathLike} to read with {@link readFile}
  */
 export async function readYaml<T>(pathLike: PathLike): Promise<T> {
-  return load(await readFile(pathLike, { encoding: 'utf-8' })) as unknown as T;
+  return load(await readFile(pathLike, { encoding: 'utf-8' })) as T;
 }
 
 /**
