@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@3.0.3](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@3.0.2...@favware/cliff-jumper@3.0.3) - (2024-04-23)
+
+## 🏠 Refactor
+
+- Code cleanup ([207a5d6](https://github.com/favware/cliff-jumper/commit/207a5d669bffa22311aa7d3fbef10889254e0040))
+
+## 🐛 Bug Fixes
+
+- **commit-release:** Remove quotes from commit message template ([9fcab96](https://github.com/favware/cliff-jumper/commit/9fcab96137ee677cf18b60cf66f427e01e556c68)) ([#169](https://github.com/favware/cliff-jumper/pull/169))
+- Add `GH_TOKEN`, `TOKEN_GITHUB` and `TOKEN_GH` to the list possible env vars for github token ([0ab906a](https://github.com/favware/cliff-jumper/commit/0ab906ae5cb25edf782e9744a5416e0af34d9745))
+
 # [@favware/cliff-jumper@3.0.2](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@3.0.1...@favware/cliff-jumper@3.0.2) - (2024-04-11)
 
 ## 🐛 Bug Fixes
