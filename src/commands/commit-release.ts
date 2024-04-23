@@ -15,7 +15,7 @@ export function commitRelease(options: Options, newVersion: string) {
 
   return doActionAndLog('Committing release', async () => {
     if (!options.dryRun) {
-      await execa('git', ['commit', '--no-verify', '-m', `"${options.commitMessageTemplate}"`]);
+      await execa('git', ['commit', '--no-verify', '-m', `${options.commitMessageTemplate}`]);
     }
   });
 }
