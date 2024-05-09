@@ -6,6 +6,7 @@ import { createTag } from '#commands/create-tag';
 import { getConventionalBump } from '#commands/get-conventional-bump';
 import { getNewVersion } from '#commands/get-new-version';
 import { installDependencies } from '#commands/install-dependencies';
+import { pushTag } from '#commands/push-tag';
 import { stageFiles } from '#commands/stage-files';
 import { updateChangelog } from '#commands/update-changelog';
 import { cliRootDir, indent, isCi } from '#lib/constants';
@@ -114,6 +115,24 @@ const command = new Command()
       'The multiple options for the name of the environment are to aim to not conflict with other tooling that use similar tokens in case you want to use a unique token for release management.'
     ].join('\n')
   )
+  .option('-pt, --push-tag', 'Whether to push the tag to the remote repository')
+  .option(
+    '-ghr, --github-release',
+    'Whether to create a release on GitHub, requires "--push-tag" to be enabled, otherwise there will be no tag to create a release from'
+  )
+  .option('-ghrd, --github-release-draft', 'Whether the release should be a draft')
+  .option('-ghrpr, --github-release-pre-release', 'Whether the release should be a pre-release')
+  .option('-ghrl, --github-release-latest', 'Whether the release should be marked as the latest release')
+  .option(
+    '-ghrnt, --github-release-name-template [string]',
+    [
+      'A GitHub release name template to use. Defaults to an empty string, which means GitHub will use the tag name as the release name.',
+      'You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be published.',
+      'You can use "{{org}}" in your template, this will be replaced with the org provided through "-o", "--org" or the same value set in your config file.',
+      'You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in your config file.',
+      'You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is provided).'
+    ].join('\n')
+  )
   .option('-v, --verbose', 'Whether to print verbose information', false);
 
 const program = command.parse(process.argv);
@@ -138,6 +157,12 @@ logVerboseInfo(
     `${indent}verbose: ${JSON.stringify(options.verbose)}`,
     `${indent}github repo: ${JSON.stringify(getGitHubRepo(options))}`,
     `${indent}github token: ${getGitHubToken(options) ? 'Unset' : 'SECRET([REDACTED])'}`,
+    `${indent}push tag: ${JSON.stringify(options.pushTag)}`,
+    `${indent}github release: ${JSON.stringify(options.githubRelease)}`,
+    `${indent}github release draft: ${JSON.stringify(options.githubReleaseDraft)}`,
+    `${indent}github release pre-release: ${JSON.stringify(options.githubReleasePreRelease)}`,
+    `${indent}github release latest: ${JSON.stringify(options.githubReleaseLatest)}`,
+    `${indent}github release name template: ${JSON.stringify(options.githubReleaseNameTemplate)}`,
     ''
   ],
   options.verbose
@@ -187,6 +212,14 @@ if (!options.skipChangelog) {
     await commitRelease(options, newVersion);
 
     await createTag(options, newVersion);
+
+    if (options.pushTag) {
+      await pushTag(options);
+
+      if (options.githubRelease) {
+        await createGitHubRelease(otpions);
+      }
+    }
 
     const publishText = resolvePublishCommand(packageManagerUsed);
 

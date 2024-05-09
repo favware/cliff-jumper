@@ -10,7 +10,7 @@ import { join } from 'node:path';
 export async function preflightChecks(options: Options) {
   checkName(options);
 
-  checkPacakgePath(options);
+  checkPackagePath(options);
 
   checkGitHubConfig(options);
 
@@ -70,7 +70,7 @@ function checkName(options: Options) {
   }
 }
 
-function checkPacakgePath(options: Options) {
+function checkPackagePath(options: Options) {
   if (isNullishOrEmpty(options.packagePath)) {
     logVerboseError({
       text: ['No package path was provided (`-p`, or `--package-path` as cli flags, or `packagePath` in config file)'],
@@ -82,12 +82,20 @@ function checkPacakgePath(options: Options) {
 
 function checkGitHubConfig(options: Options) {
   const githubRepo = getGitHubRepo(options);
-  if (!isNullishOrEmpty(githubRepo)) {
-    const githubToken = getGitHubToken(options);
+  const githubToken = getGitHubToken(options);
+  const { githubRelease, githubReleaseDraft, githubReleasePreRelease, githubReleaseLatest, githubReleaseNameTemplate, pushTag } = options;
 
+  if (
+    !isNullishOrEmpty(githubRepo) ||
+    githubRelease ||
+    githubReleaseDraft ||
+    githubReleasePreRelease ||
+    githubReleaseLatest ||
+    !isNullishOrEmpty(githubReleaseNameTemplate)
+  ) {
     if (isNullishOrEmpty(githubToken)) {
       logVerboseError({
-        text: [`GitHub Repository was configured as ${githubRepo} but no token was provided`],
+        text: [`GitHub configurations were provided but no token was provided`],
         verboseText: [
           'You can provide the token either through the "--github-token" option one of the possible environment variables',
           '(see --help for the full list)'
@@ -96,6 +104,19 @@ function checkGitHubConfig(options: Options) {
         verbose: options.verbose
       });
     }
+  }
+
+  if (
+    (!githubRelease || !pushTag) &&
+    (githubReleaseDraft || githubReleasePreRelease || githubReleaseLatest || !isNullishOrEmpty(githubReleaseNameTemplate))
+  ) {
+    logVerboseError({
+      text: [
+        'You can only use --github-release-draft, --github-release-latest, --github-release-name-template, --github-release-pre-release when both --github-release and --push-tag are provided'
+      ],
+      exitAfterLog: true,
+      verbose: options.verbose
+    });
   }
 }
 
