@@ -6,7 +6,7 @@ import { retry } from '@octokit/plugin-retry';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { Options } from 'commander';
 
-export async function createGitHubRelease(options: Options, newVersion: string, changelogSection: string | undefined) {
+export function createGitHubRelease(options: Options, newVersion: string, changelogSection: string | undefined) {
   const HydratedOctokit = Octokit.plugin(retry).defaults({
     userAgent: 'Cliff Jumper CLI/ (@favware/cliff-jumper) (https://github.com/favware/cliff-jumper/tree/main)'
   });
