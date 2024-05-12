@@ -14,7 +14,8 @@ export async function updateChangelog(options: Options, newVersion: string) {
         tag: options.tagTemplate,
         prepend: './CHANGELOG.md',
         unreleased: true,
-        config: './cliff.toml'
+        config: './cliff.toml',
+        output: '-'
       };
 
       if (!isNullishOrEmpty(repositoryRootDirectory)) {
@@ -31,7 +32,8 @@ export async function updateChangelog(options: Options, newVersion: string) {
         gitCliffOptions.githubToken = githubToken;
       }
 
-      await runGitCliff(gitCliffOptions, { stdio: 'ignore' });
+      const result = await runGitCliff(gitCliffOptions, { stdio: 'pipe' });
+      console.log(result.stdout);
     }
   });
 }
