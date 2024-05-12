@@ -4,11 +4,11 @@ import { readPackageJson, writePackageJson } from '#lib/package-json-parser';
 import { doActionAndLog, getReleaseType } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { Options } from 'commander';
-import type { Recommendation } from 'conventional-recommended-bump';
+import type { BumperRecommendation } from 'conventional-recommended-bump';
 import { join } from 'node:path';
 import Semver from 'semver';
 
-export function bumpVersion(options: Options, releaseType: Recommendation.ReleaseType) {
+export function bumpVersion(options: Options, bumperRecommendation: BumperRecommendation) {
   return doActionAndLog('Bumping version in package.json', async () => {
     const packageJsonPath = join(packageCwd, 'package.json');
     const packageJsonContent = await readPackageJson(packageJsonPath);
@@ -24,14 +24,14 @@ export function bumpVersion(options: Options, releaseType: Recommendation.Releas
       });
     }
 
-    const newVersion = Semver.inc(currentClean, `${getReleaseType(options, releaseType)}`, options.preid ?? '', options.identifierBase);
+    const newVersion = Semver.inc(currentClean, `${getReleaseType(options, bumperRecommendation)}`, options.preid ?? '', options.identifierBase);
 
     if (isNullishOrEmpty(newVersion)) {
       return logVerboseError({
         text: ['Failed to assign new version.'],
         verboseText: [
           `The resolved current version is ${currentVersion} which was cleaned to ${currentClean} by semver clean`,
-          `A bump with release type ${releaseType} was attempted but failed`,
+          `A bump with release type ${bumperRecommendation.releaseType} was attempted but failed`,
           'Either validate your setup or contact the developer with reproducible code.'
         ],
         logWithThrownError: true,

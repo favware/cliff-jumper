@@ -3,7 +3,7 @@ import { Result } from '@sapphire/result';
 import { isFunction, isNullishOrEmpty, isThenable, type Awaitable } from '@sapphire/utilities';
 import { red } from 'colorette';
 import type { Options } from 'commander';
-import type { Recommendation } from 'conventional-recommended-bump';
+import type { BumperRecommendation } from 'conventional-recommended-bump';
 import { execa } from 'execa';
 import { load } from 'js-yaml';
 import type { PathLike } from 'node:fs';
@@ -130,8 +130,8 @@ export function resolveTagTemplate(options: Options, newVersion: string) {
 }
 
 /** Resolves the release-as prefix */
-export function getReleaseType(options: Options, changelogResolvedReleaseType: Recommendation.ReleaseType): ReleaseType {
-  return ((Boolean(options.preid) ? 'pre' : '') + changelogResolvedReleaseType) as ReleaseType;
+export function getReleaseType(options: Options, bumperRecommendation: BumperRecommendation): ReleaseType {
+  return ((Boolean(options.preid) ? 'pre' : '') + bumperRecommendation.releaseType) as ReleaseType;
 }
 
 /**
