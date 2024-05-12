@@ -32,8 +32,10 @@ export async function updateChangelog(options: Options, newVersion: string) {
         gitCliffOptions.githubToken = githubToken;
       }
 
-      const result = await runGitCliff(gitCliffOptions, { stdio: 'pipe' });
-      console.log(result.stdout);
+      const result = await runGitCliff(gitCliffOptions, { stdio: options.githubRelease ? 'pipe' : 'ignore' });
+      return result.stdout;
     }
+
+    return undefined;
   });
 }

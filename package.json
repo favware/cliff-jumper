@@ -35,6 +35,9 @@
   },
   "dependencies": {
     "@favware/colorette-spinner": "^1.0.1",
+    "@octokit/auth-token": "^5.1.1",
+    "@octokit/core": "^6.1.2",
+    "@octokit/plugin-retry": "^7.1.1",
     "@sapphire/result": "^2.6.6",
     "@sapphire/utilities": "3.16.2",
     "colorette": "^2.0.20",

@@ -24,3 +24,8 @@ export const cliffJumperRcYamlPath = `${cliffJumperRcPath}.yaml`;
 
 /** 4 spaces indent for logging */
 export const indent = ' '.repeat(4);
+
+export const OctokitRequestHeaders = {
+  'X-GitHub-Api-Version': '2022-11-28',
+  Accept: 'application/vnd.github+json'
+};
