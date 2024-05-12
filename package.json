@@ -18,8 +18,7 @@
   "sideEffects": "false",
   "files": [
     "dist/**/*.js",
-    "assets/",
-    "conventional-templates/"
+    "assets/"
   ],
   "scripts": {
     "debug": "node . --first-release --verbose --dry-run",
@@ -41,7 +40,8 @@
     "colorette": "^2.0.20",
     "commander": "^12.0.0",
     "compare-func": "^2.0.0",
-    "conventional-recommended-bump": "^9.0.0",
+    "conventional-changelog-angular": "^8.0.0",
+    "conventional-recommended-bump": "^10.0.0",
     "execa": "^9.0.2",
     "git-cliff": "^2.2.2",
     "js-yaml": "^4.1.0",
@@ -54,7 +54,6 @@
     "@sapphire/prettier-config": "^2.0.0",
     "@sapphire/ts-config": "^5.0.1",
     "@types/compare-func": "^1.3.3",
-    "@types/conventional-recommended-bump": "^9.0.3",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.12.11",
     "@types/semver": "^7.5.8",
@@ -70,7 +69,7 @@
     "typescript": "^5.4.5"
   },
   "engines": {
-    "node": ">=v16"
+    "node": ">=v18"
   },
   "repository": {
     "type": "git",

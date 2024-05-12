@@ -145,34 +145,31 @@ logVerboseInfo(
 
 await preflightChecks(options);
 
-const { reason, releaseType } = await doActionAndLog(
+const fullPackageName = getFullPackageName(options);
+const bumperRecommendation = await doActionAndLog(
   'Retrieving the strategy to use for bumping the package', //
   getConventionalBump(options)
 );
 
-if (isNullishOrEmpty(reason) || isNullishOrEmpty(releaseType)) {
+if (isNullishOrEmpty(bumperRecommendation.reason) || isNullishOrEmpty(bumperRecommendation.releaseType)) {
   logVerboseError({
-    text: [`No recommended bump level found for ${getFullPackageName(options)}`],
+    text: [`No recommended bump level found for ${fullPackageName}`],
     exitAfterLog: true,
     verbose: options.verbose
   });
 }
 
-console.info(
-  cyan(
-    `${blue('ℹ️')} Bumping the ${yellow(`${getReleaseType(options, releaseType!)}`)} version of ${blueBright(getFullPackageName(options))}: ${yellow(
-      reason!
-    )}`
-  )
-);
+const infoIcon = blue('ℹ️');
+const releaseType = yellow(`${getReleaseType(options, bumperRecommendation)}`);
+console.info(cyan(`${infoIcon} Bumping the ${releaseType} version of ${blueBright(fullPackageName)}: ${yellow(bumperRecommendation.reason!)}`));
 
 let newVersion: string | undefined;
 
 if (!options.firstRelease) {
-  const resolvedNewVersion = await bumpVersion(options, releaseType!);
+  const resolvedNewVersion = await bumpVersion(options, bumperRecommendation);
 
   newVersion = typeof resolvedNewVersion === 'string' ? resolvedNewVersion : await getNewVersion();
-  console.log(green(`📦 Bumped ${getFullPackageName(options)}@${newVersion}`));
+  console.log(green(`📦 Bumped ${fullPackageName}@${newVersion}`));
 }
 
 if (!options.skipChangelog) {
@@ -193,6 +190,6 @@ if (!options.skipChangelog) {
 
     const publishText = resolvePublishCommand(packageManagerUsed);
 
-    console.info(blue('ℹ️') + green(` Run \`git push && git push --tags && ${publishText}\` to publish`));
+    console.info(infoIcon + green(` Run \`git push && git push --tags && ${publishText}\` to publish`));
   }
 }
