@@ -217,16 +217,18 @@ if (!options.skipChangelog) {
 
     await createTag(options, newVersion);
 
+    const publishText = resolvePublishCommand(packageManagerUsed);
+
     if (options.pushTag) {
       await pushTag(options);
 
       if (options.githubRelease) {
         await createGitHubRelease(options, newVersion, changelogSection);
       }
+
+      console.info(infoIcon + green(` Run \`${publishText}\` to publish to your package registry`));
+    } else {
+      console.info(infoIcon + green(` Run \`git push && git push --tags && ${publishText}\` to publish to your package registry`));
     }
-
-    const publishText = resolvePublishCommand(packageManagerUsed);
-
-    console.info(infoIcon + green(` Run \`git push && git push --tags && ${publishText}\` to publish`));
   }
 }
