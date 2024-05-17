@@ -1,5 +1,5 @@
 import { packageCwd } from '#lib/constants';
-import { fileExists } from '#lib/fileExists';
+import { fileExists } from '#lib/file-exists';
 import { doActionAndLog, getGitRootDirection, type resolveUsedPackageManager } from '#lib/utils';
 import { filterNullish, isNullishOrEmpty } from '@sapphire/utilities';
 import type { Options } from 'commander';

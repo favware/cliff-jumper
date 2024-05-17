@@ -1,6 +1,6 @@
 import { changelogPath, cliffTomlPath, packageCwd } from '#lib/constants';
-import { createFile } from '#lib/createFile';
-import { fileExists } from '#lib/fileExists';
+import { createFile } from '#lib/create-file';
+import { fileExists } from '#lib/file-exists';
 import { logVerboseError } from '#lib/logger';
 import { doActionAndLog, getGitHubRepo, getGitHubToken, readJson } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';

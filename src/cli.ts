@@ -12,7 +12,7 @@ import { stageFiles } from '#commands/stage-files';
 import { updateChangelog } from '#commands/update-changelog';
 import { cliRootDir, indent, isCi } from '#lib/constants';
 import { logVerboseError, logVerboseInfo } from '#lib/logger';
-import { parseOptionsFile } from '#lib/optionsParser';
+import { parseOptionsFile } from '#lib/options-parser';
 import { preflightChecks } from '#lib/preflight-checks';
 import {
   doActionAndLog,

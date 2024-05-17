@@ -1,5 +1,5 @@
 import { OctokitRequestHeaders } from '#lib/constants';
-import { removeHeaderFromChangelogSection } from '#lib/parseCliffToml';
+import { removeHeaderFromChangelogSection } from '#lib/parse-cliff-toml';
 import { doActionAndLog, getGitHubRepo, getGitHubToken, resolveGitHubReleaseNameTemplate } from '#lib/utils';
 import { createTokenAuth } from '@octokit/auth-token';
 import { Octokit } from '@octokit/core';

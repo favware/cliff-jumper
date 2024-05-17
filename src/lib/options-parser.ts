@@ -1,5 +1,5 @@
 import { cliffJumperRcJsonPath, cliffJumperRcPath, cliffJumperRcYamlPath, cliffJumperRcYmlPath } from '#lib/constants';
-import { fileExists } from '#lib/fileExists';
+import { fileExists } from '#lib/file-exists';
 import { logVerboseError } from '#lib/logger';
 import { readJson, readYaml } from '#lib/utils';
 import type { Options } from 'commander';
