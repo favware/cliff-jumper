@@ -126,7 +126,10 @@ const command = new Command()
   )
   .option('-ghrd, --github-release-draft', 'Whether the release should be a draft')
   .option('-ghrpr, --github-release-pre-release', 'Whether the release should be a pre-release')
-  .option('-ghrl, --github-release-latest', 'Whether the release should be marked as the latest release')
+  .option(
+    '-ghrl, --github-release-latest',
+    'Whether the release should be marked as the latest release, will try to read this value, then the value of --github-release, and then default to false. Please note that when setting --github-release-pre-release to `true` GitHub will prevent the release to be marked as latest an this option will essentially be ignored.'
+  )
   .option(
     '-ghrnt, --github-release-name-template [string]',
     [
@@ -164,7 +167,7 @@ logVerboseInfo(
     `${indent}push tag: ${JSON.stringify(options.pushTag)}`,
     `${indent}github release: ${JSON.stringify(options.githubRelease)}`,
     `${indent}github release draft: ${JSON.stringify(options.githubReleaseDraft)}`,
-    `${indent}github release pre-release: ${JSON.stringify(options.githubReleasePreRelease)}`,
+    `${indent}github release pre-release: ${JSON.stringify(options.githubReleasePrerelease)}`,
     `${indent}github release latest: ${JSON.stringify(options.githubReleaseLatest)}`,
     `${indent}github release name template: ${JSON.stringify(options.githubReleaseNameTemplate)}`,
     ''

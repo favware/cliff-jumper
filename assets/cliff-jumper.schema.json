@@ -79,17 +79,17 @@
       "default": false
     },
     "githubReleaseDraft": {
-      "description": "Whether the release should be draft (default `false`)",
+      "description": "Whether the release should be a draft",
       "type": "boolean",
       "default": false
     },
     "githubReleasePrerelease": {
-      "description": "Whether the release should be a prerelease (default `false`)",
+      "description": "Whether the release should be a pre-release",
       "type": "boolean",
       "default": false
     },
     "githubReleaseLatest": {
-      "description": "Whether the release should be marked as latest (default `false`)",
+      "description": "Whether the release should be marked as the latest release, will try to read this value, then the value of --github-release, and then default to false. Please note that when setting --github-release-pre-release to `true` GitHub will prevent the release to be marked as latest an this option will essentially be ignored..",
       "type": "boolean",
       "default": false
     },

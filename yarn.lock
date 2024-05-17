@@ -321,6 +321,7 @@ __metadata:
     prettier: "npm:^3.3.0"
     rimraf: "npm:^5.0.7"
     semver: "npm:^7.6.2"
+    smol-toml: "npm:^1.2.0"
     typescript: "npm:^5.4.5"
   bin:
     cj: ./dist/cli.js
@@ -3250,6 +3251,13 @@ __metadata:
     ansi-styles: "npm:^6.2.1"
     is-fullwidth-code-point: "npm:^5.0.0"
   checksum: 10/10313dd3cf7a2e4b265f527b1684c7c568210b09743fd1bd74f2194715ed13ffba653dc93a5fa79e3b1711518b8990a732cb7143aa01ddafe626e99dfa6474b2
+  languageName: node
+  linkType: hard
+
+"smol-toml@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "smol-toml@npm:1.2.0"
+  checksum: 10/b7c09fb8170447544837150fcccc29436d4648e68d5ac45d9c1df544f8fb585b080cd2e3ab59f2e18febcef49ef4b29c4f35f29fd4f6757a2369b737ec7ce2be
   languageName: node
   linkType: hard
 

@@ -10,8 +10,14 @@ export const cliRootDir = new URL('../../', import.meta.url);
 /** Current working directory from which the script is called */
 export const packageCwd = process.cwd();
 
+/** The path to the CHANGELOG file  */
+export const changelogPath = join(packageCwd, 'CHANGELOG.md');
+
 /** Path to the config file in proprietary format */
 export const cliffJumperRcPath = join(packageCwd, '.cliff-jumperrc');
+
+/** The path to the cliff.toml file for git-cliff */
+export const cliffTomlPath = join(packageCwd, 'cliff.toml');
 
 /** Path to the config file in .json format */
 export const cliffJumperRcJsonPath = `${cliffJumperRcPath}.json`;

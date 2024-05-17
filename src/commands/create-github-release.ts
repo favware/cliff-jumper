@@ -1,4 +1,5 @@
 import { OctokitRequestHeaders } from '#lib/constants';
+import { removeHeaderFromChangelogSection } from '#lib/parseCliffToml';
 import { doActionAndLog, getGitHubRepo, getGitHubToken, resolveGitHubReleaseNameTemplate } from '#lib/utils';
 import { createTokenAuth } from '@octokit/auth-token';
 import { Octokit } from '@octokit/core';
@@ -23,18 +24,19 @@ export function createGitHubRelease(options: Options, newVersion: string, change
         const octokit = new HydratedOctokit({ auth: authentication.token });
 
         const [repoOwner, repoName] = githubRepo.split('/');
+        const releaseBody = await removeHeaderFromChangelogSection(changelogSection);
 
         await octokit.request('POST /repos/{owner}/{repo}/releases', {
           owner: repoOwner,
           repo: repoName,
           tag_name: newVersion,
-          body: changelogSection,
+          body: releaseBody,
           draft: options.githubReleaseDraft,
           generate_release_notes: typeof changelogSection === 'undefined',
           headers: OctokitRequestHeaders,
           make_latest: options.githubReleaseLatest ? 'true' : 'false',
           name: resolveGitHubReleaseNameTemplate(options, newVersion),
-          prerelease: options.githubReleasePreRelease
+          prerelease: options.githubReleasePrerelease
         });
       }
     }

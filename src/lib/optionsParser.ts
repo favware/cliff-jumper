@@ -24,7 +24,9 @@ export async function parseOptionsFile(cliOptions: Options) {
       options = {
         ...fileOptions,
         ...options,
-        monoRepo: fileOptions.monoRepo ?? options.monoRepo ?? (fileOptions.org || options.org ? true : false)
+        monoRepo: fileOptions.monoRepo ?? options.monoRepo ?? (fileOptions.org || options.org),
+        githubReleaseLatest:
+          fileOptions.githubReleaseLatest ?? options.githubReleaseLatest ?? fileOptions.githubRelease ?? options.githubRelease ?? false
       };
     } catch (err) {
       const typedError = err as Error;
@@ -49,7 +51,9 @@ export async function parseOptionsFile(cliOptions: Options) {
       options = {
         ...fileOptions,
         ...options,
-        monoRepo: fileOptions.monoRepo ?? options.monoRepo ?? (fileOptions.org || options.org ? true : false)
+        monoRepo: fileOptions.monoRepo ?? options.monoRepo ?? (fileOptions.org || options.org),
+        githubReleaseLatest:
+          fileOptions.githubReleaseLatest ?? options.githubReleaseLatest ?? fileOptions.githubRelease ?? options.githubRelease ?? false
       };
     } catch (err) {
       const typedError = err as Error;

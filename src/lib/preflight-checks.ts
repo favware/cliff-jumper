@@ -1,4 +1,4 @@
-import { packageCwd } from '#lib/constants';
+import { changelogPath, cliffTomlPath, packageCwd } from '#lib/constants';
 import { createFile } from '#lib/createFile';
 import { fileExists } from '#lib/fileExists';
 import { logVerboseError } from '#lib/logger';
@@ -12,7 +12,7 @@ export async function preflightChecks(options: Options) {
 
   checkPackagePath(options);
 
-  checkGitHubConfig(options);
+  await checkGitHubConfig(options);
 
   const packageJsonPath = join(packageCwd, 'package.json');
 
@@ -33,30 +33,17 @@ export async function preflightChecks(options: Options) {
   if (!options.skipTag) {
     const hasCliffConfigAtCwd = await doActionAndLog(
       'Checking if a cliff.toml exists in the current working directory', //
-      fileExists(join(packageCwd, 'cliff.toml'))
+      fileExists(cliffTomlPath)
     );
 
     checkHasGitCliffConfig(hasCliffConfigAtCwd, options);
 
     const hasChangelogFileAtCwd = await doActionAndLog(
       'Checking if a CHANGELOG.md exists in the current working directory', //
-      fileExists(join(packageCwd, 'CHANGELOG.md'))
+      fileExists(changelogPath)
     );
 
-    if (!hasChangelogFileAtCwd) {
-      if (options.firstRelease) {
-        await doActionAndLog(
-          'Creating an empty CHANGELOG.md file in the current working directory', //
-          createFile(join(packageCwd, 'CHANGELOG.md'))
-        );
-      } else {
-        logVerboseError({
-          text: ['No CHANGELOG.md detected at current directory'],
-          exitAfterLog: true,
-          verbose: options.verbose
-        });
-      }
-    }
+    await checkHasChangelogFile(hasChangelogFileAtCwd, options);
   }
 }
 
@@ -80,16 +67,27 @@ function checkPackagePath(options: Options) {
   }
 }
 
-function checkGitHubConfig(options: Options) {
+async function checkGitHubConfig(options: Options) {
+  await doActionAndLog(
+    'Checking GitHub repository configuration', //
+    () => {
+      if (options.githubRepo === 'auto' && (!options.org || !options.name)) {
+        throw new Error(
+          '`githubRepo` was set to `auto` and the GitHub repository could not be resolved. When using the auto option, please provide the org and name options'
+        );
+      }
+    }
+  );
+
   const githubRepo = getGitHubRepo(options);
   const githubToken = getGitHubToken(options);
-  const { githubRelease, githubReleaseDraft, githubReleasePreRelease, githubReleaseLatest, githubReleaseNameTemplate, pushTag } = options;
+  const { githubRelease, githubReleaseDraft, githubReleasePrerelease, githubReleaseLatest, githubReleaseNameTemplate, pushTag } = options;
 
   if (
     !isNullishOrEmpty(githubRepo) ||
     githubRelease ||
     githubReleaseDraft ||
-    githubReleasePreRelease ||
+    githubReleasePrerelease ||
     githubReleaseLatest ||
     !isNullishOrEmpty(githubReleaseNameTemplate)
   ) {
@@ -106,18 +104,19 @@ function checkGitHubConfig(options: Options) {
     }
   }
 
-  if (
-    (!githubRelease || !pushTag) &&
-    (githubReleaseDraft || githubReleasePreRelease || githubReleaseLatest || !isNullishOrEmpty(githubReleaseNameTemplate))
-  ) {
-    logVerboseError({
-      text: [
-        'You can only use --github-release-draft, --github-release-latest, --github-release-name-template, --github-release-pre-release when both --github-release and --push-tag are provided'
-      ],
-      exitAfterLog: true,
-      verbose: options.verbose
-    });
-  }
+  await doActionAndLog(
+    'Checking GitHub releasing configuration', //
+    () => {
+      if (
+        (!githubRelease || !pushTag) &&
+        (githubReleaseDraft || githubReleasePrerelease || githubReleaseLatest || !isNullishOrEmpty(githubReleaseNameTemplate))
+      ) {
+        throw new Error(
+          'You can only use --github-release-draft, --github-release-latest, --github-release-name-template, and --github-release-pre-release when both --github-release and --push-tag are provided'
+        );
+      }
+    }
+  );
 }
 
 function checkPackageJsonExists(packageJsonExistsInCwd: boolean, options: Options) {
@@ -147,5 +146,22 @@ function checkHasGitCliffConfig(hasCliffConfigAtCwd: boolean, options: Options) 
       exitAfterLog: true,
       verbose: options.verbose
     });
+  }
+}
+
+async function checkHasChangelogFile(hasChangelogFileAtCwd: boolean, options: Options) {
+  if (!hasChangelogFileAtCwd) {
+    if (options.firstRelease) {
+      await doActionAndLog(
+        'Creating an empty CHANGELOG.md file in the current working directory', //
+        createFile(changelogPath)
+      );
+    } else {
+      logVerboseError({
+        text: ['No CHANGELOG.md detected at current directory'],
+        exitAfterLog: true,
+        verbose: options.verbose
+      });
+    }
   }
 }

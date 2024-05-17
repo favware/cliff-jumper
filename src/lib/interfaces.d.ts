@@ -23,7 +23,7 @@ declare module 'commander' {
     pushTag: boolean;
     githubRelease: boolean;
     githubReleaseDraft: boolean;
-    githubReleasePreRelease: boolean;
+    githubReleasePrerelease: boolean;
     githubReleaseLatest: boolean;
     githubReleaseNameTemplate: string;
   }

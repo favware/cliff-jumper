@@ -47,7 +47,8 @@
     "execa": "^9.1.0",
     "git-cliff": "^2.2.2",
     "js-yaml": "^4.1.0",
-    "semver": "^7.6.2"
+    "semver": "^7.6.2",
+    "smol-toml": "^1.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
