@@ -314,6 +314,35 @@ example
 }
 ```
 
+### Git Cliff commands executed
+
+The following commands are executed by [git-cliff] after options are parsed,
+depending on the scenario:
+
+#### In a regular repository
+
+```bash
+git cliff --tag "TAG_TEMPLATE_OPTION" --prepend ./CHANGELOG.md --unreleased --config ./cliff.toml
+```
+
+For example this could be:
+
+```bash
+git cliff --tag "@favware/cliff-jumper@1.0.0" --prepend ./CHANGELOG.md --unreleased --config ./cliff.toml
+```
+
+#### In a mono repository
+
+```bash
+git cliff --tag "TAG_TEMPLATE_OPTION" --prepend ./CHANGELOG.md --unreleased --config ./cliff.toml --repository RELATIVE_PATH_TO_REPOSITORY_ROOT --include-path "PACKAGE_PATH_OPTIONS/*"
+```
+
+For example this could be:
+
+```bash
+git cliff --tag "@sapphire/utilities@1.0.0" --prepend ./CHANGELOG.md --unreleased --config ./cliff.toml --repository ../../ --include-path "packages/utilities/*"
+```
+
 ## Buy us some doughnuts
 
 Favware projects are and always will be open source, even if we don't get
