@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@4.0.2](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@4.0.1...@favware/cliff-jumper@4.0.2) - (2024-06-03)
+
+## 🐛 Bug Fixes
+
+- Add a verbose logging entry for github release payload ([a15e2b4](https://github.com/favware/cliff-jumper/commit/a15e2b4ed3cfddfba555dad591a89d6c15c25cd9))
+
 # [@favware/cliff-jumper@4.0.1](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@4.0.0...@favware/cliff-jumper@4.0.1) - (2024-06-03)
 
 ## 🏠 Refactor
