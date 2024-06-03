@@ -301,17 +301,35 @@ the release notes. In order to use this feature you have to provide
 variables). Alternatively, if you want to run this step from a GitHub workflow
 you can base your step on the following example.
 
+It is very important that if your main branch is protected by branch protection
+you have to provide a Personal Access Token (this can be both a classic or a
+fine-grained one) for a user who can bypass branch protections as
+`token: ${{ secrets.YOUR_TOKEN_VAR }}` to `actions/checkout`!
+
 ```yaml
-- name: Bump Version
+- name: Checkout Project
+  uses: actions/checkout@v4
+  with:
+    fetch-depth: 0
+    ref: main
+- name: Use Node.js v20
+  uses: actions/setup-node@v4
+  with:
+    node-version: 20
+    cache: yarn
+- name: Configure Git
+  run: |
+    git remote set-url origin "https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${GITHUB_REPOSITORY}.git"
+    git config --local user.email "${GITHUB_EMAIL}"
+    git config --local user.name "${GITHUB_USER}"
   env:
     GITHUB_USER: github-actions[bot]
     GITHUB_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  run: |
-    git config --local user.email "${GITHUB_EMAIL}"
-    git config --local user.name "${GITHUB_USER}"
-
-    npx @favware/cliff-jumper
+- name: Bump Versions & Publish
+  run: npx @favware/cliff-jumper
+  env:
+    GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
 ```
 
 This will create a GitHub commit, release, and tag using the GitHub Actions bot
