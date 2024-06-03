@@ -4,5 +4,7 @@
   "org": "favware",
   "packagePath": ".",
   "identifierBase": false,
+  "pushTag": true,
+  "githubRelease": true,
   "githubRepo": "auto"
 }
