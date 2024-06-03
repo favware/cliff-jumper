@@ -3,11 +3,9 @@ import type { Options } from 'commander';
 import { execa } from 'execa';
 
 export function createTag(options: Options, newVersion: string) {
-  resolveTagTemplate(options, newVersion);
-
   return doActionAndLog('Creating tag', async () => {
     if (!options.dryRun) {
-      await execa('git', ['tag', options.tagTemplate]);
+      await execa('git', ['tag', resolveTagTemplate(options, newVersion)]);
     }
   });
 }

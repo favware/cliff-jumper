@@ -6,12 +6,10 @@ import { runGitCliff, type Options as GitCliffOptions } from 'git-cliff';
 export async function updateChangelog(options: Options, newVersion: string) {
   const repositoryRootDirectory = await getGitRootDirection();
 
-  resolveTagTemplate(options, newVersion);
-
   return doActionAndLog('Updating Changelog', async () => {
     if (!options.dryRun) {
       const gitCliffOptions: GitCliffOptions = {
-        tag: options.tagTemplate,
+        tag: resolveTagTemplate(options, newVersion),
         prepend: options.changelogPrependFile ?? './CHANGELOG.md',
         unreleased: true,
         config: './cliff.toml',

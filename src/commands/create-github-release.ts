@@ -1,6 +1,6 @@
 import { OctokitRequestHeaders } from '#lib/constants';
 import { removeHeaderFromChangelogSection } from '#lib/parse-cliff-toml';
-import { doActionAndLog, getGitHubRepo, getGitHubToken, resolveGitHubReleaseNameTemplate } from '#lib/utils';
+import { doActionAndLog, getGitHubRepo, getGitHubToken, resolveGitHubReleaseNameTemplate, resolveTagTemplate } from '#lib/utils';
 import { createTokenAuth } from '@octokit/auth-token';
 import { Octokit } from '@octokit/core';
 import { retry } from '@octokit/plugin-retry';
@@ -26,17 +26,18 @@ export function createGitHubRelease(options: Options, newVersion: string, change
         const [repoOwner, repoName] = githubRepo.split('/');
         const releaseBody = await removeHeaderFromChangelogSection(changelogSection);
         const isLatestRelease = options.githubReleaseLatest ?? true;
+        const newVersionName = resolveTagTemplate(options, newVersion);
 
         await octokit.request('POST /repos/{owner}/{repo}/releases', {
           owner: repoOwner,
           repo: repoName,
-          tag_name: newVersion,
+          tag_name: newVersionName,
           body: releaseBody,
           draft: options.githubReleaseDraft,
           generate_release_notes: typeof changelogSection === 'undefined',
           headers: OctokitRequestHeaders,
           make_latest: isLatestRelease ? 'true' : 'false',
-          name: resolveGitHubReleaseNameTemplate(options, newVersion),
+          name: resolveGitHubReleaseNameTemplate(options, newVersionName),
           prerelease: options.githubReleasePrerelease
         });
       }

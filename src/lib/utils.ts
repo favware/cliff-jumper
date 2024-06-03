@@ -122,7 +122,7 @@ export function resolveTagTemplate(options: Options, newVersion: string) {
     }
   }
 
-  options.tagTemplate = options.tagTemplate
+  return options.tagTemplate
     .replaceAll('{{new-version}}', newVersion)
     .replaceAll('{{org}}', options.org)
     .replaceAll('{{name}}', options.name)
