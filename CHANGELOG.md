@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@4.0.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@3.0.3...@favware/cliff-jumper@4.0.0) - (2024-06-03)
+
+## 🏠 Refactor
+
+- Rename `first-release` to `skip-automatic-bump` ([fe244a0](https://github.com/favware/cliff-jumper/commit/fe244a074addc7cd183d2bcdda420f266e684ffc))
+  - 💥 **fixes #** 177
+  - 💥 **BREAKING CHANGE:** `first-release` has been renamed to `skip-automatic-bump`
+in order to better describe what it does
+- Remove automatic `CI` env detection ([775f02e](https://github.com/favware/cliff-jumper/commit/775f02e86da45a694e2db6e272de4dd6e8aac531))
+  - 💥 **BREAKING CHANGE:** Previously when running with `CI` env `--skip-changelog` and `--skip-tag` were
+automatically enabled. This is no longer the case, because the new GitHub releasing feature
+makes it more appealing to run this tool in CI. To restore the old functionality for your
+pipelines please explicitly add these tags to your command line.
+- **deps:** Update dependency conventional-recommended-bump to v10 ([da1d45d](https://github.com/favware/cliff-jumper/commit/da1d45d5929be5ae8597da27736431b3e5c9c93d))
+  - 💥 **BREAKING CHANGE:** Node 18 is now required as per the new version of `conventional-recommended-bump`
+  - 💥 **BREAKING CHANGE:** The base `conventional-changelog-angular` is now used instead of a customization of it. This should not affect the semver resolution, but if it does please create a GitHub issue
+
+## 🐛 Bug Fixes
+
+- Respect the tag-template for github releases ([85f4272](https://github.com/favware/cliff-jumper/commit/85f42725648210265a6d5fe3910802c7c1e9839f))
+- **deps:** Update all non-major dependencies ([93640e2](https://github.com/favware/cliff-jumper/commit/93640e207b3f78eb32e0216e4151d45e139a49be))
+- **deps:** Update dependency execa to v9 ([07e39ae](https://github.com/favware/cliff-jumper/commit/07e39ae3a94ae50326ba3d250f4c16a23d665c84)) ([#175](https://github.com/favware/cliff-jumper/pull/175))
+
+## 📝 Documentation
+
+- **readme:** Document github releases ([32208f2](https://github.com/favware/cliff-jumper/commit/32208f2f7602031ae6904d6ce5b73ad27e64f152))
+- Update readme with missing flags ([ffaf31a](https://github.com/favware/cliff-jumper/commit/ffaf31a6d79ee2ec9e2fda58a143229c6849172b))
+- **readme:** Document which git-cliff commands get executed ([7527ae9](https://github.com/favware/cliff-jumper/commit/7527ae92e8604ef0f93f7bab394a3e5848a08a6e))
+
+## 🚀 Features
+
+- Add `--no-push-tag` to override config file for prereleases ([6f5d748](https://github.com/favware/cliff-jumper/commit/6f5d748041fae5ec9465d49fc9c66ee351bacde7))
+- Add `--no-github-release` to override config file for prereleases ([656c8ec](https://github.com/favware/cliff-jumper/commit/656c8ec9ab20e6f6ebc90ed67a98f856b420fcdf))
+- Add option `--changelog-prepend-file` to customize to which file the changelog is prepended ([35e9731](https://github.com/favware/cliff-jumper/commit/35e97314a272e7b0e02f70e4e43060176d20b1f2))
+- Add `--push-tag` and `--github-release` to automatically push a Git tag and create a release on GitHub ([b66bfa1](https://github.com/favware/cliff-jumper/commit/b66bfa1bdefc2ef7988ba1119c083bce0dbd7a19))
+
 # [@favware/cliff-jumper@3.0.3](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@3.0.2...@favware/cliff-jumper@3.0.3) - (2024-04-23)
 
 ## 🏠 Refactor
