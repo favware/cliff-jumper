@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@4.0.1](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@4.0.0...@favware/cliff-jumper@4.0.1) - (2024-06-03)
+
+## 🏠 Refactor
+
+- Remove dependency on `conventional-changelog-angular` and inline `whatBump` code ([684b29f](https://github.com/favware/cliff-jumper/commit/684b29fc8b49a511d57507b92eb12955ee5b4284))
+
+## 🐛 Bug Fixes
+
+- Fixed a grammar typo in preflight checks ([9129a67](https://github.com/favware/cliff-jumper/commit/9129a67bd6a1d9a88a7e5058d4f8525eafcde80b))
+
+## 📝 Documentation
+
+- Cleanup changelog ([4c6377e](https://github.com/favware/cliff-jumper/commit/4c6377ece53d3b2319b83562743721a713c75d7a))
+- Further specify github releasing ([b59595b](https://github.com/favware/cliff-jumper/commit/b59595b6f113e23a8e570c3d2e0ff0c086e9d78d))
+
 # [@favware/cliff-jumper@4.0.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@3.0.3...@favware/cliff-jumper@4.0.0) - (2024-06-03)
 
 ## 🏠 Refactor
