@@ -7,7 +7,6 @@ All notable changes to this project will be documented in this file.
 ## 🏠 Refactor
 
 - Rename `first-release` to `skip-automatic-bump` ([fe244a0](https://github.com/favware/cliff-jumper/commit/fe244a074addc7cd183d2bcdda420f266e684ffc))
-  - 💥 **fixes #** 177
   - 💥 **BREAKING CHANGE:** `first-release` has been renamed to `skip-automatic-bump`
 in order to better describe what it does
 - Remove automatic `CI` env detection ([775f02e](https://github.com/favware/cliff-jumper/commit/775f02e86da45a694e2db6e272de4dd6e8aac531))
