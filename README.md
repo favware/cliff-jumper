@@ -34,7 +34,8 @@ variation of the [Angular preset][angular-preset] (seen
    strategy
 1. Validate that `-t`, `--skip-tag` (CLI flags) weren't provided or `skipTag`
    wasn't set to `true` in the config file
-1. Update the `CHANGELOG.md` file using [git-cliff]
+1. Update the `CHANGELOG.md` (or a different file if configured through
+   `--changelog-prepend-file`) file using [git-cliff]
 1. If `--install` was provided (or `install: true` set in the config file) then
    run the `install` command of the package manager (`npm install`,
    `yarn install`, or `pnpm install`) you used to call this CLI.
@@ -44,7 +45,8 @@ variation of the [Angular preset][angular-preset] (seen
      for it to be `yarn` or `npm` make sure to add it as dev dependency to your
      project and call it locally.
 
-1. Stage the `package.json` and `CHANGELOG.md` files
+1. Stage the `package.json` and `CHANGELOG.md` (or a different file if
+   configured through `--changelog-prepend-file`) files
 1. Commit the release
 1. Tag the release
 
@@ -113,14 +115,15 @@ Options:
                                                    You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is provided).
   -i, --install                                    Whether to run npm install after bumping the version but before committing and creating a git tag. This is useful when you have a mono repo where bumping one package would then cause the lockfile to be out
                                                    of date.
-  --skip-changelog                                 Whether to skip updating your CHANGELOG.md
+  --skip-changelog                                 Whether to skip updating your changelog
                                                    default "true" when CI=true, "false" otherwise (default: false)
-  --no-skip-changelog                              Whether to skip updating your CHANGELOG.md
+  --no-skip-changelog                              Whether to skip updating your changelog
                                                    default "true" when CI=true, "false" otherwise
   -t, --skip-tag                                   Whether to skip creating a git tag
                                                    default "true" when CI=true, "false" otherwise (default: false)
   --no-skip-tag                                    Whether to skip creating a git tag
                                                    default "true" when CI=true, "false" otherwise
+  -cpf, --changelog-prepend-file [string]          The file that git-cliff should use for the --prepend flag, defaults to ./CHANGELOG.md. This should be relative to the current working directory.
   --github-repo                                    The GitHub repository to use for linking to issues and PRs in the changelog.
                                                    You can pass the unique string "auto" to automatically set this value as {{org}}/{{name}} as provided from --org and --name
                                                    This should be in the format "owner/repo"
@@ -170,6 +173,7 @@ package). It should be named `.cliff-jumperrc`, optionally suffixed with
 - `--install` map to `install`
 - `--skip-changelog` and `--no-skip-changelog` map to `skipChangelog`
 - `--skip-tag` and `--no-skip-tag` map to `skipTag`
+- `--changelog-prepend-file` maps to `changelogPrependFile`
 - `--github-repo` maps to `githubRepo`
 - `--github-token` maps to `githubToken`
 - `--push-tag` maps to `pushTag`
@@ -254,6 +258,7 @@ This library has opinionated defaults for its options. These are as follows:
     the same value set in your config file
   - `{{full-name}}` will be replaced with `{{name}}` (when `org` is not
     provided), or `@{{org}}/{{name}}` (when `org` is provided).
+- `--changelog-prepend-file` will default to `./CHANGELOG.md`.
 - `--github-repo` will default to `undefined`.
 - `--github-token` will default to `undefined`.
 - `--push-tag` will default to `false`.

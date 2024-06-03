@@ -9,9 +9,9 @@ import { join } from 'node:path';
 export async function stageFiles(options: Options, packageManagerUsed: ReturnType<typeof resolveUsedPackageManager>) {
   const lockfilePath = await getLockFilePath(options, packageManagerUsed);
 
-  return doActionAndLog('Staging package.json and CHANGELOG.md', async () => {
+  return doActionAndLog('Staging package.json and changelog file', async () => {
     if (!options.dryRun) {
-      await execa('git', ['add', 'package.json', 'CHANGELOG.md', lockfilePath || null].filter(filterNullish));
+      await execa('git', ['add', 'package.json', options.changelogPrependFile ?? './CHANGELOG.md', lockfilePath || null].filter(filterNullish));
     }
   });
 }

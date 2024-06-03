@@ -11,7 +11,7 @@ export const cliRootDir = new URL('../../', import.meta.url);
 export const packageCwd = process.cwd();
 
 /** The path to the CHANGELOG file  */
-export const changelogPath = join(packageCwd, 'CHANGELOG.md');
+export const changelogPath = (changelogPrependFile: string = 'CHANGELOG.md') => join(packageCwd, changelogPrependFile);
 
 /** Path to the config file in proprietary format */
 export const cliffJumperRcPath = join(packageCwd, '.cliff-jumperrc');

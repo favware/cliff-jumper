@@ -18,6 +18,7 @@ declare module 'commander' {
     monoRepo: boolean;
     commitMessageTemplate: string;
     tagTemplate: string;
+    changelogPrependFile: string;
     githubRepo: string;
     githubToken: string;
     pushTag: boolean;

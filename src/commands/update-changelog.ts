@@ -12,7 +12,7 @@ export async function updateChangelog(options: Options, newVersion: string) {
     if (!options.dryRun) {
       const gitCliffOptions: GitCliffOptions = {
         tag: options.tagTemplate,
-        prepend: './CHANGELOG.md',
+        prepend: options.changelogPrependFile ?? './CHANGELOG.md',
         unreleased: true,
         config: './cliff.toml',
         output: '-'

@@ -39,8 +39,8 @@ export async function preflightChecks(options: Options) {
     checkHasGitCliffConfig(hasCliffConfigAtCwd, options);
 
     const hasChangelogFileAtCwd = await doActionAndLog(
-      'Checking if a CHANGELOG.md exists in the current working directory', //
-      fileExists(changelogPath)
+      'Checking if a changelog file exists in the current working directory', //
+      fileExists(changelogPath(options.changelogPrependFile))
     );
 
     await checkHasChangelogFile(hasChangelogFileAtCwd, options);
@@ -151,17 +151,9 @@ function checkHasGitCliffConfig(hasCliffConfigAtCwd: boolean, options: Options) 
 
 async function checkHasChangelogFile(hasChangelogFileAtCwd: boolean, options: Options) {
   if (!hasChangelogFileAtCwd) {
-    if (options.firstRelease) {
-      await doActionAndLog(
-        'Creating an empty CHANGELOG.md file in the current working directory', //
-        createFile(changelogPath)
-      );
-    } else {
-      logVerboseError({
-        text: ['No CHANGELOG.md detected at current directory'],
-        exitAfterLog: true,
-        verbose: options.verbose
-      });
-    }
+    await doActionAndLog(
+      'Creating an empty changelog file in the current working directory', //
+      createFile(changelogPath(options.changelogPrependFile))
+    );
   }
 }

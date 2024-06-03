@@ -41,7 +41,7 @@ const monoRepoDescription = [
   'Defaults to "true" when "org" is set, false otherwise'
 ].join('\n');
 const skipChangelogDescription = [
-  'Whether to skip updating your CHANGELOG.md', //
+  'Whether to skip updating your changelog file', //
   'default "true" when CI=true, "false" otherwise'
 ].join('\n');
 const skipTagDescription = [
@@ -103,6 +103,10 @@ const command = new Command()
   .option('--no-skip-changelog', skipChangelogDescription)
   .option('-t, --skip-tag', skipTagDescription, isCi)
   .option('--no-skip-tag', skipTagDescription)
+  .option(
+    '-cpf, --changelog-prepend-file [string]',
+    'The file that git-cliff should use for the --prepend flag, defaults to ./CHANGELOG.md. This should be relative to the current working directory.'
+  )
   .option('--github-repo', githubRepoDescription)
   .option(
     '--github-token',
@@ -162,6 +166,7 @@ logVerboseInfo(
     `${indent}skip changelog: ${JSON.stringify(options.skipChangelog)}`,
     `${indent}skip tag: ${JSON.stringify(options.skipTag)}`,
     `${indent}verbose: ${JSON.stringify(options.verbose)}`,
+    `${indent}changelog prepend file: ${options.changelogPrependFile}`,
     `${indent}github repo: ${JSON.stringify(getGitHubRepo(options))}`,
     `${indent}github token: ${getGitHubToken(options) ? 'Unset' : 'SECRET([REDACTED])'}`,
     `${indent}push tag: ${JSON.stringify(options.pushTag)}`,
