@@ -27,7 +27,7 @@ jobs:
       - name: Build package
         run: yarn build
       - name: Bump Version
-        run: node . --preid "next.$(git rev-parse --verify --short HEAD)" -v --github-release=false --github-release-pre-release
+        run: node . --preid "next.$(git rev-parse --verify --short HEAD)" -v --no-github-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish to Yarnpkg

@@ -25,6 +25,7 @@ export function createGitHubRelease(options: Options, newVersion: string, change
 
         const [repoOwner, repoName] = githubRepo.split('/');
         const releaseBody = await removeHeaderFromChangelogSection(changelogSection);
+        const isLatestRelease = options.githubReleaseLatest ?? true;
 
         await octokit.request('POST /repos/{owner}/{repo}/releases', {
           owner: repoOwner,
@@ -34,7 +35,7 @@ export function createGitHubRelease(options: Options, newVersion: string, change
           draft: options.githubReleaseDraft,
           generate_release_notes: typeof changelogSection === 'undefined',
           headers: OctokitRequestHeaders,
-          make_latest: options.githubReleaseLatest ? 'true' : 'false',
+          make_latest: isLatestRelease ? 'true' : 'false',
           name: resolveGitHubReleaseNameTemplate(options, newVersion),
           prerelease: options.githubReleasePrerelease
         });
