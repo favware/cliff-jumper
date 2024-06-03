@@ -20,20 +20,19 @@ jobs:
           cache: yarn
       - name: Install Dependencies
         run: yarn --immutable
-      - name: Bump Versions & Publish
-        env:
-          GITHUB_USER: github-actions[bot]
-          GITHUB_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+      - name: Configure Git
         run: |
-          REMOTE_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-
           git remote set-url origin "https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${GITHUB_REPOSITORY}.git"
           git config --local user.email "${GITHUB_EMAIL}"
           git config --local user.name "${GITHUB_USER}"
-          git branch --set-upstream-to=origin/${REMOTE_BRANCH} ${REMOTE_BRANCH}
-
-          yarn bump
+        env:
+          GITHUB_USER: github-actions[bot]
+          GITHUB_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Bump Versions & Publish
+        run: yarn bump
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
       - name: Publish to NPM
         run: |
           yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
