@@ -10,7 +10,7 @@ import { installDependencies } from '#commands/install-dependencies';
 import { pushTag } from '#commands/push-tag';
 import { stageFiles } from '#commands/stage-files';
 import { updateChangelog } from '#commands/update-changelog';
-import { cliRootDir, indent, isCi } from '#lib/constants';
+import { cliRootDir, indent } from '#lib/constants';
 import { logVerboseError, logVerboseInfo } from '#lib/logger';
 import { parseOptionsFile } from '#lib/options-parser';
 import { preflightChecks } from '#lib/preflight-checks';
@@ -108,9 +108,9 @@ const command = new Command()
     '-i, --install',
     `Whether to run ${installCommand} after bumping the version but before committing and creating a git tag. This is useful when you have a mono repo where bumping one package would then cause the lockfile to be out of date.`
   )
-  .option('--skip-changelog', skipChangelogDescription, isCi)
+  .option('--skip-changelog', skipChangelogDescription)
   .option('--no-skip-changelog', skipChangelogDescription)
-  .option('-t, --skip-tag', skipTagDescription, isCi)
+  .option('-t, --skip-tag', skipTagDescription)
   .option('--no-skip-tag', skipTagDescription)
   .option(
     '-cpf, --changelog-prepend-file [string]',

@@ -1,9 +1,6 @@
 import { join } from 'node:path';
 import { URL } from 'node:url';
 
-/** Whether the CLI is being ran in a CI environment */
-export const isCi = process.env.CI === 'true';
-
 /** The root directory of the CLI tool */
 export const cliRootDir = new URL('../../', import.meta.url);
 
