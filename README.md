@@ -90,7 +90,7 @@ Options:
   -n, --name <string>                              The package name to release
   -p, --package-path <string>                      The path to the current package. For non-monorepos this is just "."
   --dry-run                                        Whether the package should be bumped or not. When this is set no actions will be taken and only the release strategy will be logged
-  --first-release                                  Whether this is the first release (skips bumping the version)
+  -sab, --skip-automatic-bump                      Whether to skip bumping the version (useful if this is the first version, or if you have manually set the version)
   --mono-repo                                      Whether the package to be bumped resides in a mono repo,
                                                    which enables Lerna-like scanning for what kind of version bump should be applied
                                                    Defaults to "true" when "org" is set, false otherwise
@@ -116,11 +116,11 @@ Options:
   -i, --install                                    Whether to run npm install after bumping the version but before committing and creating a git tag. This is useful when you have a mono repo where bumping one package
                                                    would then cause the lockfile to be out of date.
   --skip-changelog                                 Whether to skip updating your changelog file
-                                                   default "true" when CI=true, "false" otherwise (default: false)
+                                                   default "true" when CI=true, "false" otherwise
   --no-skip-changelog                              Whether to skip updating your changelog file
                                                    default "true" when CI=true, "false" otherwise
   -t, --skip-tag                                   Whether to skip creating a git tag
-                                                   default "true" when CI=true, "false" otherwise (default: false)
+                                                   default "true" when CI=true, "false" otherwise
   --no-skip-tag                                    Whether to skip creating a git tag
                                                    default "true" when CI=true, "false" otherwise
   -cpf, --changelog-prepend-file [string]          The file that git-cliff should use for the --prepend flag, defaults to ./CHANGELOG.md. This should be relative to the current working directory.
@@ -169,7 +169,7 @@ package). It should be named `.cliff-jumperrc`, optionally suffixed with
 - `--name` maps to `name`
 - `--package-path` maps to `packagePath`
 - `--dry-run` maps to `dryRun`
-- `--first-release` maps to `firstRelease`
+- `--skip-automatic-bump` maps to `skipAutomaticBump`
 - `--mono-repo` and `--no-mono-repo` map to `monoRepo`
 - `--org` maps to `org`
 - `--preid` maps to `preid`
@@ -232,7 +232,7 @@ verbose: true
 This library has opinionated defaults for its options. These are as follows:
 
 - `--dry-run` will default to `undefined`.
-- `--first-release` will default to `undefined`.
+- `--skipAutomaticBump` will default to `undefined`.
 - `--org` will default to `undefined`.
 - `--preid` will default to `undefined`.
 - `--identifier-base` will default to `undefined`. Alternatively, you can force

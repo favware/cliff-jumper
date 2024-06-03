@@ -15,8 +15,8 @@
       "type": "boolean",
       "default": false
     },
-    "firstRelease": {
-      "description": "Whether this is the first release (skips bumping the version)",
+    "skipAutomaticBump": {
+      "description": "Whether to skip bumping the version (useful if this is the first version, or if you have manually set the version)",
       "type": "boolean",
       "default": false
     },

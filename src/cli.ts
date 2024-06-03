@@ -72,7 +72,10 @@ const command = new Command()
     '--dry-run',
     'Whether the package should be bumped or not. When this is set no actions will be taken and only the release strategy will be logged'
   )
-  .option('--first-release', 'Whether this is the first release (skips bumping the version)')
+  .option(
+    '-sab, --skip-automatic-bump',
+    'Whether to skip bumping the version (useful if this is the first version, or if you have manually set the version)'
+  )
   .option('--mono-repo', monoRepoDescription)
   .option('--no-mono-repo', monoRepoDescription)
   .option('-o, --org <string>', 'The NPM org scope that should be used WITHOUT "@" sign or trailing "/"')
@@ -160,7 +163,7 @@ logVerboseInfo(
     `${indent}name: ${JSON.stringify(options.name)}`,
     `${indent}package path: ${JSON.stringify(options.packagePath)}`,
     `${indent}dry run: ${JSON.stringify(options.dryRun)}`,
-    `${indent}first release: ${JSON.stringify(options.firstRelease)}`,
+    `${indent}skip automatic bump: ${JSON.stringify(options.skipAutomaticBump)}`,
     `${indent}mono repo: ${JSON.stringify(options.monoRepo)}`,
     `${indent}npm org: ${JSON.stringify(options.org)}`,
     `${indent}preid: ${JSON.stringify(options.preid)}`,
@@ -207,7 +210,7 @@ console.info(cyan(`${infoIcon} Bumping the ${releaseType} version of ${blueBrigh
 
 let newVersion: string | undefined;
 
-if (!options.firstRelease) {
+if (!options.skipAutomaticBump) {
   const resolvedNewVersion = await bumpVersion(options, bumperRecommendation);
 
   newVersion = typeof resolvedNewVersion === 'string' ? resolvedNewVersion : await getNewVersion();

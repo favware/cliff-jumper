@@ -14,7 +14,7 @@ declare module 'commander' {
     skipChangelog: boolean;
     skipTag: boolean;
     install: boolean;
-    firstRelease: boolean;
+    skipAutomaticBump: boolean;
     monoRepo: boolean;
     commitMessageTemplate: string;
     tagTemplate: string;

@@ -21,7 +21,7 @@
     "assets/"
   ],
   "scripts": {
-    "debug": "node . --first-release --verbose --dry-run",
+    "debug": "node . --skip-automatic-bump --verbose --dry-run",
     "start": "node . --dry-run",
     "lint": "eslint src --ext ts --fix",
     "prettier": "prettier --ignore-path=.prettierignore",
