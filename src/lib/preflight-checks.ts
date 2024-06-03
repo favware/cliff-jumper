@@ -93,7 +93,7 @@ async function checkGitHubConfig(options: Options) {
   ) {
     if (isNullishOrEmpty(githubToken)) {
       logVerboseError({
-        text: [`GitHub configurations were provided but no token was provided`],
+        text: [`GitHub configurations was provided but no token was provided`],
         verboseText: [
           'You can provide the token either through the "--github-token" option one of the possible environment variables',
           '(see --help for the full list)'
