@@ -292,6 +292,54 @@ This means that the CLI flags will always have the highest priority. This way
 you can have a config file for base options, then overwrite that with CLI flags,
 such as in a CI environment.
 
+### Creating a GitHub release
+
+This package provides the options `--push-tag` and `--github-release` to
+automatically create a release on GitHub using the output from `git-cliff` as
+the release notes. In order to use this feature you have to provide
+`--github-repo` and `--github-token` (or set their respective environment
+variables). Alternatively, if you want to run this step from a GitHub workflow
+you can base your step on the following example.
+
+```yaml
+- name: Bump Version
+  env:
+    GITHUB_USER: github-actions[bot]
+    GITHUB_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  run: |
+    git config --local user.email "${GITHUB_EMAIL}"
+    git config --local user.name "${GITHUB_USER}"
+
+    npx @favware/cliff-jumper
+```
+
+This will create a GitHub commit, release, and tag using the GitHub Actions bot
+account. This ensures that you do not need a
+[Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+to create a release. The `GITHUB_TOKEN` secret is provided by GitHub Actions and
+is a token that has the necessary permissions to create a release. It also be
+noted that classic Personal Access Tokens will not even work for this, you will
+_at least_ need a
+[Fine-Grained Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)
+which is at time of writing (2024-06-03) a beta feature. You can find more
+information about there
+[here](https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#create-a-release).
+
+Lastly, the example above assumes a cliff-jumper config file similar to the one
+in this repository ([.cliff-jumperrc](./.cliff-jumperrc)). As an alternative
+example for a package that is not scoped by an npm/github org here is another
+example. Replace the values in between `<>` with your desired values.
+
+```yaml
+name: <package-name>
+packagePath: .
+pushTag: true
+githubRepo: <repo-owner>/<repo-name>
+githubRelease: true
+githubReleaseLatest: true
+```
+
 ### Example Configuration setups
 
 Following are JSON examples of how you can configure this package based on
