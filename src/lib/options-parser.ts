@@ -1,5 +1,5 @@
 import { cliffJumperRcJsonPath, cliffJumperRcPath, cliffJumperRcYamlPath, cliffJumperRcYmlPath } from '#lib/constants';
-import { fileExists } from '#lib/fileExists';
+import { fileExists } from '#lib/file-exists';
 import { logVerboseError } from '#lib/logger';
 import { readJson, readYaml } from '#lib/utils';
 import type { Options } from 'commander';
@@ -24,7 +24,9 @@ export async function parseOptionsFile(cliOptions: Options) {
       options = {
         ...fileOptions,
         ...options,
-        monoRepo: fileOptions.monoRepo ?? options.monoRepo ?? (fileOptions.org || options.org ? true : false)
+        monoRepo: fileOptions.monoRepo ?? options.monoRepo ?? (fileOptions.org || options.org),
+        githubReleaseLatest:
+          fileOptions.githubReleaseLatest ?? options.githubReleaseLatest ?? fileOptions.githubRelease ?? options.githubRelease ?? false
       };
     } catch (err) {
       const typedError = err as Error;
@@ -49,7 +51,9 @@ export async function parseOptionsFile(cliOptions: Options) {
       options = {
         ...fileOptions,
         ...options,
-        monoRepo: fileOptions.monoRepo ?? options.monoRepo ?? (fileOptions.org || options.org ? true : false)
+        monoRepo: fileOptions.monoRepo ?? options.monoRepo ?? (fileOptions.org || options.org),
+        githubReleaseLatest:
+          fileOptions.githubReleaseLatest ?? options.githubReleaseLatest ?? fileOptions.githubRelease ?? options.githubRelease ?? false
       };
     } catch (err) {
       const typedError = err as Error;

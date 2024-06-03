@@ -84,55 +84,70 @@ You can provide all options through CLI flags:
 Usage: cliff-jumper [options]
 
 Options:
-  -V, --version                           output the version number
-  -n, --name <string>                     The package name to release
-  -p, --package-path <string>             The path to the current package. For non-monorepos this is just "."
-  --dry-run                               Whether the package should be bumped or not. When this is set no actions will be taken and only the release strategy will be logged
-  --first-release                         Whether this is the first release (skips bumping the version)
-  --mono-repo                             Whether the package to be bumped resides in a mono repo,
-                                          which enables Lerna-like scanning for what kind of version bump should be applied
-                                          Defaults to "true" when "org" is set, false otherwise
-  --no-mono-repo                          Whether the package to be bumped resides in a mono repo,
-                                          which enables Lerna-like scanning for what kind of version bump should be applied
-                                          Defaults to "true" when "org" is set, false otherwise
-  -o, --org <string>                      The NPM org scope that should be used WITHOUT "@" sign or trailing "/"
-  --preid [string]                        The "prerelease identifier" to use as a prefix for the "prerelease" part of a semver
-  --identifier-base <number>              The base number (0 or 1) to be used for the prerelease identifier.
-  --no-identifier-base                    Do not use a base number for the prerelease identifier.
-  -c, --commit-message-template [string]  A custom commit message template to use.
-                                          Defaults to "chore({{name}}): release {{full-name}}@{{new-version}}"
-                                          You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be published.
-                                          You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in your config file.
-                                          You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is provided).
-  --tag-template [string]                 A custom tag template to use.
-                                          When "org" is provided this will default to "@{{org}}/{{name}}@{{new-version}}", for example "@favware/cliff-jumper@1.0.0"
-                                          When "org" is not provided this will default to "v{{new-version}}", for example "v1.0.0"
-                                          You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be published.
-                                          You can use "{{org}}" in your template, this will be replaced with the org provided through "-o", "--org" or the same value set in your config file.
-                                          You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in your config file.
-                                          You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is provided).
-  -i, --install                           Whether to run npm install after bumping the version but before committing and creating a git tag. This is useful when you have a mono repo where bumping one package would then cause the lockfile to be out of date.
-  --skip-changelog                        Whether to skip updating your CHANGELOG.md
-                                          default "true" when CI=true, "false" otherwise (default: false)
-  --no-skip-changelog                     Whether to skip updating your CHANGELOG.md
-                                          default "true" when CI=true, "false" otherwise
-  -t, --skip-tag                          Whether to skip creating a git tag
-                                          default "true" when CI=true, "false" otherwise (default: false)
-  --no-skip-tag                           Whether to skip creating a git tag
-                                          default "true" when CI=true, "false" otherwise
-  --github-repo                           The GitHub repository to use for linking to issues and PRs in the changelog.
-                                          You can pass the unique string "auto" to automatically set this value as {{org}}/{{name}} as provided from --org and --name
-                                          This should be in the format "owner/repo"
-                                          You can use the "GITHUB_REPO" environment variable to automatically set this value
-  --github-token                          A token to authenticate requests to the GitHub API. This is required when using the "--github-repo" option.
-                                          You can also set the one of the following environment variables.
-                                          - GITHUB_TOKEN
-                                          - GH_TOKEN
-                                          - TOKEN_GITHUB
-                                          - TOKEN_GH
-                                          The multiple options for the name of the environment are to aim to not conflict with other tooling that use similar tokens in case you want to use a unique token for release management.
-  -v, --verbose                           Whether to print verbose information (default: false)
-  -h, --help                              display help for command
+  -V, --version                                    output the version number
+  -n, --name <string>                              The package name to release
+  -p, --package-path <string>                      The path to the current package. For non-monorepos this is just "."
+  --dry-run                                        Whether the package should be bumped or not. When this is set no actions will be taken and only the release strategy will be logged
+  --first-release                                  Whether this is the first release (skips bumping the version)
+  --mono-repo                                      Whether the package to be bumped resides in a mono repo,
+                                                   which enables Lerna-like scanning for what kind of version bump should be applied
+                                                   Defaults to "true" when "org" is set, false otherwise
+  --no-mono-repo                                   Whether the package to be bumped resides in a mono repo,
+                                                   which enables Lerna-like scanning for what kind of version bump should be applied
+                                                   Defaults to "true" when "org" is set, false otherwise
+  -o, --org <string>                               The NPM org scope that should be used WITHOUT "@" sign or trailing "/"
+  --preid [string]                                 The "prerelease identifier" to use as a prefix for the "prerelease" part of a semver
+  --identifier-base <number>                       The base number (0 or 1) to be used for the prerelease identifier.
+  --no-identifier-base                             Do not use a base number for the prerelease identifier.
+  -c, --commit-message-template [string]           A custom commit message template to use.
+                                                   Defaults to "chore({{name}}): release {{full-name}}@{{new-version}}"
+                                                   You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be published.
+                                                   You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in your config file.
+                                                   You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is provided).
+  --tag-template [string]                          A custom tag template to use.
+                                                   When "org" is provided this will default to "@{{org}}/{{name}}@{{new-version}}", for example "@favware/cliff-jumper@1.0.0"
+                                                   When "org" is not provided this will default to "v{{new-version}}", for example "v1.0.0"
+                                                   You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be published.
+                                                   You can use "{{org}}" in your template, this will be replaced with the org provided through "-o", "--org" or the same value set in your config file.
+                                                   You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in your config file.
+                                                   You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is provided).
+  -i, --install                                    Whether to run npm install after bumping the version but before committing and creating a git tag. This is useful when you have a mono repo where bumping one package would then cause the lockfile to be out
+                                                   of date.
+  --skip-changelog                                 Whether to skip updating your CHANGELOG.md
+                                                   default "true" when CI=true, "false" otherwise (default: false)
+  --no-skip-changelog                              Whether to skip updating your CHANGELOG.md
+                                                   default "true" when CI=true, "false" otherwise
+  -t, --skip-tag                                   Whether to skip creating a git tag
+                                                   default "true" when CI=true, "false" otherwise (default: false)
+  --no-skip-tag                                    Whether to skip creating a git tag
+                                                   default "true" when CI=true, "false" otherwise
+  --github-repo                                    The GitHub repository to use for linking to issues and PRs in the changelog.
+                                                   You can pass the unique string "auto" to automatically set this value as {{org}}/{{name}} as provided from --org and --name
+                                                   This should be in the format "owner/repo"
+                                                   You can use the "GITHUB_REPO" environment variable to automatically set this value
+  --github-token                                   A token to authenticate requests to the GitHub API. This is required when using the "--github-repo" option.
+                                                   You can also set the one of the following environment variables.
+                                                   - GITHUB_TOKEN
+                                                   - GH_TOKEN
+                                                   - TOKEN_GITHUB
+                                                   - TOKEN_GH
+                                                   The multiple options for the name of the environment are to aim to not conflict with other tooling that use similar tokens in case you want to use a unique token for release management.
+  -pt, --push-tag                                  Whether to push the tag to the remote repository.
+                                                   This will simply execute "git push && git push --tags" so make sure you have configured git for pushing properly beforehand.
+  -ghr, --github-release                           Whether to create a release on GitHub, requires "--push-tag" to be enabled, otherwise there will be no tag to create a release from
+                                                   For the repository the release is created on the value from "--github-repo" will be used
+                                                   If the changelog section from git-cliff is empty, the release notes will be auto-generated by GitHub.
+  -ghrd, --github-release-draft                    Whether the release should be a draft
+  -ghrpr, --github-release-pre-release             Whether the release should be a pre-release
+  -ghrl, --github-release-latest                   Whether the release should be marked as the latest release, will try to read this value, then the value of --github-release, and then default to false. Please note that when setting
+                                                   --github-release-pre-release to `true` GitHub will prevent the release to be marked as latest an this option will essentially be ignored.
+  -ghrnt, --github-release-name-template [string]  A GitHub release name template to use. Defaults to an empty string, which means GitHub will use the tag name as the release name.
+                                                   You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be published.
+                                                   You can use "{{org}}" in your template, this will be replaced with the org provided through "-o", "--org" or the same value set in your config file.
+                                                   You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in your config file.
+                                                   You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is provided).
+  -v, --verbose                                    Whether to print verbose information (default: false)
+  -h, --help                                       display help for command
 ```
 
 Or, you can set most of these options through a configuration file. This file
@@ -157,6 +172,12 @@ package). It should be named `.cliff-jumperrc`, optionally suffixed with
 - `--skip-tag` and `--no-skip-tag` map to `skipTag`
 - `--github-repo` maps to `githubRepo`
 - `--github-token` maps to `githubToken`
+- `--push-tag` maps to `pushTag`
+- `--github-release` maps to `githubRelease`
+- `--github-release-draft` maps to `githubReleaseDraft`
+- `--github-release-pre-release` maps to `githubReleasePrerelease`
+- `--github-release-latest` maps to `githubReleaseLatest`
+- `--github-release-name-template` maps to `githubReleaseNameTemplate`
 - `--verbose` maps to `verbose`
 
 When using `.cliff-jumperrc` or `.cliff-jumperrc.json` as your config file you
@@ -235,6 +256,12 @@ This library has opinionated defaults for its options. These are as follows:
     provided), or `@{{org}}/{{name}}` (when `org` is provided).
 - `--github-repo` will default to `undefined`.
 - `--github-token` will default to `undefined`.
+- `--push-tag` will default to `false`.
+- `--github-release` will default to `false`.
+- `--github-release-draft` will default to `false`.
+- `--github-release-pre-release` will default to `false`.
+- `--github-release-latest` will default to `true`.
+- `--github-release-name-template` will default to an empty string.
 - `--verbose` will default to `false`.
 
 ### Merging of config file, defaults and CLI provided flags

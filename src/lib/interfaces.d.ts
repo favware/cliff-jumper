@@ -20,5 +20,11 @@ declare module 'commander' {
     tagTemplate: string;
     githubRepo: string;
     githubToken: string;
+    pushTag: boolean;
+    githubRelease: boolean;
+    githubReleaseDraft: boolean;
+    githubReleasePrerelease: boolean;
+    githubReleaseLatest: boolean;
+    githubReleaseNameTemplate: string;
   }
 }

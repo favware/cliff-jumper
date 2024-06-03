@@ -129,6 +129,16 @@ export function resolveTagTemplate(options: Options, newVersion: string) {
     .replaceAll('{{full-name}}', getFullPackageName(options));
 }
 
+export function resolveGitHubReleaseNameTemplate(options: Options, newVersion: string) {
+  if (isNullishOrEmpty(options.githubReleaseNameTemplate)) return undefined;
+
+  return options.githubReleaseNameTemplate
+    .replaceAll('{{new-version}}', newVersion)
+    .replaceAll('{{org}}', options.org)
+    .replaceAll('{{name}}', options.name)
+    .replaceAll('{{full-name}}', getFullPackageName(options));
+}
+
 /** Resolves the release-as prefix */
 export function getReleaseType(options: Options, bumperRecommendation: BumperRecommendation): ReleaseType {
   return ((Boolean(options.preid) ? 'pre' : '') + bumperRecommendation.releaseType) as ReleaseType;

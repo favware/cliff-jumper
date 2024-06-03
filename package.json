@@ -35,6 +35,9 @@
   },
   "dependencies": {
     "@favware/colorette-spinner": "^1.0.1",
+    "@octokit/auth-token": "^5.1.1",
+    "@octokit/core": "^6.1.2",
+    "@octokit/plugin-retry": "^7.1.1",
     "@sapphire/result": "^2.6.6",
     "@sapphire/utilities": "3.16.2",
     "colorette": "^2.0.20",
@@ -42,9 +45,10 @@
     "conventional-changelog-angular": "^8.0.0",
     "conventional-recommended-bump": "^10.0.0",
     "execa": "^9.1.0",
-    "git-cliff": "^2.2.2",
+    "git-cliff": "^2.3.0",
     "js-yaml": "^4.1.0",
-    "semver": "^7.6.2"
+    "semver": "^7.6.2",
+    "smol-toml": "^1.2.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
@@ -53,7 +57,7 @@
     "@sapphire/prettier-config": "^2.0.0",
     "@sapphire/ts-config": "^5.0.1",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^20.13.0",
+    "@types/node": "^20.14.0",
     "@types/semver": "^7.5.8",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.11.0",
