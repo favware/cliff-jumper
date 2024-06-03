@@ -1,4 +1,5 @@
-import { OctokitRequestHeaders } from '#lib/constants';
+import { OctokitRequestHeaders, indent } from '#lib/constants';
+import { logVerboseInfo } from '#lib/logger';
 import { removeHeaderFromChangelogSection } from '#lib/parse-cliff-toml';
 import { doActionAndLog, getGitHubRepo, getGitHubToken, resolveGitHubReleaseNameTemplate, resolveTagTemplate } from '#lib/utils';
 import { createTokenAuth } from '@octokit/auth-token';
@@ -28,16 +29,37 @@ export function createGitHubRelease(options: Options, newVersion: string, change
         const isLatestRelease = options.githubReleaseLatest ?? true;
         const newVersionName = resolveTagTemplate(options, newVersion);
 
+        const releaseName = resolveGitHubReleaseNameTemplate(options, newVersionName);
+        const shouldGenerateReleaseNotes = typeof changelogSection === 'undefined';
+        const makeLatestRelease = isLatestRelease ? 'true' : 'false';
+
+        logVerboseInfo(
+          [
+            'GitHub Release Payload: ',
+            `${indent}owner: ${repoOwner}`,
+            `${indent}repo: ${repoName}`,
+            `${indent}tag_name: ${newVersionName}`,
+            `${indent}body: ${releaseBody}`,
+            `${indent}draft: ${options.githubReleaseDraft}`,
+            `${indent}generate_release_notes: ${shouldGenerateReleaseNotes}`,
+            `${indent}headers: ${JSON.stringify(OctokitRequestHeaders)}`,
+            `${indent}make_latest: ${makeLatestRelease}`,
+            `${indent}name: ${releaseName}`,
+            ''
+          ],
+          options.verbose
+        );
+
         await octokit.request('POST /repos/{owner}/{repo}/releases', {
           owner: repoOwner,
           repo: repoName,
           tag_name: newVersionName,
           body: releaseBody,
           draft: options.githubReleaseDraft,
-          generate_release_notes: typeof changelogSection === 'undefined',
+          generate_release_notes: shouldGenerateReleaseNotes,
           headers: OctokitRequestHeaders,
-          make_latest: isLatestRelease ? 'true' : 'false',
-          name: resolveGitHubReleaseNameTemplate(options, newVersionName),
+          make_latest: makeLatestRelease,
+          name: releaseName,
           prerelease: options.githubReleasePrerelease
         });
       }
