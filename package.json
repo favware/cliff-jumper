@@ -43,7 +43,7 @@
     "colorette": "^2.0.20",
     "commander": "^12.1.0",
     "conventional-recommended-bump": "^10.0.0",
-    "execa": "^9.2.0",
+    "execa": "^9.3.0",
     "git-cliff": "^2.3.0",
     "js-yaml": "^4.1.0",
     "semver": "^7.6.2",
@@ -58,8 +58,8 @@
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.14.2",
     "@types/semver": "^7.5.8",
-    "@typescript-eslint/eslint-plugin": "^7.13.0",
-    "@typescript-eslint/parser": "^7.13.0",
+    "@typescript-eslint/eslint-plugin": "^7.13.1",
+    "@typescript-eslint/parser": "^7.13.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
@@ -67,7 +67,7 @@
     "lint-staged": "^15.2.7",
     "prettier": "^3.3.2",
     "rimraf": "^5.0.7",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.2"
   },
   "engines": {
     "node": ">=v18"
@@ -113,5 +113,5 @@
   "eslintConfig": {
     "extends": "@sapphire"
   },
-  "packageManager": "yarn@4.3.0"
+  "packageManager": "yarn@4.3.1"
 }
