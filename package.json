@@ -1,53 +1,56 @@
 {
-  "name": "@favware/cliff-jumper",
-  "version": "4.0.2",
-  "description": "A small CLI tool to create a semantic release and git-cliff powered Changelog",
-  "author": "@favware",
-  "license": "MIT",
+  "name": "dragonite",
+  "version": "1.0.0",
+  "description": "A Pokémon information Discord bot built around Discord Interactions.",
+  "author": "Jeroen Claassens <support@favware.tech>",
+  "license": "Apache-2.0",
+  "module": "dist/dragonite.js",
+  "private": true,
   "type": "module",
-  "main": "dist/cli.js",
-  "bin": {
-    "cj": "./dist/cli.js",
-    "cliff-jumper": "./dist/cli.js"
-  },
   "imports": {
-    "#commands/*": "./dist/commands/*.js",
     "#lib/*": "./dist/lib/*.js",
-    "#root/*": "./dist/*.js"
+    "#root/*": "./dist/*.js",
+    "#utils/*": "./dist/lib/util/*.js",
+    "#gql/*": "./dist/lib/gql/*.js",
+    "#lib/env": "./dist/lib/env/index.js"
   },
-  "sideEffects": "false",
-  "files": [
-    "dist/**/*.js",
-    "assets/"
-  ],
   "scripts": {
-    "debug": "node . --skip-automatic-bump --verbose --dry-run",
-    "start": "node . --dry-run",
+    "start": "node --preserve-symlinks --enable-source-maps dist/dragonite.js",
     "lint": "eslint src --ext ts --fix",
     "prettier": "prettier --ignore-path=.prettierignore",
-    "format": "yarn prettier --write .",
-    "update": "yarn upgrade-interactive",
-    "clean": "rimraf dist",
-    "build": "tsc -b src",
-    "watch": "tsc -b src -w",
-    "bump": "yarn build && node .",
-    "check-update": "yarn build && node . --dry-run"
+    "format": "prettier --write .",
+    "build": "tsup",
+    "watch": "tsup --watch",
+    "clean": "rimraf dist/",
+    "typecheck": "tsc -b src",
+    "dev": "tsup --watch --onSuccess \"yarn start\""
   },
   "dependencies": {
-    "@favware/colorette-spinner": "^1.0.1",
-    "@octokit/auth-token": "^5.1.1",
-    "@octokit/core": "^6.1.2",
-    "@octokit/plugin-retry": "^7.1.1",
-    "@sapphire/result": "^2.6.6",
-    "@sapphire/utilities": "3.16.2",
+    "@discordjs/builders": "^1.8.2",
+    "@favware/graphql-pokemon": "^8.6.0",
+    "@influxdata/influxdb-client": "^1.33.2",
+    "@influxdata/influxdb-client-apis": "^1.33.2",
+    "@sapphire/decorators": "^6.1.0",
+    "@sapphire/discord.js-utilities": "^7.3.0",
+    "@sapphire/fetch": "^3.0.2",
+    "@sapphire/framework": "^5.2.1",
+    "@sapphire/plugin-logger": "^4.0.2",
+    "@sapphire/plugin-scheduled-tasks": "^10.0.1",
+    "@sapphire/utilities": "^3.16.2",
+    "@skyra/env-utilities": "^1.3.0",
+    "@skyra/jaro-winkler": "^1.1.1",
+    "@skyra/start-banner": "^2.0.1",
+    "binarytf": "^2.1.3",
+    "bufferutil": "^4.0.8",
     "colorette": "^2.0.20",
-    "commander": "^12.1.0",
-    "conventional-recommended-bump": "^10.0.0",
-    "execa": "^9.3.0",
-    "git-cliff": "^2.3.0",
-    "js-yaml": "^4.1.0",
-    "semver": "^7.6.2",
-    "smol-toml": "^1.2.1"
+    "discord-api-types": "^0.37.90",
+    "discord.js": "^14.15.3",
+    "figlet": "^1.7.0",
+    "gradient-string": "^2.0.2",
+    "ioredis": "^5.4.1",
+    "utf-8-validate": "^6.0.4",
+    "ws": "^8.17.1",
+    "zlib-sync": "^0.1.9"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
@@ -55,9 +58,11 @@
     "@sapphire/eslint-config": "^5.0.5",
     "@sapphire/prettier-config": "^2.0.0",
     "@sapphire/ts-config": "^5.0.1",
-    "@types/js-yaml": "^4.0.9",
-    "@types/node": "^20.14.2",
-    "@types/semver": "^7.5.8",
+    "@swc/core": "^1.6.5",
+    "@types/figlet": "^1.5.8",
+    "@types/gradient-string": "^1.1.6",
+    "@types/node": "20.14.8",
+    "@types/ws": "^8.5.10",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
     "cz-conventional-changelog": "^3.3.0",
@@ -67,36 +72,24 @@
     "lint-staged": "^15.2.7",
     "prettier": "^3.3.2",
     "rimraf": "^5.0.7",
-    "typescript": "^5.5.2"
+    "tsup": "^8.1.0",
+    "typescript": "~5.4.5"
+  },
+  "resolutions": {
+    "ansi-regex": "^5.0.1",
+    "minimist": "^1.2.8"
   },
   "engines": {
-    "node": ">=v18"
+    "node": ">=16.6.0",
+    "npm": ">=7.24.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/favware/cliff-jumper.git"
-  },
-  "bugs": {
-    "url": "https://github.com/favware/cliff-jumper/issues"
-  },
-  "homepage": "https://github.com/favware/cliff-jumper",
-  "keywords": [
-    "git-cliff",
-    "favware",
-    "cli",
-    "generator",
-    "changelog",
-    "semver",
-    "commit",
-    "conventional-changelog",
-    "keepachangelog",
-    "changelog-generator",
-    "conventional-commits"
-  ],
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "eslintConfig": {
+    "extends": "@sapphire"
   },
   "lint-staged": {
     "*": "prettier --ignore-unknown --write",
@@ -106,12 +99,6 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "eslintConfig": {
-    "extends": "@sapphire"
   },
   "packageManager": "yarn@4.3.1"
 }
