@@ -44,10 +44,10 @@
     "commander": "^12.1.0",
     "conventional-recommended-bump": "^10.0.0",
     "execa": "^9.3.0",
-    "git-cliff": "^2.3.0",
+    "git-cliff": "^2.4.0",
     "js-yaml": "^4.1.0",
     "semver": "^7.6.2",
-    "smol-toml": "^1.2.1"
+    "smol-toml": "^1.2.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
@@ -56,7 +56,7 @@
     "@sapphire/prettier-config": "^2.0.0",
     "@sapphire/ts-config": "^5.0.1",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^20.14.8",
+    "@types/node": "^20.14.9",
     "@types/semver": "^7.5.8",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
