@@ -54,10 +54,11 @@ export function resolveInstallCommand(packageManagerUsed: ReturnType<typeof reso
     case 'pnpm':
       return 'pnpm install';
     case 'yarn-v1':
+      return 'yarn install';
     case 'yarn-v2':
     case 'yarn-v3':
     case 'yarn-v4':
-      return 'yarn install';
+      return 'yarn install --mode=update-lockfile';
     case 'npm':
     default:
       return 'npm install';
