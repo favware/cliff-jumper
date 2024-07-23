@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@4.0.3](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@4.0.2...@favware/cliff-jumper@4.0.3) - (2024-07-23)
+
+## 🐛 Bug Fixes
+
+- **install:** Add `--mode=update-lockfile` for yarn v2/v3/v4 ([ef02496](https://github.com/favware/cliff-jumper/commit/ef02496f9bc77a1b26e04099066a55378c36226d))
+
 # [@favware/cliff-jumper@4.0.2](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@4.0.1...@favware/cliff-jumper@4.0.2) - (2024-06-03)
 
 ## 🐛 Bug Fixes

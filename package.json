@@ -1,6 +1,6 @@
 {
   "name": "@favware/cliff-jumper",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "A small CLI tool to create a semantic release and git-cliff powered Changelog",
   "author": "@favware",
   "license": "MIT",
