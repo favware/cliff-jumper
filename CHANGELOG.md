@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@4.1.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@4.0.3...@favware/cliff-jumper@4.1.0) - (2024-08-24)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies ([5e1f161](https://github.com/favware/cliff-jumper/commit/5e1f161a9c4f9ac73e09fbbabb92019fe5cc81b3)) ([#190](https://github.com/favware/cliff-jumper/pull/190))
+
+## 🚀 Features
+
+- Update to git-cliff 2.5.0 ([fb33eba](https://github.com/favware/cliff-jumper/commit/fb33ebadce4ea73a986c67683a10d3d68db61b4b))
+
 # [@favware/cliff-jumper@4.0.3](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@4.0.2...@favware/cliff-jumper@4.0.3) - (2024-07-23)
 
 ## 🐛 Bug Fixes
