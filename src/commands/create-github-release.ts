@@ -1,6 +1,7 @@
-import { OctokitRequestHeaders, indent } from '#lib/constants';
-import { logVerboseInfo } from '#lib/logger';
+import { OctokitRequestHeaders } from '#lib/constants';
+import { container } from '#lib/container';
 import { removeHeaderFromChangelogSection } from '#lib/parse-cliff-toml';
+import { stringify } from '#lib/setup-logger';
 import { doActionAndLog, getGitHubRepo, getGitHubToken, resolveGitHubReleaseNameTemplate, resolveTagTemplate } from '#lib/utils';
 import { createTokenAuth } from '@octokit/auth-token';
 import { Octokit } from '@octokit/core';
@@ -33,21 +34,19 @@ export function createGitHubRelease(options: Options, newVersion: string, change
         const shouldGenerateReleaseNotes = typeof changelogSection === 'undefined';
         const makeLatestRelease = isLatestRelease ? 'true' : 'false';
 
-        logVerboseInfo(
-          [
-            'GitHub Release Payload: ',
-            `${indent}owner: ${repoOwner}`,
-            `${indent}repo: ${repoName}`,
-            `${indent}tag_name: ${newVersionName}`,
-            `${indent}body: ${releaseBody}`,
-            `${indent}draft: ${options.githubReleaseDraft}`,
-            `${indent}generate_release_notes: ${shouldGenerateReleaseNotes}`,
-            `${indent}headers: ${JSON.stringify(OctokitRequestHeaders)}`,
-            `${indent}make_latest: ${makeLatestRelease}`,
-            `${indent}name: ${releaseName}`,
-            ''
-          ],
-          options.verbose
+        container.logger.debug(
+          'GitHub Release Payload: \n',
+          stringify({
+            owner: repoOwner,
+            repo: repoName,
+            tag_name: newVersionName,
+            body: releaseBody,
+            draft: options.githubReleaseDraft,
+            generate_release_notes: shouldGenerateReleaseNotes,
+            headers: OctokitRequestHeaders,
+            make_latest: makeLatestRelease,
+            name: releaseName
+          })
         );
 
         await octokit.request('POST /repos/{owner}/{repo}/releases', {

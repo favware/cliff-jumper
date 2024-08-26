@@ -40,6 +40,7 @@
     "@octokit/plugin-retry": "^7.1.1",
     "@sapphire/result": "^2.6.6",
     "@sapphire/utilities": "3.17.0",
+    "@skyra/logger": "^2.0.3",
     "colorette": "^2.0.20",
     "commander": "^12.1.0",
     "conventional-recommended-bump": "^10.0.0",

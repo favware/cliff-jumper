@@ -1,5 +1,5 @@
 import { packageCwd } from '#lib/constants';
-import { logVerboseError } from '#lib/logger';
+import { container } from '#lib/container';
 import { readPackageJson, writePackageJson } from '#lib/package-json-parser';
 import { doActionAndLog, getReleaseType } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
@@ -17,26 +17,19 @@ export function bumpVersion(options: Options, bumperRecommendation: BumperRecomm
     const currentClean = Semver.clean(currentVersion);
 
     if (isNullishOrEmpty(currentClean)) {
-      return logVerboseError({
-        text: ['No current version was found. Make sure there is a package.json at your current working directory'],
-        logWithThrownError: true,
-        verbose: options.verbose
-      });
+      container.logger.fatal('No current version was found. Make sure there is a package.json at your current working directory');
+      process.exit(1);
     }
 
     const newVersion = Semver.inc(currentClean, `${getReleaseType(options, bumperRecommendation)}`, options.preid ?? '', options.identifierBase);
 
     if (isNullishOrEmpty(newVersion)) {
-      return logVerboseError({
-        text: ['Failed to assign new version.'],
-        verboseText: [
-          `The resolved current version is ${currentVersion} which was cleaned to ${currentClean} by semver clean`,
-          `A bump with release type ${bumperRecommendation.releaseType} was attempted but failed`,
-          'Either validate your setup or contact the developer with reproducible code.'
-        ],
-        logWithThrownError: true,
-        verbose: options.verbose
-      });
+      container.logger.fatal('Failed to assign new version.', [
+        `The resolved current version is ${currentVersion} which was cleaned to ${currentClean} by semver clean`,
+        `A bump with release type ${bumperRecommendation.releaseType} was attempted but failed`,
+        'Either validate your setup or contact the developer with reproducible code.'
+      ]);
+      process.exit(1);
     }
 
     packageJsonContent.version = newVersion;

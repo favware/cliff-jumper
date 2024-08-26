@@ -10,15 +10,14 @@ import { installDependencies } from '#commands/install-dependencies';
 import { pushTag } from '#commands/push-tag';
 import { stageFiles } from '#commands/stage-files';
 import { updateChangelog } from '#commands/update-changelog';
-import { cliRootDir, indent } from '#lib/constants';
-import { logVerboseError, logVerboseInfo } from '#lib/logger';
+import { cliRootDir } from '#lib/constants';
+import { container } from '#lib/container';
 import { parseOptionsFile } from '#lib/options-parser';
 import { preflightChecks } from '#lib/preflight-checks';
+import { logResolvedOptions, setupLogger } from '#lib/setup-logger';
 import {
   doActionAndLog,
   getFullPackageName,
-  getGitHubRepo,
-  getGitHubToken,
   getReleaseType,
   resolveInstallCommand,
   resolvePublishCommand,
@@ -157,36 +156,8 @@ const command = new Command()
 const program = command.parse(process.argv);
 const options = await parseOptionsFile(program.opts());
 
-logVerboseInfo(
-  [
-    'Resolved options: ',
-    `${indent}name: ${JSON.stringify(options.name)}`,
-    `${indent}package path: ${JSON.stringify(options.packagePath)}`,
-    `${indent}dry run: ${JSON.stringify(options.dryRun)}`,
-    `${indent}skip automatic bump: ${JSON.stringify(options.skipAutomaticBump)}`,
-    `${indent}mono repo: ${JSON.stringify(options.monoRepo)}`,
-    `${indent}npm org: ${JSON.stringify(options.org)}`,
-    `${indent}preid: ${JSON.stringify(options.preid)}`,
-    `${indent}identifier base: ${JSON.stringify(options.identifierBase)}`,
-    `${indent}commit message template: ${JSON.stringify(options.commitMessageTemplate)}`,
-    `${indent}tag template: ${JSON.stringify(options.tagTemplate)}`,
-    `${indent}install: ${JSON.stringify(options.install)}`,
-    `${indent}skip changelog: ${JSON.stringify(options.skipChangelog)}`,
-    `${indent}skip tag: ${JSON.stringify(options.skipTag)}`,
-    `${indent}verbose: ${JSON.stringify(options.verbose)}`,
-    `${indent}changelog prepend file: ${options.changelogPrependFile}`,
-    `${indent}github repo: ${JSON.stringify(getGitHubRepo(options))}`,
-    `${indent}github token: ${getGitHubToken(options) ? 'Unset' : 'SECRET([REDACTED])'}`,
-    `${indent}push tag: ${JSON.stringify(options.pushTag)}`,
-    `${indent}github release: ${JSON.stringify(options.githubRelease)}`,
-    `${indent}github release draft: ${JSON.stringify(options.githubReleaseDraft)}`,
-    `${indent}github release pre-release: ${JSON.stringify(options.githubReleasePrerelease)}`,
-    `${indent}github release latest: ${JSON.stringify(options.githubReleaseLatest)}`,
-    `${indent}github release name template: ${JSON.stringify(options.githubReleaseNameTemplate)}`,
-    ''
-  ],
-  options.verbose
-);
+setupLogger(options);
+logResolvedOptions(options);
 
 await preflightChecks(options);
 
@@ -197,16 +168,15 @@ const bumperRecommendation = await doActionAndLog(
 );
 
 if (isNullishOrEmpty(bumperRecommendation.reason) || isNullishOrEmpty(bumperRecommendation.releaseType)) {
-  logVerboseError({
-    text: [`No recommended bump level found for ${fullPackageName}`],
-    exitAfterLog: true,
-    verbose: options.verbose
-  });
+  container.logger.fatal(`No recommended bump level found for ${fullPackageName}`);
+  process.exit(1);
 }
 
 const infoIcon = blue('ℹ️');
 const releaseType = yellow(`${getReleaseType(options, bumperRecommendation)}`);
-console.info(cyan(`${infoIcon} Bumping the ${releaseType} version of ${blueBright(fullPackageName)}: ${yellow(bumperRecommendation.reason!)}`));
+container.logger.info(
+  cyan(`${infoIcon} Bumping the ${releaseType} version of ${blueBright(fullPackageName)}: ${yellow(bumperRecommendation.reason!)}`)
+);
 
 let newVersion: string | undefined;
 
@@ -214,7 +184,7 @@ if (!options.skipAutomaticBump) {
   const resolvedNewVersion = await bumpVersion(options, bumperRecommendation);
 
   newVersion = typeof resolvedNewVersion === 'string' ? resolvedNewVersion : await getNewVersion();
-  console.log(green(`📦 Bumped ${fullPackageName}@${newVersion}`));
+  container.logger.info(green(`📦 Bumped ${fullPackageName}@${newVersion}`));
 }
 
 if (!options.skipChangelog) {
@@ -242,9 +212,9 @@ if (!options.skipChangelog) {
         await createGitHubRelease(options, newVersion, changelogSection);
       }
 
-      console.info(infoIcon + green(` Run \`${publishText}\` to publish to your package registry`));
+      container.logger.info(infoIcon + green(` Run \`${publishText}\` to publish to your package registry`));
     } else {
-      console.info(infoIcon + green(` Run \`git push && git push --tags && ${publishText}\` to publish to your package registry`));
+      container.logger.info(infoIcon + green(` Run \`git push && git push --tags && ${publishText}\` to publish to your package registry`));
     }
   }
 }

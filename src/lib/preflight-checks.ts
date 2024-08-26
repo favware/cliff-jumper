@@ -1,7 +1,7 @@
 import { changelogPath, cliffTomlPath, packageCwd } from '#lib/constants';
+import { container } from '#lib/container';
 import { createFile } from '#lib/create-file';
 import { fileExists } from '#lib/file-exists';
-import { logVerboseError } from '#lib/logger';
 import { doActionAndLog, getGitHubRepo, getGitHubToken, readJson } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { Options } from 'commander';
@@ -21,14 +21,14 @@ export async function preflightChecks(options: Options) {
     fileExists(packageJsonPath)
   );
 
-  checkPackageJsonExists(packageJsonExistsInCwd, options);
+  checkPackageJsonExists(packageJsonExistsInCwd);
 
   const packageJsonContent = await doActionAndLog<any>(
     'Checking if package.json has a version property', //
     readJson(packageJsonPath)
   );
 
-  checkPackageHasVersion(packageJsonContent, options);
+  checkPackageHasVersion(packageJsonContent);
 
   if (!options.skipTag) {
     const hasCliffConfigAtCwd = await doActionAndLog(
@@ -36,7 +36,7 @@ export async function preflightChecks(options: Options) {
       fileExists(cliffTomlPath)
     );
 
-    checkHasGitCliffConfig(hasCliffConfigAtCwd, options);
+    checkHasGitCliffConfig(hasCliffConfigAtCwd);
 
     const hasChangelogFileAtCwd = await doActionAndLog(
       'Checking if a changelog file exists in the current working directory', //
@@ -49,21 +49,15 @@ export async function preflightChecks(options: Options) {
 
 function checkName(options: Options) {
   if (isNullishOrEmpty(options.name)) {
-    logVerboseError({
-      text: ['No package name was provided (`-n`, or `--name` as cli flags, or `name` in config file)'],
-      exitAfterLog: true,
-      verbose: options.verbose
-    });
+    container.logger.fatal('No package name was provided (`-n`, or `--name` as cli flags, or `name` in config file)');
+    process.exit(1);
   }
 }
 
 function checkPackagePath(options: Options) {
   if (isNullishOrEmpty(options.packagePath)) {
-    logVerboseError({
-      text: ['No package path was provided (`-p`, or `--package-path` as cli flags, or `packagePath` in config file)'],
-      exitAfterLog: true,
-      verbose: options.verbose
-    });
+    container.logger.fatal('No package path was provided (`-p`, or `--package-path` as cli flags, or `packagePath` in config file)');
+    process.exit(1);
   }
 }
 
@@ -92,15 +86,12 @@ async function checkGitHubConfig(options: Options) {
     !isNullishOrEmpty(githubReleaseNameTemplate)
   ) {
     if (isNullishOrEmpty(githubToken)) {
-      logVerboseError({
-        text: [`GitHub configurations was provided but no token was provided`],
-        verboseText: [
-          'You can provide the token either through the "--github-token" option one of the possible environment variables',
-          '(see --help for the full list)'
-        ],
-        exitAfterLog: true,
-        verbose: options.verbose
-      });
+      container.logger.fatal(
+        'GitHub configurations was provided but no token was provided',
+        'You can provide the token either through the "--github-token" option one of the possible environment variables',
+        '(see --help for the full list)'
+      );
+      process.exit(1);
     }
   }
 
@@ -119,33 +110,24 @@ async function checkGitHubConfig(options: Options) {
   );
 }
 
-function checkPackageJsonExists(packageJsonExistsInCwd: boolean, options: Options) {
+function checkPackageJsonExists(packageJsonExistsInCwd: boolean) {
   if (!packageJsonExistsInCwd) {
-    logVerboseError({
-      text: ['No package.json detected at current directory'],
-      exitAfterLog: true,
-      verbose: options.verbose
-    });
+    container.logger.fatal('No package.json detected at current directory');
+    process.exit(1);
   }
 }
 
-function checkPackageHasVersion(packageJsonContent: any, options: Options) {
+function checkPackageHasVersion(packageJsonContent: any) {
   if (!packageJsonContent.version) {
-    logVerboseError({
-      text: ['package.json does not have a version property'],
-      exitAfterLog: true,
-      verbose: options.verbose
-    });
+    container.logger.fatal('package.json does not have a version property');
+    process.exit(1);
   }
 }
 
-function checkHasGitCliffConfig(hasCliffConfigAtCwd: boolean, options: Options) {
+function checkHasGitCliffConfig(hasCliffConfigAtCwd: boolean) {
   if (!hasCliffConfigAtCwd) {
-    logVerboseError({
-      text: ['No cliff.toml detected at current directory'],
-      exitAfterLog: true,
-      verbose: options.verbose
-    });
+    container.logger.fatal('No cliff.toml detected at current directory');
+    process.exit(1);
   }
 }
 

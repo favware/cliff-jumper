@@ -1,6 +1,6 @@
 import { cliffJumperRcJsonPath, cliffJumperRcPath, cliffJumperRcYamlPath, cliffJumperRcYmlPath } from '#lib/constants';
+import { container } from '#lib/container';
 import { fileExists } from '#lib/file-exists';
-import { logVerboseError } from '#lib/logger';
 import { readJson, readYaml } from '#lib/utils';
 import type { Options } from 'commander';
 
@@ -29,18 +29,14 @@ export async function parseOptionsFile(cliOptions: Options) {
     } catch (err) {
       const typedError = err as Error;
 
-      logVerboseError({
-        text: ['Failed to read yaml config file'],
-        verbose: options.verbose,
-        verboseText: [
-          'Attempted to read options file:',
-          cliffJumperRcYamlExists ? cliffJumperRcYamlPath : cliffJumperRcYmlPath,
-          '',
-          'Full error: ',
-          typedError.stack ?? typedError.message
-        ],
-        exitAfterLog: true
-      });
+      container.logger.fatal('Failed to read yaml config file', [
+        'Attempted to read options file:',
+        cliffJumperRcYamlExists ? cliffJumperRcYamlPath : cliffJumperRcYmlPath,
+        '',
+        'Full error: ',
+        typedError.stack ?? typedError.message
+      ]);
+      process.exit(1);
     }
   } else if (cliffJumperRcExists || cliffJumperRcJsonExists) {
     try {
@@ -54,18 +50,14 @@ export async function parseOptionsFile(cliOptions: Options) {
     } catch (err) {
       const typedError = err as Error;
 
-      logVerboseError({
-        text: ['Failed to read json config file'],
-        verbose: options.verbose,
-        verboseText: [
-          'Attempted to read options file:',
-          cliffJumperRcExists ? cliffJumperRcPath : cliffJumperRcJsonPath,
-          '',
-          'Full error: ',
-          typedError.stack ?? typedError.message
-        ],
-        exitAfterLog: true
-      });
+      container.logger.fatal('Failed to read json config file', [
+        'Attempted to read options file:',
+        cliffJumperRcExists ? cliffJumperRcPath : cliffJumperRcJsonPath,
+        '',
+        'Full error: ',
+        typedError.stack ?? typedError.message
+      ]);
+      process.exit(1);
     }
   }
 
