@@ -1,4 +1,4 @@
-import { doActionAndLog, getGitHubRepo, getGitHubToken, getGitRootDirection, resolveTagTemplate } from '#lib/utils';
+import { doActionAndLog, getGitHubRepo, getGitHubToken, getGitRootDirection, getSHA1Hashes, resolveTagTemplate } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { Options } from 'commander';
 import { runGitCliff, type Options as GitCliffOptions } from 'git-cliff';
@@ -13,7 +13,8 @@ export async function updateChangelog(options: Options, newVersion: string) {
         prepend: options.changelogPrependFile ?? './CHANGELOG.md',
         unreleased: true,
         config: './cliff.toml',
-        output: '-'
+        output: '-',
+        skipCommit: getSHA1Hashes(options.skipCommits)
       };
 
       if (!isNullishOrEmpty(repositoryRootDirectory)) {
