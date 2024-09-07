@@ -14,7 +14,7 @@ export async function updateChangelog(options: Options, newVersion: string) {
         unreleased: true,
         config: './cliff.toml',
         output: '-',
-        skipCommit: getSHA1HashesArray(options.skipCommits)
+        skipCommit: getSHA1HashesArray(options.skipCommit)
       };
 
       if (!isNullishOrEmpty(repositoryRootDirectory)) {

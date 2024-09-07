@@ -6,7 +6,7 @@ export async function getConventionalBump(options: Options) {
   const bumper = new Bumper().commits(
     {
       path: process.cwd(),
-      ignore: getSHA1HashesRegexp(options.skipCommits)
+      ignore: getSHA1HashesRegexp(options.skipCommit)
     },
     {
       headerPattern: /^(\w*)(?:\((.*)\))?: (.*)$/,
