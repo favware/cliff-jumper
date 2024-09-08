@@ -314,7 +314,7 @@ __metadata:
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-prettier: "npm:^5.2.1"
     execa: "npm:^9.3.1"
-    git-cliff: "npm:^2.5.0"
+    git-cliff: "file:/Users/favna/workspace/favna/git-cliff/npm/git-cliff/package.tgz"
     js-yaml: "npm:^4.1.0"
     lint-staged: "npm:^15.2.10"
     prettier: "npm:^3.3.3"
@@ -1895,9 +1895,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-cliff@npm:^2.5.0":
+"git-cliff@file:/Users/favna/workspace/favna/git-cliff/npm/git-cliff/package.tgz::locator=%40favware%2Fcliff-jumper%40workspace%3A.":
   version: 2.5.0
-  resolution: "git-cliff@npm:2.5.0"
+  resolution: "git-cliff@file:/Users/favna/workspace/favna/git-cliff/npm/git-cliff/package.tgz#/Users/favna/workspace/favna/git-cliff/npm/git-cliff/package.tgz::hash=e94d25&locator=%40favware%2Fcliff-jumper%40workspace%3A."
   dependencies:
     execa: "npm:^8.0.1"
     git-cliff-darwin-arm64: "npm:2.5.0"
@@ -1921,7 +1921,7 @@ __metadata:
       optional: true
   bin:
     git-cliff: lib/cli/cli.js
-  checksum: 10/98dcbacb1cfcd2b7ed4add2ae1096ddcdd8360fc82a62c32e9ad441909da00d3319437d10d344b296797de9610a17627e27739a7c10d1a20f3afcec4b6100b99
+  checksum: 10/4fba4cc4d41c0a127bbe2804d0b8c21aa913948474a92fcb89c033b37595f97ef7aeeb262489157c36d681f8e1b2a898480d1e829350e7a073953a7aa90e5744
   languageName: node
   linkType: hard
 

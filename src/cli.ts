@@ -119,6 +119,11 @@ const command = new Command()
     '-cpf, --changelog-prepend-file [string]',
     'The file that git-cliff should use for the --prepend flag, defaults to ./CHANGELOG.md. This should be relative to the current working directory.'
   )
+  .option(
+    '--skip-commit [skipCommit...]',
+    'Repeatable, each will be treated as a new entry. A list of SHA1 commit hashes that will be skipped in the changelog.',
+    (value: string, previous: string[]) => (previous ?? []).concat([value])
+  )
   .option('--github-repo', githubRepoDescription)
   .option(
     '--github-token',
@@ -173,6 +178,7 @@ logVerboseInfo(
     `${indent}install: ${JSON.stringify(options.install)}`,
     `${indent}skip changelog: ${JSON.stringify(options.skipChangelog)}`,
     `${indent}skip tag: ${JSON.stringify(options.skipTag)}`,
+    `${indent}commits to be skipped: ${JSON.stringify(options.skipCommit)}`,
     `${indent}verbose: ${JSON.stringify(options.verbose)}`,
     `${indent}changelog prepend file: ${options.changelogPrependFile}`,
     `${indent}github repo: ${JSON.stringify(getGitHubRepo(options))}`,

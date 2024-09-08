@@ -175,3 +175,34 @@ export function getGitHubRepo(options: Options): string | undefined {
 export function getGitHubToken(options: Options): string | undefined {
   return process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN ?? process.env.TOKEN_GITHUB ?? process.env.TOKEN_GH ?? options.githubToken ?? undefined;
 }
+
+/**
+ * Gets SHA1 hashes for the given array of commits.
+ *
+ * @param commits - The array of commits to calculate the SHA1 hashes for.
+ * @returns The concatenated SHA1 hashes separated by a space.
+ */
+export function getSHA1HashesArray(commits: string[]): string[] {
+  return commits.filter(isValidSHA1);
+}
+
+/**
+ * Generates a regular expression pattern that matches any of the SHA1 hashes in the given array of commits.
+ *
+ * @param commits - An array of SHA1 hashes representing commits.
+ * @returns A regular expression pattern that matches any of the SHA1 hashes.
+ */
+export function getSHA1HashesRegexp(commits: string[]): RegExp {
+  return new RegExp(getSHA1HashesArray(commits).join('|'));
+}
+
+const sha1regex = /^[a-fA-F0-9]{40}$/;
+/**
+ * Checks if a given string is a valid SHA1 hash.
+ *
+ * @param string - The string to be checked.
+ * @returns `true` if the string is a valid SHA1 hash, `false` otherwise.
+ */
+function isValidSHA1(string: string): boolean {
+  return sha1regex.test(string);
+}

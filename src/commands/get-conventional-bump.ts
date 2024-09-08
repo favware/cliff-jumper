@@ -1,11 +1,12 @@
-import { getFullPackageName } from '#lib/utils';
+import { getFullPackageName, getSHA1HashesRegexp } from '#lib/utils';
 import type { Options } from 'commander';
 import { Bumper, packagePrefix } from 'conventional-recommended-bump';
 
 export async function getConventionalBump(options: Options) {
   const bumper = new Bumper().commits(
     {
-      path: process.cwd()
+      path: process.cwd(),
+      ignore: getSHA1HashesRegexp(options.skipCommit)
     },
     {
       headerPattern: /^(\w*)(?:\((.*)\))?: (.*)$/,
