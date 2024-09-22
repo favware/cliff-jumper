@@ -313,7 +313,7 @@ __metadata:
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-prettier: "npm:^5.2.1"
     execa: "npm:^9.4.0"
-    git-cliff: "npm:^2.5.0"
+    git-cliff: "npm:^2.6.0"
     js-yaml: "npm:^4.1.0"
     lint-staged: "npm:^15.2.10"
     prettier: "npm:^3.3.3"
@@ -1852,59 +1852,59 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-cliff-darwin-arm64@npm:2.5.0":
-  version: 2.5.0
-  resolution: "git-cliff-darwin-arm64@npm:2.5.0"
+"git-cliff-darwin-arm64@npm:2.6.0":
+  version: 2.6.0
+  resolution: "git-cliff-darwin-arm64@npm:2.6.0"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"git-cliff-darwin-x64@npm:2.5.0":
-  version: 2.5.0
-  resolution: "git-cliff-darwin-x64@npm:2.5.0"
+"git-cliff-darwin-x64@npm:2.6.0":
+  version: 2.6.0
+  resolution: "git-cliff-darwin-x64@npm:2.6.0"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"git-cliff-linux-arm64@npm:2.5.0":
-  version: 2.5.0
-  resolution: "git-cliff-linux-arm64@npm:2.5.0"
+"git-cliff-linux-arm64@npm:2.6.0":
+  version: 2.6.0
+  resolution: "git-cliff-linux-arm64@npm:2.6.0"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"git-cliff-linux-x64@npm:2.5.0":
-  version: 2.5.0
-  resolution: "git-cliff-linux-x64@npm:2.5.0"
+"git-cliff-linux-x64@npm:2.6.0":
+  version: 2.6.0
+  resolution: "git-cliff-linux-x64@npm:2.6.0"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"git-cliff-windows-arm64@npm:2.5.0":
-  version: 2.5.0
-  resolution: "git-cliff-windows-arm64@npm:2.5.0"
+"git-cliff-windows-arm64@npm:2.6.0":
+  version: 2.6.0
+  resolution: "git-cliff-windows-arm64@npm:2.6.0"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"git-cliff-windows-x64@npm:2.5.0":
-  version: 2.5.0
-  resolution: "git-cliff-windows-x64@npm:2.5.0"
+"git-cliff-windows-x64@npm:2.6.0":
+  version: 2.6.0
+  resolution: "git-cliff-windows-x64@npm:2.6.0"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"git-cliff@npm:^2.5.0":
-  version: 2.5.0
-  resolution: "git-cliff@npm:2.5.0"
+"git-cliff@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "git-cliff@npm:2.6.0"
   dependencies:
     execa: "npm:^8.0.1"
-    git-cliff-darwin-arm64: "npm:2.5.0"
-    git-cliff-darwin-x64: "npm:2.5.0"
-    git-cliff-linux-arm64: "npm:2.5.0"
-    git-cliff-linux-x64: "npm:2.5.0"
-    git-cliff-windows-arm64: "npm:2.5.0"
-    git-cliff-windows-x64: "npm:2.5.0"
+    git-cliff-darwin-arm64: "npm:2.6.0"
+    git-cliff-darwin-x64: "npm:2.6.0"
+    git-cliff-linux-arm64: "npm:2.6.0"
+    git-cliff-linux-x64: "npm:2.6.0"
+    git-cliff-windows-arm64: "npm:2.6.0"
+    git-cliff-windows-x64: "npm:2.6.0"
   dependenciesMeta:
     git-cliff-darwin-arm64:
       optional: true
@@ -1920,7 +1920,7 @@ __metadata:
       optional: true
   bin:
     git-cliff: lib/cli/cli.js
-  checksum: 10/98dcbacb1cfcd2b7ed4add2ae1096ddcdd8360fc82a62c32e9ad441909da00d3319437d10d344b296797de9610a17627e27739a7c10d1a20f3afcec4b6100b99
+  checksum: 10/f9b2cc58e4a7087ea0d4b9f4d614a075370327bd050a096ebb15a5ec854111004f610c4af0715c45ae925e2cd09290bef8065cba8ab5b1d3347ac8b03faf2659
   languageName: node
   linkType: hard
 
