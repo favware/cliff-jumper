@@ -301,7 +301,7 @@ __metadata:
     "@sapphire/ts-config": "npm:^5.0.1"
     "@sapphire/utilities": "npm:3.17.0"
     "@types/js-yaml": "npm:^4.0.9"
-    "@types/node": "npm:^20.16.5"
+    "@types/node": "npm:^20.16.10"
     "@types/semver": "npm:^7.5.8"
     "@typescript-eslint/eslint-plugin": "npm:^7.13.1"
     "@typescript-eslint/parser": "npm:^7.13.1"
@@ -313,7 +313,7 @@ __metadata:
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-prettier: "npm:^5.2.1"
     execa: "npm:^9.4.0"
-    git-cliff: "npm:^2.6.0"
+    git-cliff: "npm:^2.6.1"
     js-yaml: "npm:^4.1.0"
     lint-staged: "npm:^15.2.10"
     prettier: "npm:^3.3.3"
@@ -587,12 +587,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.16.5":
-  version: 20.16.5
-  resolution: "@types/node@npm:20.16.5"
+"@types/node@npm:*, @types/node@npm:^20.16.10":
+  version: 20.16.10
+  resolution: "@types/node@npm:20.16.10"
   dependencies:
     undici-types: "npm:~6.19.2"
-  checksum: 10/39a8457149dc17cdea57afc90d4da53182fdb8b958d5bb065a15d123d81d4efa6b51a0de92428d05ead2e63ce07195586f71083401b99cdbcd04662344fbf7a1
+  checksum: 10/f0832d16fed07737c2c3edd6cb6414a22e8379173e56e701ab8890b8798c8f9bc37337332631818f813ff7f8c0e168e9900e8f44cdfd2406d15150289c813acc
   languageName: node
   linkType: hard
 
@@ -1852,59 +1852,59 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-cliff-darwin-arm64@npm:2.6.0":
-  version: 2.6.0
-  resolution: "git-cliff-darwin-arm64@npm:2.6.0"
+"git-cliff-darwin-arm64@npm:2.6.1":
+  version: 2.6.1
+  resolution: "git-cliff-darwin-arm64@npm:2.6.1"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"git-cliff-darwin-x64@npm:2.6.0":
-  version: 2.6.0
-  resolution: "git-cliff-darwin-x64@npm:2.6.0"
+"git-cliff-darwin-x64@npm:2.6.1":
+  version: 2.6.1
+  resolution: "git-cliff-darwin-x64@npm:2.6.1"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"git-cliff-linux-arm64@npm:2.6.0":
-  version: 2.6.0
-  resolution: "git-cliff-linux-arm64@npm:2.6.0"
+"git-cliff-linux-arm64@npm:2.6.1":
+  version: 2.6.1
+  resolution: "git-cliff-linux-arm64@npm:2.6.1"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"git-cliff-linux-x64@npm:2.6.0":
-  version: 2.6.0
-  resolution: "git-cliff-linux-x64@npm:2.6.0"
+"git-cliff-linux-x64@npm:2.6.1":
+  version: 2.6.1
+  resolution: "git-cliff-linux-x64@npm:2.6.1"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"git-cliff-windows-arm64@npm:2.6.0":
-  version: 2.6.0
-  resolution: "git-cliff-windows-arm64@npm:2.6.0"
+"git-cliff-windows-arm64@npm:2.6.1":
+  version: 2.6.1
+  resolution: "git-cliff-windows-arm64@npm:2.6.1"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"git-cliff-windows-x64@npm:2.6.0":
-  version: 2.6.0
-  resolution: "git-cliff-windows-x64@npm:2.6.0"
+"git-cliff-windows-x64@npm:2.6.1":
+  version: 2.6.1
+  resolution: "git-cliff-windows-x64@npm:2.6.1"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"git-cliff@npm:^2.6.0":
-  version: 2.6.0
-  resolution: "git-cliff@npm:2.6.0"
+"git-cliff@npm:^2.6.1":
+  version: 2.6.1
+  resolution: "git-cliff@npm:2.6.1"
   dependencies:
     execa: "npm:^8.0.1"
-    git-cliff-darwin-arm64: "npm:2.6.0"
-    git-cliff-darwin-x64: "npm:2.6.0"
-    git-cliff-linux-arm64: "npm:2.6.0"
-    git-cliff-linux-x64: "npm:2.6.0"
-    git-cliff-windows-arm64: "npm:2.6.0"
-    git-cliff-windows-x64: "npm:2.6.0"
+    git-cliff-darwin-arm64: "npm:2.6.1"
+    git-cliff-darwin-x64: "npm:2.6.1"
+    git-cliff-linux-arm64: "npm:2.6.1"
+    git-cliff-linux-x64: "npm:2.6.1"
+    git-cliff-windows-arm64: "npm:2.6.1"
+    git-cliff-windows-x64: "npm:2.6.1"
   dependenciesMeta:
     git-cliff-darwin-arm64:
       optional: true
@@ -1920,7 +1920,7 @@ __metadata:
       optional: true
   bin:
     git-cliff: lib/cli/cli.js
-  checksum: 10/f9b2cc58e4a7087ea0d4b9f4d614a075370327bd050a096ebb15a5ec854111004f610c4af0715c45ae925e2cd09290bef8065cba8ab5b1d3347ac8b03faf2659
+  checksum: 10/a0ff764a9e9eb145beff2cb6e75405a27356f874bd0bbbc9a4fc12a9d1f8267ae41a7be19d36c23549b0afc5208c7e0ebee1829f79021ee61a7312a596d214c9
   languageName: node
   linkType: hard
 
