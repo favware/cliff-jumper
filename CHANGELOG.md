@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@5.0.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@4.1.0...@favware/cliff-jumper@5.0.0) - (2024-10-19)
+
+## 🐛 Bug Fixes
+
+- Check commits array to be defined before reading it ([50478d0](https://github.com/favware/cliff-jumper/commit/50478d0a3495cc46774d5f292314cb2695bb4584))
+- **deps:** Update dependency git-cliff to ^2.6.0 ([31a525c](https://github.com/favware/cliff-jumper/commit/31a525c7b49e4a88d5b931b8f8bfca261c5a693b)) ([#205](https://github.com/favware/cliff-jumper/pull/205))
+- **deps:** Update all non-major dependencies ([3e07ebb](https://github.com/favware/cliff-jumper/commit/3e07ebbf6ddf2b2d95b8ea8de86bf5be2c3cc92e)) ([#204](https://github.com/favware/cliff-jumper/pull/204))
+
+## 🚀 Features
+
+- Support gitlab, gitea, and bitbucket for git-cliff ([a4b30d0](https://github.com/favware/cliff-jumper/commit/a4b30d05fbb34149cd74f352ec727ac13b0cd486)) ([#208](https://github.com/favware/cliff-jumper/pull/208))
+  - 💥 **fixes #** 188
+  - 💥 **BREAKING CHANGE:** `--github-repo` has been renamed to `--git-repo`
+  - 💥 **BREAKING CHANGE:** `githubRepo` has been renamed to `gitRepo`
+  - 💥 **BREAKING CHANGE:** `--github-token` has been renamed to `gitToken`
+  - 💥 **BREAKING CHANGE:** `githubToken` has been renamed to `gitToken`
+  - 💥 **BREAKING CHANGE:** The environment variables `TOKEN_GITHUB` and `TOKEN_GH` are no longer supported
+  - 💥 **BREAKING CHANGE:** environment variables `GITLAB_TOKEN`, `GITEA_TOKEN`, and `BITBUCKET_TOKEN` are now supported for `--git-token`
+  - 💥 **BREAKING CHANGE:** A new option `--git-host-variant` was added, which defaults to `'github'`. To release to GitHub, this has to be set to `'github'`.
+- Add commit skipping ([22a51d9](https://github.com/favware/cliff-jumper/commit/22a51d9af4a97edeba169f422ed357801da7d08b)) ([#201](https://github.com/favware/cliff-jumper/pull/201))
+
 # [@favware/cliff-jumper@4.1.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@4.0.3...@favware/cliff-jumper@4.1.0) - (2024-08-24)
 
 ## 🐛 Bug Fixes
