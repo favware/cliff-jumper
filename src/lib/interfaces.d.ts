@@ -20,8 +20,9 @@ declare module 'commander' {
     tagTemplate: string;
     changelogPrependFile: string;
     skipCommit: string[];
-    githubRepo: string;
-    githubToken: string;
+    gitHostVariant: 'github' | 'gitlab' | 'gitea' | 'bitbucket';
+    gitRepo: string;
+    gitToken: string;
     pushTag: boolean;
     githubRelease: boolean;
     githubReleaseDraft: boolean;

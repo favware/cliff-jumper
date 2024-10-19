@@ -149,14 +149,14 @@ export function getReleaseType(options: Options, bumperRecommendation: BumperRec
  * Retrieves the GitHub repo, either from the environment variables or from the config
  *
  * The order of precedence is:
- * 1. Environment variable `GITHUB_REPO`
+ * 1. Environment variable `GIT_REPO`
  * 2. The `githubRepo` property in the options object
  *
  * @param options The options object
  * @returns The GitHub repo or `undefined` if it was not found
  */
-export function getGitHubRepo(options: Options): string | undefined {
-  return process.env.GITHUB_REPO ?? (options.githubRepo === 'auto' ? `${options.org}/${options.name}` : options.githubRepo) ?? undefined;
+export function getGitRepo(options: Options): string | undefined {
+  return process.env.GIT_REPO ?? (options.gitRepo === 'auto' ? `${options.org}/${options.name}` : options.gitRepo) ?? undefined;
 }
 
 /**
@@ -165,15 +165,24 @@ export function getGitHubRepo(options: Options): string | undefined {
  * The order of precedence is:
  * 1. Environment variable `GITHUB_TOKEN`
  * 2. Environment variable `GH_TOKEN`
- * 3. Environment variable `TOKEN_GITHUB`
- * 4. Environment variable `TOKEN_GH`
+ * 3. Environment variable `GITLAB_TOKEN`
+ * 4. Environment variable `GITEA_TOKEN`
+ * 4. Environment variable `BITBUCKET_TOKEN`
  * 5. The `githubToken` property in the options object
  *
  * @param options The options object
  * @returns The GitHub token or `undefined` if it was not found
  */
-export function getGitHubToken(options: Options): string | undefined {
-  return process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN ?? process.env.TOKEN_GITHUB ?? process.env.TOKEN_GH ?? options.githubToken ?? undefined;
+export function getGitToken(options: Options): string | undefined {
+  return (
+    process.env.GITHUB_TOKEN ??
+    process.env.GH_TOKEN ??
+    process.env.GITLAB_TOKEN ??
+    process.env.GITEA_TOKEN ??
+    process.env.BITBUCKET_TOKEN ??
+    options.gitToken ??
+    undefined
+  );
 }
 
 /**

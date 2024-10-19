@@ -5,7 +5,7 @@
   "packagePath": ".",
   "identifierBase": false,
   "pushTag": true,
+  "gitRepo": "auto",
   "githubRelease": true,
-  "githubReleaseLatest": true,
-  "githubRepo": "auto"
+  "githubReleaseLatest": true
 }

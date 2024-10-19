@@ -1,7 +1,7 @@
 import { OctokitRequestHeaders, indent } from '#lib/constants';
 import { logVerboseInfo } from '#lib/logger';
 import { removeHeaderFromChangelogSection } from '#lib/parse-cliff-toml';
-import { doActionAndLog, getGitHubRepo, getGitHubToken, resolveGitHubReleaseNameTemplate, resolveTagTemplate } from '#lib/utils';
+import { doActionAndLog, getGitRepo, getGitToken, resolveGitHubReleaseNameTemplate, resolveTagTemplate } from '#lib/utils';
 import { createTokenAuth } from '@octokit/auth-token';
 import { Octokit } from '@octokit/core';
 import { retry } from '@octokit/plugin-retry';
@@ -15,16 +15,16 @@ export function createGitHubRelease(options: Options, newVersion: string, change
 
   return doActionAndLog('Creating release', async () => {
     if (!options.dryRun) {
-      const githubToken = getGitHubToken(options);
-      const githubRepo = getGitHubRepo(options);
+      const gitToken = getGitToken(options);
+      const gitRepo = getGitRepo(options);
 
-      if (!isNullishOrEmpty(githubRepo) && !isNullishOrEmpty(githubToken)) {
-        const octokitAuth = createTokenAuth(githubToken);
+      if (!isNullishOrEmpty(gitRepo) && !isNullishOrEmpty(gitToken)) {
+        const octokitAuth = createTokenAuth(gitToken);
         const authentication = await octokitAuth();
 
         const octokit = new HydratedOctokit({ auth: authentication.token });
 
-        const [repoOwner, repoName] = githubRepo.split('/');
+        const [repoOwner, repoName] = gitRepo.split('/');
         const releaseBody = await removeHeaderFromChangelogSection(changelogSection);
         const isLatestRelease = options.githubReleaseLatest ?? true;
         const newVersionName = resolveTagTemplate(options, newVersion);
