@@ -50,6 +50,14 @@
       "type": "string",
       "default": "./CHANGELOG.md"
     },
+    "skipCommit": {
+      "description": "Repeatable, each will be treated as a new entry. A list of SHA1 commit hashes that will be skipped in the changelog.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
     "githubRepo": {
       "description": "The GitHub repository to use for linking to issues and PRs in the changelog.\n\nYou can pass the unique string \"auto\" to automatically set this value as \"{{org}}/{{name}}\" as provided from \"--org\" and \"--name\". This should be in the format \"owner/repo\". You can use the \"GITHUB_REPO\" environment variable to automatically set this value",
       "type": "string"

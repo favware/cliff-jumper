@@ -19,6 +19,7 @@ declare module 'commander' {
     commitMessageTemplate: string;
     tagTemplate: string;
     changelogPrependFile: string;
+    skipCommit: string[];
     githubRepo: string;
     githubToken: string;
     pushTag: boolean;
