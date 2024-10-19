@@ -13,7 +13,7 @@ export async function updateChangelog(options: Options, newVersion: string) {
       unreleased: true,
       config: './cliff.toml',
       output: '-',
-      skipCommit: getSHA1HashesArray(options.skipCommit)
+      skipCommit: Array.isArray(options.skipCommit) ? getSHA1HashesArray(options.skipCommit) : undefined
     };
 
     if (!isNullishOrEmpty(repositoryRootDirectory)) {

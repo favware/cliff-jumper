@@ -191,8 +191,8 @@ export function getGitToken(options: Options): string | undefined {
  * @param commits - The array of commits to calculate the SHA1 hashes for.
  * @returns The concatenated SHA1 hashes separated by a space.
  */
-export function getSHA1HashesArray(commits: string[]): string[] {
-  return commits.filter(isValidSHA1);
+export function getSHA1HashesArray(commits?: string[]): string[] {
+  return (commits ?? []).filter(isValidSHA1);
 }
 
 /**
@@ -201,8 +201,8 @@ export function getSHA1HashesArray(commits: string[]): string[] {
  * @param commits - An array of SHA1 hashes representing commits.
  * @returns A regular expression pattern that matches any of the SHA1 hashes.
  */
-export function getSHA1HashesRegexp(commits: string[]): RegExp {
-  return new RegExp(getSHA1HashesArray(commits).join('|'));
+export function getSHA1HashesRegexp(commits?: string[]): RegExp {
+  return new RegExp(getSHA1HashesArray(commits ?? []).join('|'));
 }
 
 const sha1regex = /^[a-fA-F0-9]{40}$/;

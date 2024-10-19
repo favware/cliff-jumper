@@ -19,7 +19,7 @@ declare module 'commander' {
     commitMessageTemplate: string;
     tagTemplate: string;
     changelogPrependFile: string;
-    skipCommit: string[];
+    skipCommit?: string[];
     gitHostVariant: 'github' | 'gitlab' | 'gitea' | 'bitbucket';
     gitRepo: string;
     gitToken: string;
