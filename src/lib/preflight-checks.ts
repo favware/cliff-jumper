@@ -2,7 +2,7 @@ import { changelogPath, cliffTomlPath, packageCwd } from '#lib/constants';
 import { createFile } from '#lib/create-file';
 import { fileExists } from '#lib/file-exists';
 import { logVerboseError } from '#lib/logger';
-import { doActionAndLog, getGitHubRepo, getGitHubToken, readJson } from '#lib/utils';
+import { doActionAndLog, getGitRepo, getGitToken, readJson } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { Options } from 'commander';
 import { join } from 'node:path';
@@ -12,7 +12,7 @@ export async function preflightChecks(options: Options) {
 
   checkPackagePath(options);
 
-  await checkGitHubConfig(options);
+  await checkGitConfig(options);
 
   const packageJsonPath = join(packageCwd, 'package.json');
 
@@ -67,11 +67,11 @@ function checkPackagePath(options: Options) {
   }
 }
 
-async function checkGitHubConfig(options: Options) {
+async function checkGitConfig(options: Options) {
   await doActionAndLog(
-    'Checking GitHub repository configuration', //
+    'Checking Git repository configuration', //
     () => {
-      if (options.githubRepo === 'auto' && (!options.org || !options.name)) {
+      if (options.gitRepo === 'auto' && (!options.org || !options.name)) {
         throw new Error(
           '`githubRepo` was set to `auto` and the GitHub repository could not be resolved. When using the auto option, please provide the org and name options'
         );
@@ -79,23 +79,24 @@ async function checkGitHubConfig(options: Options) {
     }
   );
 
-  const githubRepo = getGitHubRepo(options);
-  const githubToken = getGitHubToken(options);
-  const { githubRelease, githubReleaseDraft, githubReleasePrerelease, githubReleaseLatest, githubReleaseNameTemplate, pushTag } = options;
+  const gitRepo = getGitRepo(options);
+  const gitToken = getGitToken(options);
+  const { gitHostVariant, githubRelease, githubReleaseDraft, githubReleasePrerelease, githubReleaseLatest, githubReleaseNameTemplate, pushTag } =
+    options;
 
   if (
-    !isNullishOrEmpty(githubRepo) ||
+    !isNullishOrEmpty(gitRepo) ||
     githubRelease ||
     githubReleaseDraft ||
     githubReleasePrerelease ||
     githubReleaseLatest ||
     !isNullishOrEmpty(githubReleaseNameTemplate)
   ) {
-    if (isNullishOrEmpty(githubToken)) {
+    if (isNullishOrEmpty(gitToken)) {
       logVerboseError({
-        text: [`GitHub configurations was provided but no token was provided`],
+        text: [`Git configurations was provided but no token was provided`],
         verboseText: [
-          'You can provide the token either through the "--github-token" option one of the possible environment variables',
+          'You can provide the token either through the "--git-token" option one of the possible environment variables',
           '(see --help for the full list)'
         ],
         exitAfterLog: true,
@@ -104,19 +105,21 @@ async function checkGitHubConfig(options: Options) {
     }
   }
 
-  await doActionAndLog(
-    'Checking GitHub releasing configuration', //
-    () => {
-      if (
-        (!githubRelease || !pushTag) &&
-        (githubReleaseDraft || githubReleasePrerelease || githubReleaseLatest || !isNullishOrEmpty(githubReleaseNameTemplate))
-      ) {
-        throw new Error(
-          'You can only use --github-release-draft, --github-release-latest, --github-release-name-template, and --github-release-pre-release when both --github-release and --push-tag are provided'
-        );
+  if (gitHostVariant === 'github') {
+    await doActionAndLog(
+      'Checking GitHub releasing configuration', //
+      () => {
+        if (
+          (!githubRelease || !pushTag) &&
+          (githubReleaseDraft || githubReleasePrerelease || githubReleaseLatest || !isNullishOrEmpty(githubReleaseNameTemplate))
+        ) {
+          throw new Error(
+            'You can only use --github-release-draft, --github-release-latest, --github-release-name-template, and --github-release-pre-release when both --github-release and --push-tag are provided'
+          );
+        }
       }
-    }
-  );
+    );
+  }
 }
 
 function checkPackageJsonExists(packageJsonExistsInCwd: boolean, options: Options) {

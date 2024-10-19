@@ -24,7 +24,8 @@ export async function parseOptionsFile(cliOptions: Options) {
       options = {
         ...fileOptions,
         ...options,
-        monoRepo: fileOptions.monoRepo ?? options.monoRepo ?? (fileOptions.org || options.org)
+        monoRepo: fileOptions.monoRepo ?? options.monoRepo ?? (fileOptions.org || options.org),
+        gitHostVariant: fileOptions.gitHostVariant ?? options.gitHostVariant ?? 'github'
       };
     } catch (err) {
       const typedError = err as Error;
@@ -49,7 +50,8 @@ export async function parseOptionsFile(cliOptions: Options) {
       options = {
         ...fileOptions,
         ...options,
-        monoRepo: fileOptions.monoRepo ?? options.monoRepo ?? (fileOptions.org || options.org)
+        monoRepo: fileOptions.monoRepo ?? options.monoRepo ?? (fileOptions.org || options.org),
+        gitHostVariant: fileOptions.gitHostVariant ?? options.gitHostVariant ?? 'github'
       };
     } catch (err) {
       const typedError = err as Error;

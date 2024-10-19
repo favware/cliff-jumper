@@ -1,4 +1,4 @@
-import { doActionAndLog, getGitHubRepo, getGitHubToken, getGitRootDirection, getSHA1HashesArray, resolveTagTemplate } from '#lib/utils';
+import { doActionAndLog, getGitRepo, getGitRootDirection, getGitToken, getSHA1HashesArray, resolveTagTemplate } from '#lib/utils';
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { Options } from 'commander';
 import { runGitCliff, type Options as GitCliffOptions } from 'git-cliff';
@@ -21,13 +21,25 @@ export async function updateChangelog(options: Options, newVersion: string) {
       gitCliffOptions.includePath = `${options.packagePath}/*`;
     }
 
-    const githubToken = getGitHubToken(options);
-    const githubRepo = getGitHubRepo(options);
-    if (!isNullishOrEmpty(githubRepo) && !isNullishOrEmpty(githubToken)) {
-      const resolvedGitHubRepo = githubRepo === 'auto' ? `${options.org}/${options.name}` : `${githubRepo}`;
+    const gitToken = getGitToken(options);
+    const gitRepo = getGitRepo(options);
+    const { gitHostVariant } = options;
+    if (!isNullishOrEmpty(gitRepo) && !isNullishOrEmpty(gitToken)) {
+      const resolvedGitRepo = gitRepo === 'auto' ? `${options.org}/${options.name}` : `${gitRepo}`;
 
-      gitCliffOptions.githubRepo = resolvedGitHubRepo;
-      gitCliffOptions.githubToken = githubToken;
+      if (gitHostVariant === 'github') {
+        gitCliffOptions.githubRepo = resolvedGitRepo;
+        gitCliffOptions.githubToken = gitToken;
+      } else if (gitHostVariant === 'gitea') {
+        gitCliffOptions.giteaRepo = resolvedGitRepo;
+        gitCliffOptions.giteaToken = gitToken;
+      } else if (gitHostVariant === 'gitlab') {
+        gitCliffOptions.gitlabRepo = resolvedGitRepo;
+        gitCliffOptions.gitlabToken = gitToken;
+      } else if (gitHostVariant === 'bitbucket') {
+        gitCliffOptions.bitbucketRepo = resolvedGitRepo;
+        gitCliffOptions.bitbucketToken = gitToken;
+      }
     }
 
     if (!options.dryRun) {
