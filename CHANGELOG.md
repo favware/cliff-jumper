@@ -13,7 +13,6 @@ All notable changes to this project will be documented in this file.
 ## 🚀 Features
 
 - Support gitlab, gitea, and bitbucket for git-cliff ([a4b30d0](https://github.com/favware/cliff-jumper/commit/a4b30d05fbb34149cd74f352ec727ac13b0cd486)) ([#208](https://github.com/favware/cliff-jumper/pull/208))
-  - 💥 **fixes #** 188
   - 💥 **BREAKING CHANGE:** `--github-repo` has been renamed to `--git-repo`
   - 💥 **BREAKING CHANGE:** `githubRepo` has been renamed to `gitRepo`
   - 💥 **BREAKING CHANGE:** `--github-token` has been renamed to `gitToken`
