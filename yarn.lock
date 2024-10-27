@@ -312,7 +312,7 @@ __metadata:
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-prettier: "npm:^5.2.1"
-    execa: "npm:^9.4.1"
+    execa: "npm:^9.5.0"
     git-cliff: "npm:^2.6.1"
     js-yaml: "npm:^4.1.0"
     lint-staged: "npm:^15.2.10"
@@ -1598,9 +1598,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:^9.4.1":
-  version: 9.4.1
-  resolution: "execa@npm:9.4.1"
+"execa@npm:^9.5.0":
+  version: 9.5.0
+  resolution: "execa@npm:9.5.0"
   dependencies:
     "@sindresorhus/merge-streams": "npm:^4.0.0"
     cross-spawn: "npm:^7.0.3"
@@ -1614,7 +1614,7 @@ __metadata:
     signal-exit: "npm:^4.1.0"
     strip-final-newline: "npm:^4.0.0"
     yoctocolors: "npm:^2.0.0"
-  checksum: 10/a9b4177049ffe3d998746b789f7cd22ffc5583f789c322d8fa7601f3f630b5b27b97df6e0223c0dfb04305c639e67cbb69a8375c2529b85f5e23c03081fd47c2
+  checksum: 10/766ff23fa1048972c11e53d32ce3d2e0a7e52288db1eee8b192879d61688703b72940bb38319eeea8e84b5e2855651b2aa7dc1f77060195127317c15e118a28d
   languageName: node
   linkType: hard
 
