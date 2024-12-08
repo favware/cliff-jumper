@@ -43,7 +43,7 @@
     "colorette": "^2.0.20",
     "commander": "^12.1.0",
     "conventional-recommended-bump": "^10.0.0",
-    "execa": "^9.5.1",
+    "execa": "^9.5.2",
     "git-cliff": "^2.7.0",
     "js-yaml": "^4.1.0",
     "semver": "^7.6.3",
@@ -65,7 +65,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "lint-staged": "^15.2.10",
-    "prettier": "^3.4.1",
+    "prettier": "^3.4.2",
     "rimraf": "^6.0.1",
     "typescript": "~5.4.5"
   },
