@@ -68,7 +68,7 @@ const command = new Command()
     'Whether the package should be bumped or not. When this is set no actions will be taken and only the release strategy will be logged'
   )
   .option(
-    '-sab, --skip-automatic-bump',
+    '--skip-automatic-bump',
     'Whether to skip bumping the version (useful if this is the first version, or if you have manually set the version)'
   )
   .option('--mono-repo', monoRepoDescription)
@@ -111,7 +111,7 @@ const command = new Command()
   .option('-t, --skip-tag', skipTagDescription)
   .option('--no-skip-tag', skipTagDescription)
   .option(
-    '-cpf, --changelog-prepend-file [string]',
+    '--changelog-prepend-file [string]',
     'The file that git-cliff should use for the --prepend flag, defaults to ./CHANGELOG.md. This should be relative to the current working directory.'
   )
   .option(
@@ -144,27 +144,27 @@ const command = new Command()
       '- GH_TOKEN'
     ].join('\n')
   )
-  .option('-pt, --push-tag', pushTagDescription)
-  .option('-npt, --no-push-tag', pushTagDescription)
-  .option('-ghr, --github-release', githubReleaseDescription)
-  .option('-nghr, --no-github-release', githubReleaseDescription)
+  .option('--push-tag', pushTagDescription)
+  .option('--no-push-tag', pushTagDescription)
+  .option('--github-release', githubReleaseDescription)
+  .option('--no-github-release', githubReleaseDescription)
   .option(
-    '-ghrd, --github-release-draft',
+    '--github-release-draft',
     ['Note that this is only supported if "--git-host-variant" is set to "github"', 'Whether the release should be a draft'].join('\n')
   )
   .option(
-    '-ghrpr, --github-release-pre-release',
+    '--github-release-pre-release',
     ['Note that this is only supported if "--git-host-variant" is set to "github"', 'Whether the release should be a pre-release'].join('\n')
   )
   .option(
-    '-ghrl, --github-release-latest',
+    '--github-release-latest',
     [
       'Note that this is only supported if "--git-host-variant" is set to "github"',
       'Whether the release should be marked as the latest release, will try to read this value, then the value of --github-release, and then default to false. Please note that when setting --github-release-pre-release to `true` GitHub will prevent the release to be marked as latest an this option will essentially be ignored.'
     ].join('\n')
   )
   .option(
-    '-ghrnt, --github-release-name-template [string]',
+    '--github-release-name-template [string]',
     [
       'Note that this is only supported if "--git-host-variant" is set to "github"',
       'A GitHub release name template to use. Defaults to an empty string, which means GitHub will use the tag name as the release name.',
