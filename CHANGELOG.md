@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@6.0.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@5.0.0...@favware/cliff-jumper@6.0.0) - (2025-01-05)
+
+## 🏠 Refactor
+
+- Remove various single dash aliases for commander v13 compatibility ([ec2f91c](https://github.com/favware/cliff-jumper/commit/ec2f91cee85abf7de8e5b3de0fdb5290affc022a)) ([#226](https://github.com/favware/cliff-jumper/pull/226))
+  - 💥 **BREAKING CHANGE:** Removed `-sab` as alias for `--skip-automatic-bump`
+  - 💥 **BREAKING CHANGE:** Removed `-cpf` as alias for `--changelog-prepend-file`
+  - 💥 **BREAKING CHANGE:** Removed `-pt` as alias for `--push-tag`
+  - 💥 **BREAKING CHANGE:** Removed `-npt` as alias for `--no-push-tag`
+  - 💥 **BREAKING CHANGE:** Removed `-ghr` as alias for `--github-release`
+  - 💥 **BREAKING CHANGE:** Removed `-nghr` as alias for `--no-github-release`
+  - 💥 **BREAKING CHANGE:** Removed `-ghrd` as alias for `--github-release-draft`
+  - 💥 **BREAKING CHANGE:** Removed `-ghrpr` as alias for `--github-release-pre-release`
+  - 💥 **BREAKING CHANGE:** Removed `-ghrl` as alias for `--github-release-latest`
+  - 💥 **BREAKING CHANGE:** Removed `-ghrnt` as alias for `--github-release-name-template`
+
+## 🐛 Bug Fixes
+
+- **deps:** Update dependency commander to v13 ([50bc424](https://github.com/favware/cliff-jumper/commit/50bc424671ed43e225eea0c3ae4b0a67d1c20eab))
+- **deps:** Update all non-major dependencies ([d55d42c](https://github.com/favware/cliff-jumper/commit/d55d42cb17f3bc594ea41489e403419e0d4ee250)) ([#225](https://github.com/favware/cliff-jumper/pull/225))
+- **deps:** Update all non-major dependencies ([5634a2d](https://github.com/favware/cliff-jumper/commit/5634a2dec5e8054921be226a06db7079e6f0ba36)) ([#221](https://github.com/favware/cliff-jumper/pull/221))
+- **deps:** Update dependency smol-toml to v1.3.1 [security] ([fe8e888](https://github.com/favware/cliff-jumper/commit/fe8e888850f047f92a73406e547597771590c669)) ([#218](https://github.com/favware/cliff-jumper/pull/218))
+- **deps:** Update all non-major dependencies ([58680f1](https://github.com/favware/cliff-jumper/commit/58680f1582bc4497f66cacfba25ff21a86731e31)) ([#215](https://github.com/favware/cliff-jumper/pull/215))
+- **deps:** Update all non-major dependencies ([8140b95](https://github.com/favware/cliff-jumper/commit/8140b95ec67e95f02e3a72c350051c198f7282ee)) ([#212](https://github.com/favware/cliff-jumper/pull/212))
+- **deps:** Update dependency execa to ^9.5.0 ([d50a4e6](https://github.com/favware/cliff-jumper/commit/d50a4e6ebbc2047bedd2abb913ab4811a1845f37)) ([#211](https://github.com/favware/cliff-jumper/pull/211))
+
 # [@favware/cliff-jumper@5.0.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@4.1.0...@favware/cliff-jumper@5.0.0) - (2024-10-19)
 
 ## 🐛 Bug Fixes
