@@ -41,7 +41,7 @@
     "@sapphire/result": "^2.7.2",
     "@sapphire/utilities": "3.18.1",
     "colorette": "^2.0.20",
-    "commander": "^12.1.0",
+    "commander": "^13.0.0",
     "conventional-recommended-bump": "^10.0.0",
     "execa": "^9.5.2",
     "git-cliff": "^2.7.0",
