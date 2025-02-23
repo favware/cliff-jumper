@@ -225,21 +225,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@conventional-changelog/git-client@npm:^1.0.0":
-  version: 1.0.1
-  resolution: "@conventional-changelog/git-client@npm:1.0.1"
+"@conventional-changelog/git-client@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@conventional-changelog/git-client@npm:2.0.0"
   dependencies:
-    "@types/semver": "npm:^7.5.5"
     semver: "npm:^7.5.2"
   peerDependencies:
     conventional-commits-filter: ^5.0.0
-    conventional-commits-parser: ^6.0.0
+    conventional-commits-parser: ^6.1.0
   peerDependenciesMeta:
     conventional-commits-filter:
       optional: true
     conventional-commits-parser:
       optional: true
-  checksum: 10/3f309c4a5985da8c023a5960e6e91f7abdaff55466a3d11235731ad32b173d6295e102fcfa2298b9bae442b06642872d8ee987cb218362b056e9d280345eabc9
+  checksum: 10/75856570e643adf1ea53686fe6d3467e1f5dbdaf23ca8a818526276832b3c89c09275eab007041bf84842204132fc27ef4c5e476aabbec90daa3ced21f60d39a
   languageName: node
   linkType: hard
 
@@ -307,7 +306,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^7.13.1"
     colorette: "npm:^2.0.20"
     commander: "npm:^13.1.0"
-    conventional-recommended-bump: "npm:^10.0.0"
+    conventional-recommended-bump: "npm:^11.0.0"
     cz-conventional-changelog: "npm:^3.3.0"
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^10.0.1"
@@ -597,7 +596,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/semver@npm:^7.5.5, @types/semver@npm:^7.5.8":
+"@types/semver@npm:^7.5.8":
   version: 7.5.8
   resolution: "@types/semver@npm:7.5.8"
   checksum: 10/3496808818ddb36deabfe4974fd343a78101fa242c4690044ccdc3b95dcf8785b494f5d628f2f47f38a702f8db9c53c67f47d7818f2be1b79f2efb09692e1178
@@ -1196,29 +1195,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-commits-parser@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "conventional-commits-parser@npm:6.0.0"
+"conventional-commits-parser@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "conventional-commits-parser@npm:6.1.0"
   dependencies:
     meow: "npm:^13.0.0"
   bin:
     conventional-commits-parser: dist/cli/index.js
-  checksum: 10/ba754fb5784afff7f265bac1c0e408755174f1a04103e23a9d8f246102f7a7d043da9f67b19e7df93851901446a80c678a40cf5f9b49af153f60a528bdb507ce
+  checksum: 10/0586359166662e5912728bea00f9726e9757264b1dc02bfddd61dbda54347fd3f6c5da3d197d086eab1dc4e11bb34479db05e0ef354f4887ac63333d593f0ec6
   languageName: node
   linkType: hard
 
-"conventional-recommended-bump@npm:^10.0.0":
-  version: 10.0.0
-  resolution: "conventional-recommended-bump@npm:10.0.0"
+"conventional-recommended-bump@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "conventional-recommended-bump@npm:11.0.0"
   dependencies:
-    "@conventional-changelog/git-client": "npm:^1.0.0"
+    "@conventional-changelog/git-client": "npm:^2.0.0"
     conventional-changelog-preset-loader: "npm:^5.0.0"
     conventional-commits-filter: "npm:^5.0.0"
-    conventional-commits-parser: "npm:^6.0.0"
+    conventional-commits-parser: "npm:^6.1.0"
     meow: "npm:^13.0.0"
   bin:
     conventional-recommended-bump: dist/cli/index.js
-  checksum: 10/d4a72f48ceec9947bf6f4ae346574262c8c991930a4b8d6d5d43cfd03bcf9531f74200ce60d43a251fd537b5292668f6480c17fe4ed458b4f84418db2be3af85
+  checksum: 10/0997686743944122af6ea591974bdace1b9a5205d7f6639512cc6894f1079642e06b6b18fd257429438b2410ab0de5be0085882859eb3fe2c27f799fde3b17cf
   languageName: node
   linkType: hard
 
