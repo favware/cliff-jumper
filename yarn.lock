@@ -293,14 +293,14 @@ __metadata:
     "@favware/colorette-spinner": "npm:^1.0.1"
     "@octokit/auth-token": "npm:^5.1.2"
     "@octokit/core": "npm:^6.1.4"
-    "@octokit/plugin-retry": "npm:^7.1.4"
+    "@octokit/plugin-retry": "npm:^7.2.0"
     "@sapphire/eslint-config": "npm:^5.0.5"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/result": "npm:^2.7.2"
     "@sapphire/ts-config": "npm:^5.0.1"
     "@sapphire/utilities": "npm:3.18.2"
     "@types/js-yaml": "npm:^4.0.9"
-    "@types/node": "npm:^22.13.10"
+    "@types/node": "npm:^22.13.11"
     "@types/semver": "npm:^7.5.8"
     "@typescript-eslint/eslint-plugin": "npm:^7.13.1"
     "@typescript-eslint/parser": "npm:^7.13.1"
@@ -451,16 +451,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/plugin-retry@npm:^7.1.4":
-  version: 7.1.4
-  resolution: "@octokit/plugin-retry@npm:7.1.4"
+"@octokit/plugin-retry@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "@octokit/plugin-retry@npm:7.2.0"
   dependencies:
     "@octokit/request-error": "npm:^6.1.7"
     "@octokit/types": "npm:^13.6.2"
     bottleneck: "npm:^2.15.3"
   peerDependencies:
     "@octokit/core": ">=6"
-  checksum: 10/5b1f2681c33c3ba5e99da77b077fbb7b766780fdd48321d2b8e48b78acd6b83598b3e9915e3d49f8dfbc945f802bdeb26d94ae0fc9722c2e979debd049a0eeff
+  checksum: 10/522d66c507f4b1d5eddafaaba0b696e828d30e20b33cfee70b3aaae9f37cada4e8d260e2aad52914640f1e303973386cd4fbdcea77518628c51ae10f49d8cf7d
   languageName: node
   linkType: hard
 
@@ -587,12 +587,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.13.10":
-  version: 22.13.10
-  resolution: "@types/node@npm:22.13.10"
+"@types/node@npm:*, @types/node@npm:^22.13.11":
+  version: 22.13.11
+  resolution: "@types/node@npm:22.13.11"
   dependencies:
     undici-types: "npm:~6.20.0"
-  checksum: 10/57dc6a5e0110ca9edea8d7047082e649fa7fa813f79e4a901653b9174141c622f4336435648baced5b38d9f39843f404fa2d8d7a10981610da26066bc8caab48
+  checksum: 10/5e556eda347f3395669bd6fa7a10c77722f06befe0a6b51b97ed7a4bd0f92b24aa867ee611b547614f17dfc5a0bb7946a75263bd1f302bcac3039729d22acab5
   languageName: node
   linkType: hard
 
