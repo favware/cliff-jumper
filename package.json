@@ -36,8 +36,8 @@
   "dependencies": {
     "@favware/colorette-spinner": "^1.0.1",
     "@octokit/auth-token": "^5.1.2",
-    "@octokit/core": "^6.1.4",
-    "@octokit/plugin-retry": "^7.2.0",
+    "@octokit/core": "^6.1.5",
+    "@octokit/plugin-retry": "^7.2.1",
     "@sapphire/result": "^2.7.2",
     "@sapphire/utilities": "3.18.2",
     "colorette": "^2.0.20",
@@ -56,15 +56,15 @@
     "@sapphire/prettier-config": "^2.0.0",
     "@sapphire/ts-config": "^5.0.1",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^22.14.0",
+    "@types/node": "^22.14.1",
     "@types/semver": "^7.7.0",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.57.1",
-    "eslint-config-prettier": "^10.1.1",
+    "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-prettier": "^5.2.6",
-    "lint-staged": "^15.5.0",
+    "lint-staged": "^15.5.1",
     "prettier": "^3.5.3",
     "rimraf": "^6.0.1",
     "typescript": "~5.4.5"
@@ -113,5 +113,5 @@
   "eslintConfig": {
     "extends": "@sapphire"
   },
-  "packageManager": "yarn@4.8.1"
+  "packageManager": "yarn@4.9.0"
 }
