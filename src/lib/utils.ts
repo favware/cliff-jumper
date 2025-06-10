@@ -142,7 +142,7 @@ export function resolveGitHubReleaseNameTemplate(options: Options, newVersion: s
 
 /** Resolves the release-as prefix */
 export function getReleaseType(options: Options, bumperRecommendation: BumperRecommendation): ReleaseType {
-  return ((Boolean(options.preid) ? 'pre' : '') + bumperRecommendation.releaseType) as ReleaseType;
+  return ((options.preid ? 'pre' : '') + bumperRecommendation.releaseType) as ReleaseType;
 }
 
 /**

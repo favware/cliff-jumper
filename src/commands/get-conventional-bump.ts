@@ -1,8 +1,8 @@
 import { getFullPackageName, getSHA1HashesRegexp } from '#lib/utils';
 import type { Options } from 'commander';
-import { Bumper, packagePrefix } from 'conventional-recommended-bump';
+import { Bumper, packagePrefix, type BumperRecommendation } from 'conventional-recommended-bump';
 
-export async function getConventionalBump(options: Options) {
+export async function getConventionalBump(options: Options): Promise<BumperRecommendation> {
   const bumper = new Bumper().commits(
     {
       path: process.cwd(),
@@ -48,5 +48,5 @@ export async function getConventionalBump(options: Options) {
           ? `There is ${breakings} BREAKING CHANGE and ${features} features`
           : `There are ${breakings} BREAKING CHANGES and ${features} features`
     });
-  });
+  }) as Promise<BumperRecommendation>;
 }
