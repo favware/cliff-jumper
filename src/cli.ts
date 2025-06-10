@@ -230,7 +230,7 @@ if (isNullishOrEmpty(bumperRecommendation.reason) || isNullishOrEmpty(bumperReco
 
 const infoIcon = blue('ℹ️');
 const releaseType = yellow(`${getReleaseType(options, bumperRecommendation)}`);
-console.info(cyan(`${infoIcon} Bumping the ${releaseType} version of ${blueBright(fullPackageName)}: ${yellow(bumperRecommendation.reason!)}`));
+console.info(cyan(`${infoIcon} Bumping the ${releaseType} version of ${blueBright(fullPackageName)}: ${yellow(bumperRecommendation.reason)}`));
 
 let newVersion: string | undefined;
 
