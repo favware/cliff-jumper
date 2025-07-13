@@ -294,7 +294,7 @@ __metadata:
     "@commitlint/config-conventional": "npm:^19.8.1"
     "@favware/colorette-spinner": "npm:^1.0.1"
     "@octokit/auth-token": "npm:^6.0.0"
-    "@octokit/core": "npm:^7.0.2"
+    "@octokit/core": "npm:^7.0.3"
     "@octokit/plugin-retry": "npm:^8.0.1"
     "@sapphire/eslint-config": "npm:^5.0.6"
     "@sapphire/prettier-config": "npm:^2.0.0"
@@ -302,7 +302,7 @@ __metadata:
     "@sapphire/ts-config": "npm:^5.0.1"
     "@sapphire/utilities": "npm:3.18.2"
     "@types/js-yaml": "npm:^4.0.9"
-    "@types/node": "npm:^22.16.0"
+    "@types/node": "npm:^22.16.3"
     "@types/semver": "npm:^7.7.0"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
     "@typescript-eslint/parser": "npm:^7.18.0"
@@ -410,9 +410,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/core@npm:^7.0.2":
-  version: 7.0.2
-  resolution: "@octokit/core@npm:7.0.2"
+"@octokit/core@npm:^7.0.3":
+  version: 7.0.3
+  resolution: "@octokit/core@npm:7.0.3"
   dependencies:
     "@octokit/auth-token": "npm:^6.0.0"
     "@octokit/graphql": "npm:^9.0.1"
@@ -421,7 +421,7 @@ __metadata:
     "@octokit/types": "npm:^14.0.0"
     before-after-hook: "npm:^4.0.0"
     universal-user-agent: "npm:^7.0.0"
-  checksum: 10/bef39511f3653b9dec239a7e8e8bdb4f17eb43f95d4f69b14eda44a4e2d22ab0239e2a4b0a445f474afd85169928b60420d0be5b316165505851b8a69b3ab596
+  checksum: 10/14e7b0e9f293d9d9330e105f7acd99add5ce54001577bbeafc1533de53035a89fc755485e6e6867e9e8af8dbd6a737dfa875374abadadd40b8533235d01ecee1
   languageName: node
   linkType: hard
 
@@ -608,12 +608,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.0.0, @types/node@npm:^22.16.0":
-  version: 22.16.0
-  resolution: "@types/node@npm:22.16.0"
+"@types/node@npm:*, @types/node@npm:^22.0.0, @types/node@npm:^22.16.3":
+  version: 22.16.3
+  resolution: "@types/node@npm:22.16.3"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10/26ebbbd24749caa4a692664290c53cdca63ec717ca250cd2babf3d3da796e9d3d0b6b9814d160693261b5e881796bf0f3c1887fef355b19e9a78fe27cd5e2ce2
+  checksum: 10/b71fe7abf242091e2f303b400b27f677c311b03a3125bf5532e06aff8a4cd41944bcc6f70a0666834e4352228607e676bc8082fa38d3739d3e1460a20d5c51d2
   languageName: node
   linkType: hard
 
