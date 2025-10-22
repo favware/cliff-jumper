@@ -44,7 +44,7 @@ export async function updateChangelog(options: Options, newVersion: string) {
 
     if (!options.dryRun) {
       const result = await runGitCliff(gitCliffOptions, { stdio: options.githubRelease ? 'pipe' : 'ignore' });
-      return result.stdout;
+      return result.stdout as string;
     }
 
     return undefined;
