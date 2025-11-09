@@ -38,7 +38,7 @@
     "@octokit/auth-token": "^6.0.0",
     "@octokit/core": "^7.0.6",
     "@octokit/plugin-retry": "^8.0.3",
-    "@sapphire/result": "^2.7.3",
+    "@sapphire/result": "^2.8.0",
     "@sapphire/utilities": "3.18.2",
     "colorette": "^2.0.20",
     "commander": "^14.0.2",
@@ -113,5 +113,5 @@
   "eslintConfig": {
     "extends": "@sapphire"
   },
-  "packageManager": "yarn@4.10.3"
+  "packageManager": "yarn@4.11.0"
 }
