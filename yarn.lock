@@ -302,7 +302,7 @@ __metadata:
     "@sapphire/ts-config": "npm:^5.0.1"
     "@sapphire/utilities": "npm:3.18.2"
     "@types/js-yaml": "npm:^4.0.9"
-    "@types/node": "npm:^24.10.0"
+    "@types/node": "npm:^24.10.1"
     "@types/semver": "npm:^7.7.1"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
     "@typescript-eslint/parser": "npm:^7.18.0"
@@ -315,12 +315,12 @@ __metadata:
     eslint-plugin-prettier: "npm:^5.5.4"
     execa: "npm:^9.6.0"
     git-cliff: "npm:^2.10.1"
-    js-yaml: "npm:^4.1.0"
+    js-yaml: "npm:^4.1.1"
     lint-staged: "npm:^16.2.6"
     prettier: "npm:^3.6.2"
     rimraf: "npm:^6.1.0"
     semver: "npm:^7.7.3"
-    smol-toml: "npm:^1.4.2"
+    smol-toml: "npm:^1.5.2"
     typescript: "npm:~5.8.3"
   bin:
     cj: ./dist/cli.js
@@ -617,12 +617,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^24.10.0":
-  version: 24.10.0
-  resolution: "@types/node@npm:24.10.0"
+"@types/node@npm:*, @types/node@npm:^24.10.1":
+  version: 24.10.1
+  resolution: "@types/node@npm:24.10.1"
   dependencies:
     undici-types: "npm:~7.16.0"
-  checksum: 10/bc3abd9adc61423b1a72324208f3fcfe4f957b9fc8b9e81bf3fed584deb0b40f0e2af63cd0e2afa8f408d06f14bdba899ac638ac619f646badf8e72de246c052
+  checksum: 10/ddac8c97be5f7401e31ea0e9316c6e864993c6cd06689b7f9874ecfb576ef8349f2d14298248a08b94a6dd029570a46a285cddc4d50e524817f1a3730b29a86e
   languageName: node
   linkType: hard
 
@@ -2358,7 +2358,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:^4.1.0":
+"js-yaml@npm:^4.1.0, js-yaml@npm:^4.1.1":
   version: 4.1.1
   resolution: "js-yaml@npm:4.1.1"
   dependencies:
@@ -3218,10 +3218,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"smol-toml@npm:^1.4.2":
-  version: 1.4.2
-  resolution: "smol-toml@npm:1.4.2"
-  checksum: 10/00c3c45859b44a8a9624cd15d4210c1b85dfa27cf432ade832d7c8a4ee96a79c415594cafe42a6708299de57d3b56e74e645396a0e0e1076f8f7b6302a5520b3
+"smol-toml@npm:^1.5.2":
+  version: 1.5.2
+  resolution: "smol-toml@npm:1.5.2"
+  checksum: 10/0a7e9192d1cbd04c3122224306de33962f4f5ac7e78a48b7c3795a675683b6efeb8f73ad3fabda7635926a510948cb4654a729d17b35ec43d56d35a71cf906f4
   languageName: node
   linkType: hard
 
