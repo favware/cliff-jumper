@@ -44,7 +44,7 @@
     "commander": "^14.0.2",
     "conventional-recommended-bump": "^11.2.0",
     "execa": "^9.6.1",
-    "git-cliff": "^2.11.0",
+    "git-cliff": "^2.12.0",
     "js-yaml": "^4.1.1",
     "semver": "^7.7.3",
     "smol-toml": "^1.6.0"
@@ -65,7 +65,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "lint-staged": "^16.2.7",
-    "prettier": "^3.8.0",
+    "prettier": "^3.8.1",
     "rimraf": "^6.1.2",
     "typescript": "~5.8.3"
   },

@@ -314,10 +314,10 @@ __metadata:
     eslint-config-prettier: "npm:^10.1.8"
     eslint-plugin-prettier: "npm:^5.5.5"
     execa: "npm:^9.6.1"
-    git-cliff: "npm:^2.11.0"
+    git-cliff: "npm:^2.12.0"
     js-yaml: "npm:^4.1.1"
     lint-staged: "npm:^16.2.7"
-    prettier: "npm:^3.8.0"
+    prettier: "npm:^3.8.1"
     rimraf: "npm:^6.1.2"
     semver: "npm:^7.7.3"
     smol-toml: "npm:^1.6.0"
@@ -1836,59 +1836,59 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-cliff-darwin-arm64@npm:2.11.0":
-  version: 2.11.0
-  resolution: "git-cliff-darwin-arm64@npm:2.11.0"
+"git-cliff-darwin-arm64@npm:2.12.0":
+  version: 2.12.0
+  resolution: "git-cliff-darwin-arm64@npm:2.12.0"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"git-cliff-darwin-x64@npm:2.11.0":
-  version: 2.11.0
-  resolution: "git-cliff-darwin-x64@npm:2.11.0"
+"git-cliff-darwin-x64@npm:2.12.0":
+  version: 2.12.0
+  resolution: "git-cliff-darwin-x64@npm:2.12.0"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"git-cliff-linux-arm64@npm:2.11.0":
-  version: 2.11.0
-  resolution: "git-cliff-linux-arm64@npm:2.11.0"
+"git-cliff-linux-arm64@npm:2.12.0":
+  version: 2.12.0
+  resolution: "git-cliff-linux-arm64@npm:2.12.0"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"git-cliff-linux-x64@npm:2.11.0":
-  version: 2.11.0
-  resolution: "git-cliff-linux-x64@npm:2.11.0"
+"git-cliff-linux-x64@npm:2.12.0":
+  version: 2.12.0
+  resolution: "git-cliff-linux-x64@npm:2.12.0"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"git-cliff-windows-arm64@npm:2.11.0":
-  version: 2.11.0
-  resolution: "git-cliff-windows-arm64@npm:2.11.0"
+"git-cliff-windows-arm64@npm:2.12.0":
+  version: 2.12.0
+  resolution: "git-cliff-windows-arm64@npm:2.12.0"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"git-cliff-windows-x64@npm:2.11.0":
-  version: 2.11.0
-  resolution: "git-cliff-windows-x64@npm:2.11.0"
+"git-cliff-windows-x64@npm:2.12.0":
+  version: 2.12.0
+  resolution: "git-cliff-windows-x64@npm:2.12.0"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"git-cliff@npm:^2.11.0":
-  version: 2.11.0
-  resolution: "git-cliff@npm:2.11.0"
+"git-cliff@npm:^2.12.0":
+  version: 2.12.0
+  resolution: "git-cliff@npm:2.12.0"
   dependencies:
     execa: "npm:^9.6.0"
-    git-cliff-darwin-arm64: "npm:2.11.0"
-    git-cliff-darwin-x64: "npm:2.11.0"
-    git-cliff-linux-arm64: "npm:2.11.0"
-    git-cliff-linux-x64: "npm:2.11.0"
-    git-cliff-windows-arm64: "npm:2.11.0"
-    git-cliff-windows-x64: "npm:2.11.0"
+    git-cliff-darwin-arm64: "npm:2.12.0"
+    git-cliff-darwin-x64: "npm:2.12.0"
+    git-cliff-linux-arm64: "npm:2.12.0"
+    git-cliff-linux-x64: "npm:2.12.0"
+    git-cliff-windows-arm64: "npm:2.12.0"
+    git-cliff-windows-x64: "npm:2.12.0"
   dependenciesMeta:
     git-cliff-darwin-arm64:
       optional: true
@@ -1904,7 +1904,7 @@ __metadata:
       optional: true
   bin:
     git-cliff: lib/cli/cli.js
-  checksum: 10/aa15dc1172f3706c207d6c76f892440eaa86d187daa69c2a89cd08b8af93e7fe8e45d9c62e98868a4319630f596544dea84ee7afe24e80dee794bf64deb7760b
+  checksum: 10/4e2d7b86431e5b6466366c996e132942d0feadc70eebe668be94d2633623f53643cb1012166fc1b796f0609956bdb391c9744822aa6e0587fe426199cee9469c
   languageName: node
   linkType: hard
 
@@ -2933,12 +2933,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.0.0, prettier@npm:^3.5.3, prettier@npm:^3.8.0":
-  version: 3.8.0
-  resolution: "prettier@npm:3.8.0"
+"prettier@npm:^3.0.0, prettier@npm:^3.5.3, prettier@npm:^3.8.1":
+  version: 3.8.1
+  resolution: "prettier@npm:3.8.1"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10/a643c62f095c2987a34cea4fceddce8dea12cc3ee024494aff690cfac22ef20be835e212b39b718c833014fd22890ae156be67b75a26e2bc9b7acde9a34d31fa
+  checksum: 10/3da1cf8c1ef9bea828aa618553696c312e951f810bee368f6887109b203f18ee869fe88f66e65f9cf60b7cb1f2eae859892c860a300c062ff8ec69c381fc8dbd
   languageName: node
   linkType: hard
 
