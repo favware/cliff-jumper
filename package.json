@@ -41,7 +41,7 @@
     "@sapphire/result": "^2.8.0",
     "@sapphire/utilities": "3.18.2",
     "colorette": "^2.0.20",
-    "commander": "^14.0.2",
+    "commander": "^14.0.3",
     "conventional-recommended-bump": "^11.2.0",
     "execa": "^9.6.1",
     "git-cliff": "^2.12.0",
@@ -50,8 +50,8 @@
     "smol-toml": "^1.6.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.3.1",
-    "@commitlint/config-conventional": "^20.3.1",
+    "@commitlint/cli": "^20.4.0",
+    "@commitlint/config-conventional": "^20.4.0",
     "@sapphire/eslint-config": "^5.0.6",
     "@sapphire/prettier-config": "^2.0.0",
     "@sapphire/ts-config": "^5.0.3",
