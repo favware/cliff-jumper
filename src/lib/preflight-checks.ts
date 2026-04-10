@@ -81,8 +81,16 @@ async function checkGitConfig(options: Options) {
 
   const gitRepo = getGitRepo(options);
   const gitToken = getGitToken(options);
-  const { gitHostVariant, githubRelease, githubReleaseDraft, githubReleasePrerelease, githubReleaseLatest, githubReleaseNameTemplate, pushTag } =
-    options;
+  const {
+    gitHostVariant,
+    githubRelease,
+    githubReleaseDraft,
+    githubReleasePrerelease,
+    githubReleaseLatest,
+    githubReleaseNameTemplate,
+    githubBaseUrl,
+    pushTag
+  } = options;
 
   if (
     !isNullishOrEmpty(gitRepo) ||
@@ -90,7 +98,8 @@ async function checkGitConfig(options: Options) {
     githubReleaseDraft ||
     githubReleasePrerelease ||
     githubReleaseLatest ||
-    !isNullishOrEmpty(githubReleaseNameTemplate)
+    !isNullishOrEmpty(githubReleaseNameTemplate) ||
+    !isNullishOrEmpty(githubBaseUrl)
   ) {
     if (isNullishOrEmpty(gitToken)) {
       logVerboseError({
@@ -111,10 +120,14 @@ async function checkGitConfig(options: Options) {
       () => {
         if (
           (!githubRelease || !pushTag) &&
-          (githubReleaseDraft || githubReleasePrerelease || githubReleaseLatest || !isNullishOrEmpty(githubReleaseNameTemplate))
+          (githubReleaseDraft ||
+            githubReleasePrerelease ||
+            githubReleaseLatest ||
+            !isNullishOrEmpty(githubReleaseNameTemplate) ||
+            !isNullishOrEmpty(githubBaseUrl))
         ) {
           throw new Error(
-            'You can only use --github-release-draft, --github-release-latest, --github-release-name-template, and --github-release-pre-release when both --github-release and --push-tag are provided'
+            'You can only use --github-release-draft, --github-release-latest, --github-release-name-template, --github-base-url, and --github-release-pre-release when both --github-release and --push-tag are provided'
           );
         }
       }

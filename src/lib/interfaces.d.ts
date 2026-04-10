@@ -29,5 +29,6 @@ declare module 'commander' {
     githubReleasePrerelease: boolean;
     githubReleaseLatest: boolean;
     githubReleaseNameTemplate: string;
+    githubBaseUrl: string;
   }
 }

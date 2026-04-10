@@ -174,6 +174,13 @@ const command = new Command()
       'You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is provided).'
     ].join('\n')
   )
+  .option(
+    '--github-base-url [string]',
+    [
+      'Note that this is only supported if "--git-host-variant" is set to "github"',
+      'The base URL for the GitHub API. Defaults to "https://api.github.com".'
+    ].join('\n')
+  )
   .option('-v, --verbose', 'Whether to print verbose information', false);
 
 const program = command.parse(process.argv);
@@ -207,6 +214,7 @@ logVerboseInfo(
     `${indent}github release pre-release: ${JSON.stringify(options.githubReleasePrerelease)}`,
     `${indent}github release latest: ${JSON.stringify(options.githubReleaseLatest)}`,
     `${indent}github release name template: ${JSON.stringify(options.githubReleaseNameTemplate)}`,
+    `${indent}github base URL: ${JSON.stringify(options.githubBaseUrl)}`,
     ''
   ],
   options.verbose

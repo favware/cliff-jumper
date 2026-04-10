@@ -116,6 +116,11 @@
       "description": "Note that this is only supported if \"--git-host-variant\" is set to \"github\"\nA custom release name template to use.\n\nYou can use \"{{new-version}}\" in your template which will be dynamically replaced with whatever the new version is that will be published.\n\nYou can use \"{{name}}\" in your template, this will be replaced with the name provided through \"-n\", \"--name\" or the same value set in your config file.\n\nYou can use \"{{full-name}}\" in your template, this will be replaced \"{{name}}\" (when \"org\" is not provided), or \"@{{org}}/{{name}}\" (when \"org\" is provided).",
       "type": "string"
     },
+    "githubBaseUrl": {
+      "description": "Note that this is only supported if \"--git-host-variant\" is set to \"github\"\nA custom GitHub base URL to use. This can be used for GHEC or GHES instances. This should be the full API URL, for example \"https://api.github.com\" for github.com, or \"https://octokit.ghe.com/api/v3\" for a GHEC instance.",
+      "type": "string",
+      "default": "https://api.github.com"
+    },
     "verbose": {
       "description": "Whether to print verbose information",
       "type": "boolean",

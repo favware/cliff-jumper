@@ -10,7 +10,8 @@ import type { Options } from 'commander';
 
 export function createGitHubRelease(options: Options, newVersion: string, changelogSection: string | undefined) {
   const HydratedOctokit = Octokit.plugin(retry).defaults({
-    userAgent: 'Cliff Jumper CLI/ (@favware/cliff-jumper) (https://github.com/favware/cliff-jumper/tree/main)'
+    userAgent: 'Cliff Jumper CLI/ (@favware/cliff-jumper) (https://github.com/favware/cliff-jumper/tree/main)',
+    baseUrl: options.githubBaseUrl || 'https://api.github.com'
   });
 
   return doActionAndLog('Creating release', async () => {

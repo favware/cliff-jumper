@@ -39,7 +39,6 @@ variation of the [Angular preset][angular-preset] (seen
 1. If `--install` was provided (or `install: true` set in the config file) then
    run the `install` command of the package manager (`npm install`,
    `yarn install`, or `pnpm install`) you used to call this CLI.
-
    - **Important:** when you install `@favware/cliff-jumper` globally this will
      always default to `npm` because of how NodeJS works. Therefore, if you wish
      for it to be `yarn` or `npm` make sure to add it as dev dependency to your
@@ -169,14 +168,12 @@ Options:
                                            as latest an this option will essentially be ignored.
   --github-release-name-template [string]  Note that this is only supported if "--git-host-variant" is set to "github"
                                            A GitHub release name template to use. Defaults to an empty string, which means GitHub will use the tag name as the release name.
-                                           You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be
-                                           published.
-                                           You can use "{{org}}" in your template, this will be replaced with the org provided through "-o", "--org" or the same value set in
-                                           your config file.
-                                           You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in
-                                           your config file.
-                                           You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}"
-                                           (when "org" is provided).
+                                           You can use "{{new-version}}" in your template which will be dynamically replaced with whatever the new version is that will be published.
+                                           You can use "{{org}}" in your template, this will be replaced with the org provided through "-o", "--org" or the same value set in your config file.
+                                           You can use "{{name}}" in your template, this will be replaced with the name provided through "-n", "--name" or the same value set in your config file.
+                                           You can use "{{full-name}}" in your template, this will be replaced "{{name}}" (when "org" is not provided), or "@{{org}}/{{name}}" (when "org" is provided).
+  --github-base-url [string]               Note that this is only supported if "--git-host-variant" is set to "github"
+                                           The base URL for the GitHub API. Defaults to "https://api.github.com".
   -v, --verbose                            Whether to print verbose information (default: false)
   -h, --help                               display help for command
 ```
@@ -212,6 +209,7 @@ package). It should be named `.cliff-jumperrc`, optionally suffixed with
 - `--github-release-pre-release` maps to `githubReleasePrerelease`
 - `--github-release-latest` maps to `githubReleaseLatest`
 - `--github-release-name-template` maps to `githubReleaseNameTemplate`
+- `--github-base-url` maps to `githubBaseUrl`
 - `--verbose` maps to `verbose`
 
 When using `.cliff-jumperrc` or `.cliff-jumperrc.json` as your config file you
@@ -301,6 +299,7 @@ This library has opinionated defaults for its options. These are as follows:
 - `--github-release-pre-release` will default to `false`.
 - `--github-release-latest` will default to `true`.
 - `--github-release-name-template` will default to an empty string.
+- `--github-base-url` will default to `https://api.github.com`.
 - `--verbose` will default to `false`.
 
 ### Merging of config file, defaults and CLI provided flags
