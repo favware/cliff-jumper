@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@favware/cliff-jumper@6.1.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@6.0.0...@favware/cliff-jumper@6.1.0) - (2026-04-10)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update dependency smol-toml to ^1.6.1 ([bc7a346](https://github.com/favware/cliff-jumper/commit/bc7a3469a9d89ef1e923c8f746716959ab651e10)) ([#303](https://github.com/favware/cliff-jumper/pull/303))
+- **deps:** Update all non-major dependencies ([dfce8f5](https://github.com/favware/cliff-jumper/commit/dfce8f54f192a1ba7b23f941235b06625c7dc81b)) ([#296](https://github.com/favware/cliff-jumper/pull/296))
+- **deps:** Update all non-major dependencies ([d859ac9](https://github.com/favware/cliff-jumper/commit/d859ac9216ca6edc95a16291dd5c977e1fd6ec9a)) ([#293](https://github.com/favware/cliff-jumper/pull/293))
+- **deps:** Update all non-major dependencies ([eaac1d2](https://github.com/favware/cliff-jumper/commit/eaac1d2c389dbbb0ccb33f9faa0e138db3e621b7)) ([#292](https://github.com/favware/cliff-jumper/pull/292))
+- **deps:** Update all non-major dependencies ([c929553](https://github.com/favware/cliff-jumper/commit/c929553513677e001e4a58716b4824ae357e03f9)) ([#291](https://github.com/favware/cliff-jumper/pull/291))
+- **deps:** Update dependency smol-toml to ^1.6.0 ([f9e7661](https://github.com/favware/cliff-jumper/commit/f9e76612e6da03196c232c734de88574b0f2c6da)) ([#287](https://github.com/favware/cliff-jumper/pull/287))
+- **deps:** Update dependency git-cliff to ^2.11.0 ([d7fa532](https://github.com/favware/cliff-jumper/commit/d7fa53278216a826fbfc781fa91627fe4fa37761)) ([#286](https://github.com/favware/cliff-jumper/pull/286))
+- **deps:** Update all non-major dependencies ([236dc82](https://github.com/favware/cliff-jumper/commit/236dc82d873f2aeea0e4328e3d09f23c4387ec8e)) ([#283](https://github.com/favware/cliff-jumper/pull/283))
+- **deps:** Update all non-major dependencies ([e595c59](https://github.com/favware/cliff-jumper/commit/e595c59707800fdca6365add5f97a538dcc4a63b)) ([#280](https://github.com/favware/cliff-jumper/pull/280))
+- **deps:** Update all non-major dependencies ([fb55e53](https://github.com/favware/cliff-jumper/commit/fb55e53363cd201b0e1dd290856f2f1b55d7d23d)) ([#277](https://github.com/favware/cliff-jumper/pull/277))
+- **deps:** Update all non-major dependencies ([026d30a](https://github.com/favware/cliff-jumper/commit/026d30a9c3ef9ccea5458f865e3fde7d8a48bec2)) ([#275](https://github.com/favware/cliff-jumper/pull/275))
+- **deps:** Update all non-major dependencies ([7f22325](https://github.com/favware/cliff-jumper/commit/7f22325fb94c471fccc859e077842ae1fe8dc983)) ([#274](https://github.com/favware/cliff-jumper/pull/274))
+- **deps:** Update all non-major dependencies ([c216d79](https://github.com/favware/cliff-jumper/commit/c216d798afc79714608a05d9180850589d3f1bbc)) ([#270](https://github.com/favware/cliff-jumper/pull/270))
+- **deps:** Update all non-major dependencies ([2ffd637](https://github.com/favware/cliff-jumper/commit/2ffd637695f7587969d0fa125e1e81901d5d361d)) ([#269](https://github.com/favware/cliff-jumper/pull/269))
+- **deps:** Update all non-major dependencies ([5ad8486](https://github.com/favware/cliff-jumper/commit/5ad8486380810b766abbe5054abdd0517bd99f0f)) ([#268](https://github.com/favware/cliff-jumper/pull/268))
+- **deps:** Update all non-major dependencies ([ad3837d](https://github.com/favware/cliff-jumper/commit/ad3837d42b0312c1701ea017c050956bdf12f5e2)) ([#260](https://github.com/favware/cliff-jumper/pull/260))
+- **deps:** Update all non-major dependencies ([b274e80](https://github.com/favware/cliff-jumper/commit/b274e803f53413ae18a510438df8d7fe08166419)) ([#259](https://github.com/favware/cliff-jumper/pull/259))
+- **deps:** Update all non-major dependencies ([b565a7b](https://github.com/favware/cliff-jumper/commit/b565a7b0f01162f3a11759284bc22d2b6e4f0eb3)) ([#257](https://github.com/favware/cliff-jumper/pull/257))
+- **deps:** Update all non-major dependencies ([88192c5](https://github.com/favware/cliff-jumper/commit/88192c5983b5ae2e30ccfd749c0fe274de08c83a)) ([#256](https://github.com/favware/cliff-jumper/pull/256))
+- **deps:** Update all non-major dependencies ([9ee2fe8](https://github.com/favware/cliff-jumper/commit/9ee2fe8393673acad37854d8952bb8587374d1a4)) ([#255](https://github.com/favware/cliff-jumper/pull/255))
+- **deps:** Update all non-major dependencies ([31e2532](https://github.com/favware/cliff-jumper/commit/31e2532f996cc8a6d4f17fd3153323a3a36fe9c9)) ([#251](https://github.com/favware/cliff-jumper/pull/251))
+- **deps:** Update octokit monorepo ([33182ae](https://github.com/favware/cliff-jumper/commit/33182ae8e7754077bc86f4730c5e04e8c520cc90)) ([#252](https://github.com/favware/cliff-jumper/pull/252))
+- **deps:** Update dependency commander to v14 ([fcab80c](https://github.com/favware/cliff-jumper/commit/fcab80cb5b89083759815fa397cd22369b09391d)) ([#250](https://github.com/favware/cliff-jumper/pull/250))
+- **deps:** Update all non-major dependencies ([9ab2eb3](https://github.com/favware/cliff-jumper/commit/9ab2eb37bf6cf7376ebc7bd9d920cd3221ceae20)) ([#249](https://github.com/favware/cliff-jumper/pull/249))
+- **deps:** Update all non-major dependencies ([fa29541](https://github.com/favware/cliff-jumper/commit/fa29541a6af1f89f4b883fa8356d464e6ee892e2)) ([#247](https://github.com/favware/cliff-jumper/pull/247))
+- **deps:** Update all non-major dependencies ([91c8e32](https://github.com/favware/cliff-jumper/commit/91c8e32b3b0b27b32479ad623b2f42467bc325ae)) ([#246](https://github.com/favware/cliff-jumper/pull/246))
+- **deps:** Update all non-major dependencies ([f483841](https://github.com/favware/cliff-jumper/commit/f48384149f9cf07a1a44c86248e7e204f6ca6d1b)) ([#242](https://github.com/favware/cliff-jumper/pull/242))
+- **deps:** Update dependency conventional-recommended-bump to v11 ([5958382](https://github.com/favware/cliff-jumper/commit/59583829f2b4e48e243617848be24959b87f5eb4)) ([#238](https://github.com/favware/cliff-jumper/pull/238))
+- **deps:** Update all non-major dependencies ([be692db](https://github.com/favware/cliff-jumper/commit/be692dbaf024335edcfc1852f44d2da94d35d378)) ([#236](https://github.com/favware/cliff-jumper/pull/236))
+- **deps:** Update all non-major dependencies ([60d8186](https://github.com/favware/cliff-jumper/commit/60d818650ffbde96e3e49a27fb10205146ff2ada)) ([#232](https://github.com/favware/cliff-jumper/pull/232))
+- **deps:** Update all non-major dependencies ([fbc3065](https://github.com/favware/cliff-jumper/commit/fbc30658be3b900f7e4f20a7ccab0220d00b9d64)) ([#231](https://github.com/favware/cliff-jumper/pull/231))
+- **deps:** Update all non-major dependencies ([7330784](https://github.com/favware/cliff-jumper/commit/733078455710f55d0451ec6c3ce476b1aac68c2f)) ([#230](https://github.com/favware/cliff-jumper/pull/230))
+- **deps:** Update dependency @octokit/plugin-retry to ^7.1.3 ([c582989](https://github.com/favware/cliff-jumper/commit/c582989b1da598ee377c7b8d737f210d4152974f)) ([#227](https://github.com/favware/cliff-jumper/pull/227))
+
+## 🚀 Features
+
+- Add `github-base-url` option to publish to GHES and GHEC ([51cbf49](https://github.com/favware/cliff-jumper/commit/51cbf496fb88645452d219566e1a4cffec24b90a))
+
 # [@favware/cliff-jumper@6.0.0](https://github.com/favware/cliff-jumper/compare/@favware/cliff-jumper@5.0.0...@favware/cliff-jumper@6.0.0) - (2025-01-05)
 
 ## 🏠 Refactor
