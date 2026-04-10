@@ -2,7 +2,7 @@ import { getFullPackageName, getSHA1HashesRegexp } from '#lib/utils';
 import type { Options } from 'commander';
 import { Bumper, packagePrefix, type BumperRecommendation } from 'conventional-recommended-bump';
 
-export async function getConventionalBump(options: Options): Promise<BumperRecommendation> {
+export function getConventionalBump(options: Options): Promise<BumperRecommendation> {
   const bumper = new Bumper().commits(
     {
       path: process.cwd(),

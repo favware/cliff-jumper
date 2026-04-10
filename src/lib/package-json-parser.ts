@@ -60,7 +60,7 @@ export async function readPackageJson(pathLike: PathLike): Promise<PackageJsonSt
  * @param pathLike The {@link PathLike} to read with {@link readFile}
  * @param pkg The package.json data to write
  */
-export async function writePackageJson(pathLike: PathLike, pkg: Record<any, any>): Promise<void> {
+export function writePackageJson(pathLike: PathLike, pkg: Record<any, any>): Promise<void> {
   const indent = Reflect.get(pkg, packageJsonParseIndentSymbol) ?? 2;
   const newline = Reflect.get(pkg, packageJsonParseNewlineSymbol) ?? '\n';
 
