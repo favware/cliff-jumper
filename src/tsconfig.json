@@ -5,11 +5,10 @@
     "outDir": "../dist",
     "composite": true,
     "preserveConstEnums": true,
-    "baseUrl": ".",
     "paths": {
-      "#commands/*": ["commands/*"],
+      "#commands/*": ["./commands/*"],
       "#lib/*": ["./lib/*"],
-      "#root/*": ["*"]
+      "#root/*": ["./*"]
     }
   },
   "include": ["."]
