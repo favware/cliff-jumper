@@ -46,7 +46,7 @@
     "execa": "^9.6.1",
     "git-cliff": "^2.13.1",
     "js-yaml": "^4.1.1",
-    "semver": "^7.8.0",
+    "semver": "^7.8.1",
     "smol-toml": "^1.6.1"
   },
   "devDependencies": {
@@ -113,5 +113,5 @@
   "eslintConfig": {
     "extends": "@sapphire"
   },
-  "packageManager": "yarn@4.14.1"
+  "packageManager": "yarn@4.15.0"
 }
