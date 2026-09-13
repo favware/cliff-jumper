@@ -36,7 +36,7 @@
   "dependencies": {
     "@favware/colorette-spinner": "^1.0.1",
     "@octokit/auth-token": "^6.0.0",
-    "@octokit/core": "^7.0.7",
+    "@octokit/core": "^7.0.8",
     "@octokit/plugin-retry": "^8.1.1",
     "@sapphire/result": "^2.8.0",
     "@sapphire/utilities": "3.18.2",
@@ -45,7 +45,7 @@
     "conventional-recommended-bump": "^11.2.0",
     "execa": "^9.6.1",
     "git-cliff": "^2.13.1",
-    "js-yaml": "^4.3.1",
+    "js-yaml": "^4.3.2",
     "semver": "^7.8.5",
     "smol-toml": "^1.8.0"
   },
@@ -56,7 +56,7 @@
     "@sapphire/prettier-config": "^2.0.0",
     "@sapphire/ts-config": "^5.0.3",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^24.13.3",
+    "@types/node": "^24.13.4",
     "@types/semver": "^7.8.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
